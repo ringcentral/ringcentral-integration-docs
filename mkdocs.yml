@@ -1,0 +1,74 @@
+# Project information
+site_name: RingCentral Integrations
+site_url: https://github.com/ringcentral/ringcentral-integration-docs
+
+# Repository
+repo_url: https://github.com/ringcentral/ringcentral-integration-docs
+repo_name: ringcentral/ringcentral-integration-docs
+edit_uri: tree/master/docs
+docs_dir: docs
+
+theme:
+  name: material
+  logo: img/RingCentral_logo_color.png
+  font:
+    code: Roboto Mono
+    text: Inter Tight
+  features:
+      - navigation.path
+      - navigation.sections
+      - navigation.expand
+      - navigation.tabs
+      - search.sharing
+      - search.highlight
+  palette:
+    - scheme: default
+      primary: custom
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ringcentral
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/ringcentraldevs
+extra_css:
+  - extra.css
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - mdx_include
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+       emoji_index: !!python/name:material.extensions.emoji.twemoji 
+       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+copyright: "2023-2025 RingCentral, Inc. All rights reserved."
+
+nav:
+- 'Home': index.md
+- 'Zapier':
+   - 'Overview': zapier/index.md
+   - 'Your first Zap': zapier/getting-started.md
+   - 'Zapier triggers': zapier/triggers.md
+   - 'Zapier actions': zapier/actions.md
+- 'All products':
+   - 'Index': products.md
+   - 'Archiver': archiver/index.md
+- 'Support': support.md
