@@ -65,12 +65,17 @@ copyright: "2023-2025 RingCentral, Inc. All rights reserved."
 
 nav:
 - 'Home': index.md
+- 'Archiver':
+   - 'Installation': archiver/index.md
+   - 'Settings and permissions': archiver/settings.md
+- 'Salesforce':
+   - 'Introduction': salesforce/index.md
+   - 'Get started': salesforce/installation.md
 - 'Zapier':
    - 'Overview': zapier/index.md
    - 'Your first Zap': zapier/getting-started.md
    - 'Zapier triggers': zapier/triggers.md
    - 'Zapier actions': zapier/actions.md
-- 'All products':
-   - 'Index': products.md
-   - 'Archiver': archiver/index.md
+#- 'All products':
+#   - 'Index': products.md
 - 'Support': support.md

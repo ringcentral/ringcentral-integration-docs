@@ -1,5 +1,4 @@
 # RingCentral Archiver
-##### Safe, compliant storage of call recordings
 
 ## Installation and Operation
 
