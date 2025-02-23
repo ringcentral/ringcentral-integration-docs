@@ -147,3 +147,23 @@
 :root {
     --md-primary-fg-color: #002755;
 }
+
+.md-banner {
+    text-align: center;
+    font-weight: bold;
+    background-color: rgb(255, 122, 0);
+}
+.md-banner .upgrade-button {
+    display: inline-block;
+    border-radius: 20px;
+    padding: 3px 10px;
+    background: white;
+    margin-left: 10px;
+}
+.md-banner .md-typeset .learn-more {
+    color: white;
+    padding-left: 10px;
+} 
+.md-banner .md-typeset a {
+    color: rgb(122, 36, 0);
+}
