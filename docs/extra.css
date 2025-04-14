@@ -1,0 +1,119 @@
+#ringcentral-automator + .admonition {
+    font-size: 0.75rem;
+}
+
+.float-left { float: left; }
+.float-right { float: right; }
+.md-typeset img.mw-100 { max-width: 100px; }
+.md-typeset img.mw-200 { max-width: 200px; }
+.md-typeset img.mw-250 { max-width: 250px; }
+.md-typeset img.mw-300 { max-width: 300px; }
+.md-typeset img.mw-400 { max-width: 400px; }
+.md-typeset img.mw-500 { max-width: 500px; }
+.md-typeset img.mw-600 { max-width: 600px; }
+
+.carousel .column {
+  float: left;
+  width: 50%;
+}
+.carousel .column:first-child + .column {
+    padding-left: 40px;
+}
+/* Clear floats after the columns */
+.carousel .row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.qs-hero {
+    padding: 1px 40px;
+    border-radius: 20px;
+    background-image: url(img/hero-bg-03.png);
+}
+.qs-hero h3:first-child {
+    margin-bottom: 0;
+}
+.qs-hero p:nth-of-type(1) {
+    font-size: 1rem;
+}
+.qs-hero h2 {
+    font-weight: 900;
+    font-size: 1.8rem;
+    margin-top: 1rem;
+}
+.qs-hero #developer-product-spotlight + h2 {
+    margin-top: 0.2rem;
+}
+.qs-hero h3 {
+    text-transform: uppercase;
+    font-size: .8rem;
+}
+.qs-hero .grid li {
+    background: white;
+    font-size: 0.9rem;
+}
+.qs-hero .grid li .twemoji {
+    font-size: 1rem;
+}
+
+.home-hero {
+    background-color: #F0EFEB;
+    background-image: url(img/community-hero-bg.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+    padding-bottom: 20px;
+}
+.home-hero .inner {
+    background-image: url(img/RingCentral_logo_color.png);
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: bottom;
+    background-origin: padding-box;
+    background-size: 130px;
+    padding: 20px;
+}
+.home-hero h1 {
+    font-weight: 900;
+    font-size: 2.25rem;
+    margin-top: 9px;
+    margin-bottom: 1px;
+    color: black;
+}
+.home-hero h2 {
+    margin-top: 0em;
+}
+.intro {
+    font-size: 1.1rem;
+}
+
+.md-banner {
+    text-align: center;
+    font-weight: bold;
+    background-color: rgb(255, 122, 0);
+}
+.md-banner .upgrade-button {
+    display: inline-block;
+    border-radius: 20px;
+    padding: 3px 10px;
+    background: white;
+    margin-left: 10px;
+}
+.md-banner .md-typeset .learn-more {
+    color: white;
+    padding-left: 10px;
+} 
+.md-banner .md-typeset a {
+    color: rgb(122, 36, 0);
+}
+.md-typeset a {
+    color: #066fac
+}
+.md-typeset a:hover {
+    color: #066fac;
+    text-decoration: underline;
+}
+:root {
+    --md-primary-fg-color: #002755;
+}

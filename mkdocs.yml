@@ -1,0 +1,77 @@
+# Project information
+site_name: RingCentral Integrations 
+site_url: https://ringcentral.github.io/ringcentral-integration-docs
+
+# Repository
+#repo_url: https://github.com/ringcentral/ringcentral-integration-docs
+#repo_name: ringcentral/ringcentral-integration-docs
+#edit_uri: tree/main/docs
+docs_dir: docs
+
+theme:
+  name: material
+  custom_dir: overrides
+  logo: img/RingCentral_logo_color.png
+  font:
+    code: Roboto Mono
+    text: Inter Tight
+  features:
+      - navigation.path
+      - navigation.sections
+      - navigation.expand
+      - navigation.tabs
+      - search.sharing
+      - search.highlight
+  palette:
+    - scheme: default
+      primary: custom
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ringcentral
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/ringcentraldevs
+extra_css:
+  - extra.css
+
+plugins:
+  - privacy
+  - search:
+      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - exclude:
+      regex:
+        - '^#.*'
+        - 'inc/templates.md'
+
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - mdx_include
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+       emoji_index: !!python/name:material.extensions.emoji.twemoji 
+       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+copyright: "2023 RingCentral, Inc. All rights reserved."
+
+nav:
+- 'Home': index.md
+- 'RingCentral Archiver': archiver/index.md
+- 'RingCentral for Zapier': zapier/index.md
+
+
