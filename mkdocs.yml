@@ -1,5 +1,5 @@
 # Project information
-site_name: RingCentral Integrations 
+site_name: RingCentral Integrations
 site_url: https://ringcentral.github.io/ringcentral-integration-docs
 
 # Repository
@@ -16,12 +16,12 @@ theme:
     code: Roboto Mono
     text: Inter Tight
   features:
-      - navigation.path
-      - navigation.sections
-      - navigation.expand
-      - navigation.tabs
-      - search.sharing
-      - search.highlight
+    - navigation.path
+    - navigation.sections
+    - navigation.expand
+    - navigation.tabs
+    - search.sharing
+    - search.highlight
   palette:
     - scheme: default
       primary: custom
@@ -51,9 +51,8 @@ plugins:
       separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
   - exclude:
       regex:
-        - '^#.*'
-        - 'inc/templates.md'
-
+        - "^#.*"
+        - "inc/templates.md"
 
 markdown_extensions:
   - attr_list
@@ -64,14 +63,27 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.emoji:
-       emoji_index: !!python/name:material.extensions.emoji.twemoji 
-       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 copyright: "2023 RingCentral, Inc. All rights reserved."
 
 nav:
-- 'Home': index.md
-- 'RingCentral Archiver': archiver/index.md
-- 'RingCentral for Zapier': zapier/index.md
+  - "Home": index.md
+  - "RingCentral Archiver":
+      - "Introduction": archiver/index.md
+      - "User Notice": archiver/user-notice.md
+      - "Enable Archiver": archiver/enable-archiver.md
+      - "Admin Roles and Permissions": archiver/admin-roles-permissions.md
+      - "User Roles and Permissions": archiver/user-roles-permissions.md
+      - "System Requirements": archiver/system-requirements.md
+      - "Linking Storages to Archiver": archiver/connect-storage.md
+      - "Connect Dropbox": archiver/connect-dropbox.md
+      - "Connect SFTP": archiver/connect-sftp.md
+      - "Connect Google Drive": archiver/connect-gdrive.md
+      - "Connect Box": archiver/connect-box.md
+      - "Sync Options": archiver/sync-options.md
+      - "Notifications": archiver/notifications.md
+      - "General Questions": archiver/questions.md
 
-
+  # - "RingCentral for Zapier": zapier/index.md
