@@ -3,9 +3,9 @@ site_name: RingCentral Integrations
 site_url: https://ringcentral.github.io/ringcentral-integration-docs
 
 # Repository
-#repo_url: https://github.com/ringcentral/ringcentral-integration-docs
-#repo_name: ringcentral/ringcentral-integration-docs
-#edit_uri: tree/main/docs
+# repo_url: https://github.com/ringcentral/ringcentral-integration-docs
+# repo_name: ringcentral/ringcentral-integration-docs
+# edit_uri: tree/main/docs
 docs_dir: docs
 
 theme:
