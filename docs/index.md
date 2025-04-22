@@ -2,12 +2,14 @@
 hide:
   - navigation
   - toc
-title: RingCentral Integration Apps Documentation Site
 ---
 
-# References
+# RingCentral Integration Apps
 
-- [Mkdocs](https://www.mkdocs.org/)
-- [Mkdocs Material](https://squidfunk.github.io/mkdocs-material/)
-- [Workflow Builder Docs](https://ringcentral.github.io/ringcentral-automator-docs/)
-- [Workflow Builder GitHub](https://github.com/ringcentral/ringcentral-automator)
+- [RingCentral Archiver](archiver/index.md)
+  
+## Other Support Resources
+
+- [RingCentral Support](https://support.ringcentral.com)
+- [RingCentral Community](https://community.ringcentral.com)
+- [RingCentral Developer Center](https://developer.ringcentral.com)
