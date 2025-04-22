@@ -1,0 +1,33 @@
+stages:
+  - build
+  - deploy
+
+build:
+  image: python:3.11
+  stage: build
+  tags:
+    - aws
+    - docker
+  script:
+    - pip install -r requirements.txt
+    - mkdocs build
+  artifacts:
+    paths:
+      - site/
+    expire_in: 3 days
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+pages:
+  stage: deploy
+  image: ruby:2.3
+  dependencies:
+    - build
+  script:
+    - mv site/ public/
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
