@@ -22,6 +22,9 @@ build:
 pages:
   stage: deploy
   image: ruby:2.3
+  tags:
+    - aws
+    - docker
   dependencies:
     - build
   script:
