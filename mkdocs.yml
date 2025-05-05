@@ -82,6 +82,10 @@ nav:
       - "Connect Google Drive": archiver/connect-gdrive.md
       - "Connect Box": archiver/connect-box.md
       - "Sync Options": archiver/sync-options.md
+      - "Archive Logs":
+          - "Overview": archiver/archive-logs.md
+          - "Retry Mechanism": archiver/retry-mechanism.md
+          - "Archive Status and Data Types": archiver/archive-status.md
       - "Notifications": archiver/notifications.md
       - "General Questions": archiver/questions.md
 

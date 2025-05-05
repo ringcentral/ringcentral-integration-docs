@@ -50,3 +50,35 @@ A. This error occurs when the admin user lacks the required permissions to acces
 
 A. This error appears when users lack the necessary permissions to access their own call recordings. To resolve this, ensure that [the user's role has all the required permission](./user-roles-permissions.md). Without these permissions, users will be unable to archive call recordings for their extension.
 ![User Permission Error](./img/user-permission-error.png)
+
+## Q. What permissions are required in Storage to archive RingCentral data?
+
+A. To archive RingCentral data to your storage, the user or admin connected to the storage must have the following permissions:
+
+-   For Google Drive, Box, or Dropbox storage: Ensure the user has **read, write, and delete** permissions for both folders and files.
+-   For SFTP storage: Ensure the user has **read, list, write, and delete** permissions for both directories and files.
+
+<br />
+
+## Q. Can multiple admin users connect to the same single storage or different admin users connect to different data storages?
+
+A. If multiple admin users or standard users connect to the same data storage, the data will not be duplicated in the storage. However, this approach will put a significant load on the RingCentral server while accessing RingCentral data and verifying if it has already been archived to the storage by different users.
+
+If different admin users connect to different data storages, it will result in data duplication. (Example: If Admin A is connected to Google Drive to archive all extensions' call recordings and Admin B is connected to Dropbox to archive all extensions' call recordings, this duplicates the data in different storages).
+
+We recommend designating a separate and single service account for archiving purposes.
+
+<br />
+
+## Q. I see failed items even after my storage is connected and all permissions are granted.
+
+A. If there has been any change in the storage scope or a password update, we recommend the following steps:
+
+1. Disconnect your storage in Archiver.
+2. Log out of your storage account.
+3. Log back into your storage account.
+4. Return to Archiver and reconnect your storage to ensure the latest scope and password changes are applied.
+
+## Q. Can I retrieve call recordings, SMS, Fax, and Voicemails that are older and archive them to my storage?
+
+A. We retain data for up to 90 days or 100,000 call recordings. Customers must archive data to external storage to prevent data loss or compliance risk. For more information, please read our [data retention policy](https://support.ringcentral.com/article-v2/RingCentral-data-retention-policies.html?brand=RingCentral&product=RingEX&language=en_US).
