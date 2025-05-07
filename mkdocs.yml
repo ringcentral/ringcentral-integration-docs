@@ -81,6 +81,7 @@ nav:
       - "Connect SFTP": archiver/connect-sftp.md
       - "Connect Google Drive": archiver/connect-gdrive.md
       - "Connect Box": archiver/connect-box.md
+      - "Connect Smarsh": archiver/connect-smarsh.md
       - "Sync Options": archiver/sync-options.md
       - "Archive Logs":
           - "Overview": archiver/archive-logs.md
@@ -88,5 +89,7 @@ nav:
           - "Archive Status and Data Types": archiver/archive-status.md
       - "Notifications": archiver/notifications.md
       - "General Questions": archiver/questions.md
-
+  - "RingCentral for HubSpot":
+      - "Introduction": hubspot/index.md
+      - "General Questions": hubspot/questions.md
   # - "RingCentral for Zapier": zapier/index.md
