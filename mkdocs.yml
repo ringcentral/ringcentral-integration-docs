@@ -92,4 +92,7 @@ nav:
   - "RingCentral for HubSpot":
       - "Introduction": hubspot/index.md
       - "General Questions": hubspot/questions.md
-  # - "RingCentral for Zapier": zapier/index.md
+  - "RingCentral for Zapier":
+      - "Overview": zapier/index.md
+      - "Actions":
+          - "Create Post": zapier/create-post.md
