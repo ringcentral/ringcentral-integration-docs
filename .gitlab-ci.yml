@@ -44,6 +44,8 @@ publish:
     - docker
   script:
     - |-
+      git remote | grep "public" && echo "public remote found, removing it..." && git remote remove public || echo "public remote not found"
+    - |-
       git remote add public https://$GITHUB_USER:$GITHUB_TOKEN@$GITHUB_REPO
     - |-
       git push public main --force 
