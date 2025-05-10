@@ -46,7 +46,11 @@ publish:
     - |-
       git remote | grep "public" && echo "public remote found, removing it..." && git remote remove public || echo "public remote not found"
     - |-
-      git remote add public https://$GITHUB_USER:$GITHUB_TOKEN@$GITHUB_REPO
+      echo "add public rmeote" && git remote add public https://$GITHUB_USER:$GITHUB_TOKEN@$GITHUB_REPO
+    - |-
+      git branch | grep "main" && echo "main branch found, removing it..." && git branch -D main || echo "main branch not found"
+    - |-
+      echo "create main branch..." && git checkout -b main
     - |-
       git branch --set-upstream-to public/main
     - |-
