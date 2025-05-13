@@ -96,3 +96,7 @@ nav:
       - "Overview": zapier/index.md
       - "Actions":
           - "Create Post": zapier/create-post.md
+  - "RingCentral for Salesforce":
+      - "Introduction": salesforce/index.md
+      - "General Questions": salesforce/questions.md
+  # - "RingCentral for Zapier": zapier/index.md

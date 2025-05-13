@@ -8,11 +8,11 @@ hide:
 ##Q. I keep seeing 'Webphone Unavailable' error message?
 A. Users may encounter a "Webphone Unavailable" error message when attempting to call from RingCentral for HubSpot. This error typically occurs due to insufficient microphone permissions in the browser. To identify and resolve the issue, consider the following rules:
 
-#### Solution 1: Enable Microphone Permissions
+Solution 1: Enable Microphone Permissions
 
 When users see the "Webphone Unavailable" error message, instruct them to click on it. This action will open the browser site settings. Ensure that the toggle for Microphone is turned on. Once enabled, the error message should disappear, allowing users to use RingCentral for HubSpot for making calls.
 
-#### Solution 2: Check Browser Privacy Settings
+Solution 2: Check Browser Privacy Settings
 
 If users still encounter the "Webphone Unavailable" error message after allowing microphone permissions, recommend checking the browser privacy settings. For Google Chrome:
 
