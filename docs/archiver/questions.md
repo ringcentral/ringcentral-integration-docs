@@ -71,6 +71,15 @@ A. If there has been any change in the storage scope or a password update, we re
 
 A. We retain data for up to 90 days or 100,000 call recordings. Customers must archive data to external storage to prevent data loss or compliance risk. For more information, please read our [data retention policy](https://support.ringcentral.com/article-v2/RingCentral-data-retention-policies.html?brand=RingCentral&product=RingEX&language=en_US).
 
+##Q. What is the file name format of the call recording file stored in the storage?
+A. The file naming pattern is constructed from these components:
+date: The date in YYYYMMDD format
+timestamp: A timestamp (shown as \\w+ in the regex)
+toMainNumber: The main phone number
+toExtNumber: The extension number
+id: The recording ID
+fileExt[dataType]: The file extension (mp3 for call recordings)
+
 ##Q: Who can use RingCentral for Smarsh?
 A: Admins who are able to login to RingCentral Archiver can configure the connection to Smarsh.
 
