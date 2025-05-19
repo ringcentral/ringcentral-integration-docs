@@ -92,6 +92,7 @@ nav:
   - "RingCentral for HubSpot":
       - "Introduction": hubspot/index.md
       - "General Questions": hubspot/questions.md
+      - "Migration Guide": hubspot/migration.md
   - "RingCentral for Zapier":
       - "Overview": zapier/index.md
       - "Actions":
