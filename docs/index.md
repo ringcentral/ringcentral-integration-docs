@@ -29,7 +29,7 @@ RingCentral offers premium integrations that seamlessly connect with the industr
 
     Enhance agent productivity by embedding a full telephony experience into Dynamics 365.
 
-    [:octicons-arrow-right-24: Learn more](https://www.ringcentral.com/apps/microsoft-dynamics-365){:target="_blank"}
+    [:octicons-arrow-right-24: Learn more](https://www.ringcentral.com/apps/microsoft-dynamics-365){:target="\_blank"}
 
 -   :simple-salesforce:{ .lg .middle } **Salesforce CTI**
 
@@ -37,7 +37,7 @@ RingCentral offers premium integrations that seamlessly connect with the industr
 
     Enhance agent productivity by embedding a full telephony experience into Salesforce.
 
-    [:octicons-arrow-right-24: Learn more](https://www.ringcentral.com/apps/salesforce){:target="_blank"}
+    [:octicons-arrow-right-24: Learn more](salesforce/index.md)
 
 -   :simple-zendesk:{ .lg .middle } **Zendesk CTI**
 
@@ -45,7 +45,7 @@ RingCentral offers premium integrations that seamlessly connect with the industr
 
     Enhance agent productivity by embedding a full telephony experience into Zendesk.
 
-    [:octicons-arrow-right-24: Learn more](https://www.ringcentral.com/apps/zendesk-integration){:target="_blank"}
+    [:octicons-arrow-right-24: Learn more](zendesk/index.md)
 
 </div>
 
@@ -59,7 +59,7 @@ RingCentral offers premium integrations that seamlessly connect with the industr
 
     Enhance agent productivity by embedding a full telephony experience into Google Chrome browser.
 
-    [:octicons-arrow-right-24: Learn more](https://www.ringcentral.com/apps/google-chrome){:target="_blank"}
+    [:octicons-arrow-right-24: Learn more](https://www.ringcentral.com/apps/google-chrome){:target="\_blank"}
 
 -   :simple-jira:{ .lg .middle } **Jira Server and Cloud add-in**
 
@@ -67,7 +67,7 @@ RingCentral offers premium integrations that seamlessly connect with the industr
 
     Embed your Jira workflows directly into team messaging for a seamless task management experience.
 
-    [:octicons-arrow-right-24: Learn more](https://www.ringcentral.com/apps/jira-cloud){:target="_blank"}
+    [:octicons-arrow-right-24: Learn more](https://www.ringcentral.com/apps/jira-cloud){:target="\_blank"}
 
 -   :material-microsoft-teams:{ .lg .middle } **Microsoft Teams Embedded app**
 
@@ -75,7 +75,7 @@ RingCentral offers premium integrations that seamlessly connect with the industr
 
     Enhance agent productivity by embedding a full telephony experience into Microsoft Teams.
 
-    [:octicons-arrow-right-24: Learn more](https://www.ringcentral.com/apps/microsoft-teams-dialer){:target="_blank"}
+    [:octicons-arrow-right-24: Learn more](https://www.ringcentral.com/apps/microsoft-teams-dialer){:target="\_blank"}
 
 -   :simple-zapier:{ .lg .middle } **Workflows powered by Zapier**
 
