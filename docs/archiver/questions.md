@@ -71,7 +71,7 @@ A. If there has been any change in the storage scope or a password update, we re
 
 A. We retain data for up to 90 days or 100,000 call recordings. Customers must archive data to external storage to prevent data loss or compliance risk. For more information, please read our [data retention policy](https://support.ringcentral.com/article-v2/RingCentral-data-retention-policies.html?brand=RingCentral&product=RingEX&language=en_US).
 
-##Q. What is the file name format of the call recording file stored in the storage?
+## Q. What is the file name format of the call recording file stored in the storage?
 A. The file naming pattern is constructed from these components:
 date: The date in YYYYMMDD format
 timestamp: A timestamp (shown as \\w+ in the regex)
@@ -80,25 +80,25 @@ toExtNumber: The extension number
 id: The recording ID
 fileExt[dataType]: The file extension (mp3 for call recordings)
 
-##Q: Who can use RingCentral for Smarsh?
+## Q: Who can use RingCentral for Smarsh?
 A: Admins who are able to login to RingCentral Archiver can configure the connection to Smarsh.
 
-##Q: What data sources are supported in RingCentral for Smarsh?
+## Q: What data sources are supported in RingCentral for Smarsh?
 A: Currently, only the RingCentral app is supported. Support for additional data sources is planned for future releases.
 
-##Q: Can I use my RingCentral app sandbox for testing?If so, how can I configure it?
+## Q: Can I use my RingCentral app sandbox for testing?If so, how can I configure it?
 A: We suggest using your RingCentral app production environment to test. As long as you set up different Smarsh tokens or feeds, your production environment will not be affected.
 
-##Q: Can I assign any time period of data to upload to Smarsh?
+## Q: Can I assign any time period of data to upload to Smarsh?
 A: Currently, it takes 24 hours for data upload in Smarsh.
 
-##Q: If I edit or delete the message in the RingCentral app, how will it be handled in Smarsh? A: In this release, updated and deleted messages aren’t handled, but enhancements are planned for future releases.
+## Q: If I edit or delete the message in the RingCentral app, how will it be handled in Smarsh? A: In this release, updated and deleted messages aren’t handled, but enhancements are planned for future releases.
 
-##Q: Can I upload data to the Smarsh testing environment or sandbox rather than the production environment I have now?
+## Q: Can I upload data to the Smarsh testing environment or sandbox rather than the production environment I have now?
 A: The Smarsh environment or sandbox is determined by your Smarsh token. Contact Smarsh for more details.
 
-##Q: If I already use Archiver for Google Drive, Dropbox, Box, or SFTP, and I want to use RingCentral for Smarsh as well, what should I do?
+## Q: If I already use Archiver for Google Drive, Dropbox, Box, or SFTP, and I want to use RingCentral for Smarsh as well, what should I do?
 A: We suggest creating an additional admin account for Smarsh. Although Smarsh configuration is embedded in Archiver, its current functionality interferes with connections to other cloud storage sites, which may already be set up to process daily archiving tasks.
 
-##Q: How to purge the testing data in Smarsh after Beta testing?
+## Q: How to purge the testing data in Smarsh after Beta testing?
 A: The Smarsh environment or sandbox is determined by your Smarsh token. Contact Smarsh for more details.
