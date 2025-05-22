@@ -5,7 +5,7 @@ hide:
 
 # General Questions
 
-##Q. I keep seeing 'Webphone Unavailable' error message?
+## Q. I keep seeing 'Webphone Unavailable' error message?
 A. Users may encounter a "Webphone Unavailable" error message when attempting to call from RingCentral for Salesforce. This error typically occurs due to insufficient microphone permissions in the browser. To identify and resolve the issue, consider the following rules:
 
 Solution 1: Enable Microphone Permissions
@@ -29,14 +29,14 @@ If all browser permissions are allowed and the error persists, recommend checkin
 2. Ensure either "Include Permissions-Policy HTTP header" is unchecked, or if checked, set Microphone to Always
 3. Reference: https://help.salesforce.com/s/articleView?id=000570789&type=1
 
-##Q. Why is the Related To field not auto-populated when logging a call?
+## Q. Why is the Related To field not auto-populated when logging a call?
 
 A. To ensure the "Related To" field is auto-populated when logging a call, follow these steps:
 
 Enable the "Enhanced autofill 'Contact Relationship' when using click to dial" checkbox.
 Access the "Autofill Related-To in Call Log for Click to Dial" settings from the RingCentral Admin for Lightning advanced settings in the Admin UI.
 
-##Q. How to create a custom field and add it to the create call log screen in RingCentral CTI?
+## Q. How to create a custom field and add it to the create call log screen in RingCentral CTI?
 A. Salesforce administrators can create a new custom field of various data types (e.g., Date, Text, Text Area, Picklist) and add it to the create call log screen. Users can update this field while on a call with an agent, which will ultimately update the Task object. This feature is beneficial for users who need to update a particular field inside the task during or after a call with an agent. Follow these steps to add a RingCentral custom field or a new custom field to the Call Log Screen:
 
 1. Navigate to Setup -> Object Manager -> Fields & Relationships -> Activity
@@ -46,7 +46,7 @@ A. Salesforce administrators can create a new custom field of various data types
 
 ![Log Customization](./img/log-customization.png)
 
-##Q. Why do I see the error message "This record was modified by CUSTOMER_NAME during your edit session. Make a note of the data you entered, then reload the record and enter your updates again."?
+## Q. Why do I see the error message "This record was modified by CUSTOMER_NAME during your edit session. Make a note of the data you entered, then reload the record and enter your updates again."?
 
 A. This error occurs because after a Call Log Task is created, RingCentral for Salesforce continues to sync the call log (Call Log Synchronization (ringcentral.com)) in the background, then updates the Call Log Task.
 
@@ -59,7 +59,7 @@ Solution
 -   Under Auto Save Setting, ensure the checkbox for 'Delay auto call logging for' is enabled with the desired amount of delay time selected.
     This will ensure the Call Log sync happens after the specified delay, allowing users to edit the Task record before the sync occurs.
 
-##Q. What are all the custom fields provided by RingCentral in Salesforce?
+## Q. What are all the custom fields provided by RingCentral in Salesforce?
 
 Below are the fields organized by object type:
 
@@ -112,12 +112,12 @@ Install_Settings Custom Fields:
 -   `Completed_Steps_c`
 -   `Step_Version_c`
 
-##Q. Does click to dial work on custom reports?
+## Q. Does click to dial work on custom reports?
 A. Salesforce does not support the Click to Dial feature on the Custom Reports tab. This is a limitation from Salesforce, and customers need to check with Salesforce to enable this feature for RingCentral to work.
 
 Click to Dial can only be performed from Contacts, Accounts, Leads, Opportunities, Cases, and Custom Objects. The Salesforce developer article for the function we utilize to perform click to dial on these Salesforce objects can be found at: https://developer.salesforce.com/docs/atlas.en-us.api_cti.meta/api_cti/sforce_api_cti_onclicktodial_lex.htm
 
-##Q. Screen pop does not open in a new tab.
+## Q. Screen pop does not open in a new tab.
 A. The issue likely stems from the user utilizing Salesforce Lightning. In Lightning, the screen pop feature does not support opening in a new browser window or tab, which causes it to malfunction. I recommend that the customer contact Salesforce for a potential solution. In classic mode, however, this functionality should work correctly. The user should verify their version and troubleshoot accordingly.
 
 If the customer is using the Classic version of Salesforce, the screen pop function typically works without issues. To troubleshoot in Classic, I recommend the following steps:
@@ -129,7 +129,7 @@ Save the settings.
 
 After completing these steps, advise the customer to test an inbound call to verify the solution.
 
-##Q. The contact match does not work for person accounts.
+## Q. The contact match does not work for person accounts.
 A. We need to verify if the 'Associate Call/SMS Log with Person Account' setting is appropriately selected. If it is set to use the Name field, then users cannot match the records under the Related To field and vice versa.
 
 To change the association of Call/SMS logs with person accounts, follow these steps:
@@ -139,7 +139,7 @@ Click on adminUI -> Click Preview
 Under the Associate Call/SMS Log with Person Account section, select the field that you want to use to match records
 Click Save
 
-##Q. The contact match does not work for custom objects.
+## Q. The contact match does not work for custom objects.
 A. We need to check if the custom object is added to the softphone layout.
 Recommend the customer to:
 Go to Salesforce -> Setup -> Search for Visualforce Pages in the Quick find
@@ -149,7 +149,7 @@ Navigate back to the Setup page and search for Softphone Layouts
 Edit the RingCentral softphone
 Ensure the custom object is added to "Display these salesforce.com objects:" for inbound, outbound, and internal Call Types
 
-##Q. How to check or update the adapter URL for RingCentral call center?
+## Q. How to check or update the adapter URL for RingCentral call center?
 A.
 **Step 1:** Get the correct Adapter URL
 
