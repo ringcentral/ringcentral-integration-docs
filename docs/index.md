@@ -11,11 +11,11 @@ RingCentral offers premium integrations that seamlessly connect with the industr
 
 ## Explore our solutions
 
-### CRMs
+### CRM Integrations
 
 <div class="grid cards" markdown>
 
--   :simple-hubspot:{ .lg .middle } **Hubspot CTI**
+-   :simple-hubspot:{ .lg .middle } **HubSpot CTI**
 
     ***
 
@@ -29,7 +29,7 @@ RingCentral offers premium integrations that seamlessly connect with the industr
 
     Enhance agent productivity by embedding a full telephony experience into Dynamics 365.
 
-    [:octicons-arrow-right-24: Learn more](https://www.ringcentral.com/apps/microsoft-dynamics-365){:target="\_blank"}
+    [:octicons-arrow-right-24: Learn more](msteams/index.md)
 
 -   :simple-salesforce:{ .lg .middle } **Salesforce CTI**
 
