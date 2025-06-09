@@ -105,6 +105,6 @@ RingCentral offers premium integrations that seamlessly connect with the industr
 
     Learn how to archive critical phone call recordings into 3rd-party storage solutions.
 
-    [:octicons-arrow-right-24: Learn more](archiver/index.md)
+    [:octicons-arrow-right-24: Learn more](archiver/connect-smarsh.md)
 
 </div>
