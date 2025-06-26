@@ -99,6 +99,9 @@ nav:
       - "RingCentral for Zendesk":
           - "Introduction": zendesk/index.md
           - "General Questions": zendesk/questions.md
+      - "RingCentral for Microsoft Dynamics 365":
+          - "Introduction": dynamics/index.md
+          - "General Questions": dynamics/questions.md
   - "Productivity Integrations":
       - "RingCentral for MS Teams":
           - "Overview": msteams/index.md

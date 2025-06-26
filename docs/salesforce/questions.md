@@ -389,3 +389,125 @@ In such cases, we recommend users follow these steps:
 
 -   Set the RingCentral for Salesforce integration app calling option to "call with RingCentral app." This allows the actual phone calls to be handled by the RC desktop app, while the CTI app should still be able to monitor and log calls.
 -   If users still experience audio issues, the problem may be with their network. We recommend users work with their IT department to disable the firewall and test calls or switch to a different network.
+
+##Q. Why do I keep getting "A maximum of 5 web phones could be registered" error message?
+
+A. This error occurs when more than 5 RingCentral webphone instances are already registered for your user account. RingCentral has a hard limit of 5 concurrent webphone registrations per user.
+
+The error is part of RingCentral's WebRTC session management system that prevents resource abuse and ensures call quality. The limit applies across all RingCentral applications (Salesforce, Google, Outlook, Web App, etc.) for the same user account. When you hit this limit, you cannot make outbound calls until you reduce the number of active webphone registrations below 5.
+
+**Common Scenarios That Cause This Error**:
+
+-   You have RingCentral open in 5+ browser tabs or windows
+-   Multiple RingCentral Applications (RingCentral for Salesforce, RingCentral for Google, RingCentral desktop, web and mobile apps)
+-   Multiple users accessing a single account on different devices
+-   Previous sessions didn't properly disconnect, leaving orphaned webphone registrations still active on the server
+
+**Solution**:
+
+-   Close RingCentral tabs in other browsers and unused RingCentral Applications
+-   Go to RingCentral Web App → Settings → Switch account or Logout. Logout from other RingCentral applications
+-   Restrict access to the RingCentral webphone to only the account owner; avoid sharing credentials with other users
+-   Clear cookies and local storage for RingCentral domains. This forces fresh registration
+
+##Q. How does the Sales Engagement feature work with RingCentral?
+
+A. We recommend that the Salesforce admin verify the completion of the Sales Engagement setup by referring to the admin guide (https://netstorage.ringcentral.com/guides/rc-for-salesforce-admin-guide.pdf) on page 58. We must also verify if the customer has followed the exact steps mentioned in https://support.ringcentral.com/article-v2/RingCentral-Salesforce-High-Velocity-Sales-Add-on.html?brand=RC_US&product=RingEX&language=en_US. If the customer has followed the guide and still encounters issues, please collect a meeting recording demonstrating the problem and share it with RingCentral support to troubleshoot the issue.
+
+##Q. I do not see the 'Sales Engagement Disposition' field while logging a call in RingCentral for Salesforce CTI.
+
+A. Users do not see the Sales Engagement Disposition picklist field in the create call log screen if they initiate the call from the RingCentral for Salesforce CTI dialer itself or through the Click to Dial feature. This field only appears when a user initiates the call from the Sales Cadence work queue call button beside the contact. If this field still does not appear when the call is initiated from the work queue, then the Salesforce admin needs to check a few configurations in their Salesforce environment.
+
+**Log Customization**:
+Check if the 'Sales Engagement Disposition' field is added to the Selected fields from the Log Customization admin UI settings.
+
+-   Go to Setup → Search for Visualforce Pages in the quick find
+-   Select adminUI → click Preview to open the RingCentral adminUI settings
+-   Scroll down to 'Log Customization' section
+-   Ensure Sales Engagement Disposition field is added to Selected fields from the Available Fields
+
+**Check the Field Level Security**:
+
+-   Go to Setup → Object Manager → Task/Activity → Fields & Relationships
+-   Click the field (Sales Engagement Disposition)
+-   Click Set Field-Level Security
+-   Ensure the profile used by the users has Visible access checked
+
+**Add field to the Task Layout**:
+
+-   Go to Setup → Object Manager → Task
+-   Open Page Layouts
+-   Edit the layout users are using
+-   Drag the missing field (Sales Engagement Disposition) onto the layout
+-   Save
+
+##Q. When does the Cadence move to the next step with RingCentral for Salesforce integration?
+
+A. It should be noted that according to the implementation, the cadence only moves to the next step under specific conditions.
+
+**Mandatory Sales Engagement Disposition field**:
+
+The call will NOT move to the next step until:
+
+-   The call is logged as a Salesforce task AND
+-   A disposition value is selected AND
+-   The call log is saved
+    If the disposition is not selected:
+-   An error toast "Mandatory fields are required" will appear
+-   The call will not be logged as a Salesforce task
+-   The Sales Engagement work will remain in the same step.
+
+**Non-mandatory Sales Engagement Disposition field**:
+
+The call can move to the next step in two scenarios:
+
+a. When a disposition field is selected:
+
+-   Call is logged as a Salesforce task
+-   Disposition is triggered
+-   Sales Engagement work is completed
+
+b. When disposition field is not selected:
+
+-   Call is logged as a Salesforce task
+-   No disposition is triggered
+-   Sales Engagement work remains in the same step
+
+**Auto Log Settings**:
+
+a. When Auto Log is ON:
+
+-   Call will be logged automatically when the call ends
+-   If disposition is selected, it will move to next step
+-   If disposition is not selected, it will show a required hint
+
+b. When Auto Log is OFF:
+
+-   Call must be manually saved
+-   Disposition must be selected (if mandatory)
+-   User must click save button
+
+**Multiple Calls Handling**:
+
+-   If a new call comes in while another Sales Engagement call is active:
+-   Current call log section will close
+-   Call will not be saved as a Salesforce task
+-   Toast "Manually save the call and disposition" will appear
+-   New call log section will open
+
+**Disposition Field Options**:
+
+-   Default values include:
+    Call Back Later
+    Left Voicemail
+    Meaningful Connect
+    Not Interested
+    Unqualified
+-   Can be customized with custom picklist fields
+
+**Important Notes**:
+
+-   Sales Engagement mode only supports Salesforce Lightning mode
+-   The disposition field becomes uneditable after saving
+-   The system supports both manual and automatic logging
+-   Multiple Sales Engagement calls can be active simultaneously
