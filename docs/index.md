@@ -29,7 +29,7 @@ RingCentral offers premium integrations that seamlessly connect with the industr
 
     Enhance agent productivity by embedding a full telephony experience into Dynamics 365.
 
-    [:octicons-arrow-right-24: Learn more](msteams/index.md)
+    [:octicons-arrow-right-24: Learn more](dynamics/index.md)
 
 -   :simple-salesforce:{ .lg .middle } **Salesforce CTI**
 
@@ -75,7 +75,7 @@ RingCentral offers premium integrations that seamlessly connect with the industr
 
     Enhance agent productivity by embedding a full telephony experience into Microsoft Teams.
 
-    [:octicons-arrow-right-24: Learn more](https://www.ringcentral.com/apps/microsoft-teams-dialer){:target="\_blank"}
+    [:octicons-arrow-right-24: Learn more](msteams/index.md)
 
 -   :simple-zapier:{ .lg .middle } **Workflows powered by Zapier**
 
