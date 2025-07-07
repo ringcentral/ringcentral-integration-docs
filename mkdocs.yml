@@ -95,6 +95,18 @@ nav:
           - "Migration Guide": hubspot/migration.md
       - "RingCentral for Salesforce":
           - "Introduction": salesforce/index.md
+          - "Admin Guide":
+              - "Introduction": salesforce/admin-introduction.md
+              - "Install/Uninstall": salesforce/admin-installation.md
+              - "Environment Configuration": salesforce/admin-environment-configuration.md
+              - "Application Setup": salesforce/admin-application-setup.md
+          - "User Guide":
+              - "Introduction": salesforce/user-introduction.md
+              - "Initiating RingCentral": salesforce/user-initiating-ringcentral.md
+              - "Calls": salesforce/user-calls.md
+              - "Messages": salesforce/user-messages.md
+              - "Video": salesforce/user-video.md
+              - "Reports and Analytics": salesforce/user-reports-analytics.md
           - "General Questions": salesforce/questions.md
       - "RingCentral for Zendesk":
           - "Introduction": zendesk/index.md
