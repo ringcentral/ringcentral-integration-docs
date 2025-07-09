@@ -3,6 +3,14 @@ hide:
     - toc
 ---
 
+<style>
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
+
 # General Questions
 
 ## Q. I keep seeing 'Webphone Unavailable' error message?
