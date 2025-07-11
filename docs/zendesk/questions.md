@@ -74,3 +74,31 @@ A. There are a couple of reasons why Zendesk tickets are assigned to the admin u
 A. The toggles "Tickets on Outbound Calls" and "Auto create tickets" will be grayed out for all users, as these configurations are controlled by the admin on the integration console (integrations.ringcentral.com). To enable these settings for all users, we recommend that the admin user disable Activity Sync from the integration console.
 
 Integration Console settings are specific to server-side call logging. This means outbound calls made outside of Zendesk CTI (RingEx by RingCentral in Zendesk) will not create a ticket based on the customer's Integration Console settings.
+
+##Q. Tickets are being incorrectly associated with contacts in Zendesk when making internal calls or calls exchanged between extensions.
+A. The issue occurs due to the following logic in the RingCentral for Zendesk integration:
+
+1. Contact Matching Logic: When a call is made to an extension Ex: '209', the system searches for contacts in Zendesk that might match "209".
+2. Extension Detection: The system uses a function to detect internal extension calls.
+3. Logging Decision: If the "Log extension calls" toggle is enabled, the system will log the call even if it's an internal extension call.
+4. Contact Association: The matched contact (if found) gets associated with the call log instead of treating it as an internal extension.
+
+**Recommended Solution:**
+
+-   Disable the "Log extension calls" toggle in the RingCentral for Zendesk widget settings to prevent internal extension calls from being logged to Zendesk contacts.
+
+Why This Solution Works:
+
+-   Prevents False Matching: Disabling this toggle prevents the system from searching for contacts that match extension numbers.
+-   Maintains Internal Call Privacy: Internal extension calls remain private and aren't logged to external CRM systems.
+-   Preserves External Call Logging: Calls to external numbers will still be logged normally.
+-   Eliminates Contact Confusion: No more incorrect contact associations for internal calls.
+
+Additional Recommendations:
+
+-   Review Existing Logs: Check your Zendesk tickets for any incorrectly logged internal calls and clean them up if needed.
+-   Train Users: Inform your team about this setting to prevent future confusion.
+-   Monitor: After making the change, monitor call logging for a few days to ensure the issue is resolved.
+-   If the customer needs to log some internal calls but not others:
+-   Consider using different extension ranges for different purposes.
+-   Implement call routing rules to distinguish between internal and external calls.

@@ -519,3 +519,241 @@ b. When Auto Log is OFF:
 -   The disposition field becomes uneditable after saving
 -   The system supports both manual and automatic logging
 -   Multiple Sales Engagement calls can be active simultaneously
+
+## Q. Why some of fields are not displayed in the Task or even if it present why is it empty?(Ex: some of the RingCentral custom fields like Call Recording, Call Duration, Call Start Time, Call End Time, etc.)
+
+A. There could be 2 reason why users does not see a specific field or it is empty in the Task Object of Salesforce after a call/sms is logged. Reason 1 Because of the Field-Level Security and Reason 2 Field was not added to the Task Layout. Below are the resolution steps for Salesforce admin to resolve this issue,
+
+**Check the Field Level Security:**
+
+-   Go to Setup → Object Manager → Task/Activity → Fields & Relationships
+-   Click the field (Ex: Call Recording, Call Duration)
+-   Click Set Field-Level Security
+-   Ensure the profile used by the users has Visible access checked
+
+**Add field to the Task Layout:**
+
+-   Go to Setup → Object Manager → Task
+-   Open Page Layouts
+-   Edit the layout users are using
+-   Drag the missing field (Call Recording, Call Duration) onto the layout
+-   Save
+
+## Q. Why are the calls logged (Tasks are created) to Contact and Lead but not to the Accounts, Cases, and Opportunities?
+
+A. When logging calls involving Contacts or Leads associated with Accounts, Cases, or Opportunities, tasks are only being created for the Contact/Lead but not for the related Account/Case/Opportunity records. This is the intended behavior of the Salesforce integration. However, to log tasks to Accounts, Cases, and Opportunities, follow the solutions mentioned below.
+
+**How Entity Matching Works:**
+
+Primary Entity Selection (WhoId)
+The system selects one primary entity as the "Who" field:
+
+-   Contact/Lead/Person Account: When phone number matches a Contact/Lead/Person Account.
+
+Related Entity Selection (WhatId)
+The system can set a related entity as the "What" field:
+
+-   Account: Associated company/organization
+-   Case: Related support case
+-   Opportunity: Related sales opportunity
+
+**Why Tasks Don't Appear in Account/Case/Opportunity Activity:**
+
+**Single Task Design**
+
+-   One Task per call - not multiple tasks for different objects
+-   WhoId field determines where the task appears in Contact/Lead Activity
+-   WhatId field determines where the task appears in Account/Case/Opportunity Activity
+
+**Lead Priority Issue**
+
+When a phone number matches a Lead:
+
+-   WhoId = Lead ID
+-   WhatId = empty/null
+-   Result: Task only appears in Lead Activity
+
+**Missing Related-To Association**
+
+-   When Contact is primary but no Account/Case/Opportunity is associated:
+-   WhoId = Contact ID
+-   WhatId = empty/null
+-   Result: Task only appears in Contact Activity
+
+**Solutions:**
+
+**Solution 1: Manual Related-To Association (Most Reliable)**
+Step-by-Step Process:
+
+1. Complete the call and let it auto-log
+2. Open the call log from the widget
+3. Click on the "Related To" field
+4. Search for the appropriate record:
+    - Account: Company/organization name
+    - Case: Case number or subject
+    - Opportunity: Opportunity name
+5. Select the record and save the task
+
+Expected Result:
+
+-   WhoId: Contact/Lead ID
+-   WhatId: Account/Case/Opportunity ID
+-   Task appears in: Both Contact/Lead Activity AND Account/Case/Opportunity Activity
+
+**Solution 2: Click-to-Dial from Related Record**
+For Account/Case/Opportunity Association:
+
+-   Navigate to the Account/Case/Opportunity record in Salesforce
+-   Use Click-to-Dial from the Account/Case/Opportunity page
+-   System automatically sets Account/Case/Opportunity as Related-To
+
+**(Beta - Feature)**
+
+**Solution 3: Configure Object Priority in Integration Console**
+Admin Configuration:
+
+1. Go to RingCentral Admin Console
+2. Navigate to Integration Console > Salesforce
+3. Configure Object Priority Settings:
+    - Set Account as higher priority than Lead
+    - Set Case as higher priority than Lead (if applicable)
+    - Set Opportunity as higher priority than Lead (if applicable)
+
+**Troubleshooting:**
+
+If Task Still Doesn't Appear in Related Record Activity:
+
+-   Check Task field values - ensure WhatId is populated
+-   Verify record relationships in Salesforce
+-   Check Integration Console settings for object priority
+-   Review call log configuration for field mappings
+
+If Related-To Field is Not Available:
+
+-   Check user permissions for the related object
+-   Verify field-level security settings
+-   Ensure the related record exists and is accessible
+
+**Summary:**
+The key is understanding that Salesforce creates one Task per call, and the WhatId field determines where the task appears in related record Activity. By using the Related-To field to manually associate Account/Case/Opportunity records, or by initiating calls from the appropriate record context, you can ensure tasks appear in both the Contact/Lead Activity and the related record Activity. Following these solutions will create tasks in Account/Case/Opportunity Activity.
+
+## Q. Click to Dial or SMS feature is not enabled after refreshing the Salesforce page.
+
+A. This issue is typically caused by CTI (Computer Telephony Integration) not auto-loading in the Lightning App configuration.
+
+**1. CTI Loading Behavior**
+The RingCentral for Salesforce integration requires the CTI adapter to be properly initialized before Click-to-Dial (C2D) and SMS features become available.
+
+**2. Lightning App Configuration Issue**
+The CTI integration requires specific Lightning App settings to function properly:
+
+-   Auto-load CTI: Must be enabled in Lightning App configuration
+-   Utility Bar Integration: CTI must be properly added to the utility bar
+-   Page Load Initialization: CTI needs to initialize on page load, not just on click
+
+**Solutions:**
+
+**Solution 1: Enable CTI Auto-load in Lightning App (Recommended)**
+Step-by-Step Instructions:
+
+1. **Access Lightning App Builder**
+
+    - Go to Setup > Lightning App Builder
+    - Select the Lightning App being used
+
+2. **Configure Utility Bar**
+
+    - Click on Utility Bar in the app layout
+    - Locate the RingCentral CTI component
+
+3. **Enable Auto-load Setting**
+
+    - Find the "Auto-load CTI" or "Load on Page Load" option
+    - Check/Enable this setting
+    - Save the configuration
+
+4. **Test the Configuration**
+    - Refresh the Salesforce page
+    - Verify Click-to-Dial and SMS features are available immediately
+    - No manual click should be required to enable features
+
+**Solution 2: Verify Utility Bar Configuration**
+Check Utility Bar Settings:
+
+-   Go to Setup > Lightning App Builder
+-   Select the Lightning App
+-   Click Utility Bar
+-   Ensure RingCentral CTI is added to the utility bar
+-   Verify the component is active and not disabled
+
+**(Beta - Feature)**
+
+**Solution 3: Check Integration Console Settings**
+Verify Admin Configuration:
+
+-   Go to RingCentral Admin Console
+-   Navigate to Integration Console > Salesforce
+-   Check CTI Configuration:
+    -   Click-to-Dial: Enabled
+    -   SMS Features: Enabled
+    -   Auto-logging: Properly configured
+
+**Summary:**
+The issue occurs because the CTI integration is not configured to auto-load in the Lightning App. By enabling the "Auto-load CTI" setting in the Lightning App Builder, the RingCentral integration will initialize automatically on page load, making Click-to-Dial and SMS features immediately available without requiring manual user interaction.
+
+This is a configuration issue, not a code defect, and can be resolved through proper Lightning App setup.
+
+![Utility Item](./img/utility-item.png)
+
+## Q. Why don't I see caller ID when there is an incoming call to the call queue in Salesforce CTI?
+
+A. This is expected behavior in the Salesforce CTI integration. Caller ID information is not displayed for call queue calls due to the way the system handles queue-based routing and privacy considerations.
+
+**Root Cause Analysis:**
+
+**1. Call Queue Call Handling**
+When calls come through a call queue, the Salesforce CTI integration treats them differently from direct calls:
+
+-   Queue calls are routed through the call queue system before reaching individual agents
+-   Caller information is masked during the queue routing process for privacy and security
+-   The system prioritizes queue management over individual caller identification
+
+**2. Privacy and Security Considerations**
+The integration is designed to protect caller privacy when calls are routed through queues:
+
+-   Caller ID masking prevents unauthorized access to caller information
+-   Queue-based routing ensures calls are distributed according to business rules
+-   Agent-level restrictions limit what information is visible during queue calls
+
+**3. Technical Implementation**
+The Salesforce CTI integration has specific logic for handling call queue calls:
+
+-   Queue calls bypass normal caller ID display mechanisms
+-   System focuses on queue name and call routing information
+-   Caller details are intentionally withheld until the call is properly routed
+
+**Solutions and Workarounds:**
+
+**Solution 1: Use Queue Name Tooltip (Available Feature)**
+
+-   Hover over the call queue name in the CTI interface
+-   Wait for the tooltip to appear (short delay)
+-   View the complete queue information in the tooltip
+-   This provides queue-specific details about the incoming call
+
+**Solution 2: Check Call Assignment**
+
+-   Wait for the call to be assigned to an agent
+-   Caller information may become available after assignment
+-   Check the call details once the call is in progress
+
+**Why This Design Exists:**
+
+1. **Queue Management Priority**
+2. **Privacy Protection**
+3. **Performance Optimization**
+
+**Summary:**
+The absence of caller ID for call queue calls is intentional behavior in the Salesforce CTI integration. This design prioritizes queue management, protects caller privacy, and optimizes system performance. While caller ID is not displayed during queue routing, users can access queue information through the hover tooltip feature and may see caller details once the call is assigned to an agent.
+
+This is not a bug or configuration issue, but rather the expected behavior for queue-based call handling in the Salesforce CTI system.
