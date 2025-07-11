@@ -35,3 +35,12 @@ All of this information is included in the RingCentral for Dynamics 365 admin gu
 A. Integration Console settings are specific to server-side call logging. This means when a user receives a missed call with or without voicemail on any RingCentral platform apart from the RingCentral for Dynamics integration inside Microsoft Dynamics 365, these calls do not get logged to the contact/account/leads/opportunities.
 
 All other settings configured in the integration console (integrations.ringcentral.com) are only applicable for server-side calls (outside the RingCentral for Dynamics 365). Any call operations performed inside the RingCentral for Dynamics 365 integration within Microsoft Dynamics 365 are called client-side operations.
+
+## Q. Why is the RingCentral for Dynamics 365 integration or the RingCentral panel in Dynamics displaying a blank white screen?
+
+A. If the Channel URL opens in a new tab without issues, it is most likely a setup issue where our integration does not load in the customer's environment. I recommend the admin user follow the exact steps from the admin guide at https://assets.ringcentral.com/us/guide/admin-guide/dynamics_beta_admin.pdf.
+
+If the issue persists after completing the correct setup, please follow these steps:
+
+-   Collect HAR and console logs from the 'Customer Service Hub' screen. Right-click anywhere on the screen, inspect the element, and reload the page. Ask the customer to open the RingCentral for Dynamics panel in the top right corner.
+-   I also recommend the admin add the 'Channel Access' role to the 'Select the Roles for the Channel' section.
