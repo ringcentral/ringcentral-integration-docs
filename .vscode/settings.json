@@ -1,10 +1,12 @@
 {
-    "cSpell.words": [
-        "Archiver",
-        "gdrive",
-        "HubSpot",
-        "Mkdocs",
-        "RingCentral",
-        "Smarsh"
-    ]
+  "cSpell.words": [
+    "Archiver",
+    "gdrive",
+    "HubSpot",
+    "Mkdocs",
+    "RingCentral",
+    "Smarsh"
+  ],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": false
 }
