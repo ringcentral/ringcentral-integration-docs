@@ -315,3 +315,51 @@ A. This is a known feature from HubSpot when call goes out from RingCentral inte
 -   The only known workaround is to create tasks as "To-Do" type rather than call tasks.
 
 We recommend the customer consider this workaround or contact HubSpot for potential alternative solutions. Our partnership with HubSpot may lead to full support of their native solution and potential retirement of the extension in the future. It may be more effective if the request to disable this auto-dialing behavior comes from customers rather than from RingCentral.
+
+## Q. Unable to select RingEx by RingCentral in the location field while editing or scheduling a meeting in HubSpot.
+
+A. When users encounter a disabled RingEx by RingCentral option in the location field while editing or scheduling a meeting, it may be due to the following reasons:
+
+-   Ensure you are logged in to the RingEx by RingCentral integration in your HubSpot CRM. You may see a message stating, "Please login to RingCentral for HubSpot and refresh the page to continue scheduling a meeting."
+
+-   If you are logged in to the integration but still see the option disabled, it is likely that the email address used for the RingCentral integration differs from the one used to sign in to HubSpot. Always ensure you log in to the RingCentral integration using the same email address you use to sign in to HubSpot.
+
+## Q. Can RingCentral for HubSpot integration help progress the Lead to the next stage after a call is completed?
+
+A. No, RingCentral for HubSpot does not automatically move leads to the next stage when you complete a call. This is a HubSpot feature that needs to be configured separately.
+
+How to Achieve Lead Stage Progression:
+
+To automatically move leads to the next stage when calls are completed, you need to:
+
+1. Configure HubSpot Workflows: Set up workflows in HubSpot that trigger based on call log creation.
+2. Use Call Outcomes as Triggers: Configure workflows to move leads when specific call outcomes are logged.
+3. Set Up Property Updates: Create workflow rules that update lead stage properties based on call activity.
+
+Example HubSpot Workflow Setup:
+
+1. Go to HubSpot Settings → Automation → Workflows
+2. Create a new workflow triggered by "Call logged"
+3. Add conditions based on call outcomes (e.g., "Connected" calls)
+4. Add actions to update lead stage property
+5. Set the target stage (e.g., from "New" to "Qualified")
+
+The lead stage progression is a HubSpot workflow automation feature, not a RingCentral feature. RingCentral provides the call logging data that can be used as triggers for HubSpot workflows, but the actual stage progression logic must be configured within HubSpot's automation system.
+
+## Q. Why can I not generate reports for the logged SMS in HubSpot CRM, while I can generate reports with logged calls?
+
+A. This is not an issue but rather an intentional design choice that optimizes user experience. SMS logs appear in the Activities tab with full content visibility, aligning with user expectations. Calls, however, appear in both Activities and Reports for comprehensive tracking. These different logging methods effectively serve distinct use cases.
+
+Reasons why SMS does not appear in Reports:
+
+-   SMS is logged as a "custom timeline event," whereas calls are logged as "Engagements" in HubSpot's Contact/Company/Deals/Leads Activities.
+-   We opted not to log SMS as an "Engagement" field type due to its limitations, particularly in text content length. SMS messages often contain longer text that wouldn't fit well in standard engagement fields. Custom Timeline Events allow for richer content display.
+-   Choosing to use the engagement field for SMS would result in losing the rich SMS content display in the timeline, as the content would be truncated to fit engagement field limits.
+
+I would also recommend that the user reach out to HubSpot support to inquire why 'custom timeline events' are not showing up in the HubSpot Reports.
+
+## Q. Why do I see all HubSpot contacts in RingCentral integration? I can access contacts which I don't have permission to.
+
+A. This issue stems from a feature limitation in the RingCentral for HubSpot integration. The current implementation lacks permission checks, resulting in users seeing contacts without proper access. The contact search API calls don't include user permission filters. Consequently, the HubSpot API returns all matching contacts, and the integration doesn't filter contacts based on the current user's ownership or access rights.
+
+We call the Search API "https://api-rcapps.ringcentral.com/crm-framework/v1/services/hubspot/contacts/search". This API returns all contacts present in HubSpot that match the search criteria, regardless of user permissions.

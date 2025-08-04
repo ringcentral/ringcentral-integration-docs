@@ -36,11 +36,21 @@ A. Integration Console settings are specific to server-side call logging. This m
 
 All other settings configured in the integration console (integrations.ringcentral.com) are only applicable for server-side calls (outside the RingCentral for Dynamics 365). Any call operations performed inside the RingCentral for Dynamics 365 integration within Microsoft Dynamics 365 are called client-side operations.
 
-## Q. Why is the RingCentral for Dynamics 365 integration or the RingCentral panel in Dynamics displaying a blank white screen?
+##Q. Why do I see a blank screen on the RingCentral for Dynamics 365 integration panel?
 
-A. If the Channel URL opens in a new tab without issues, it is most likely a setup issue where our integration does not load in the customer's environment. I recommend the admin user follow the exact steps from the admin guide at https://assets.ringcentral.com/us/guide/admin-guide/dynamics_beta_admin.pdf.
+A. This issue occurs for users who have recently updated their RingCentral for Dynamics integration to version 2.3.2 or above. To resolve this issue, we recommend users follow these steps:
+
+-   Have a Dynamics admin user complete the setup in the Integration Console (integrations.ringcentral.com).
+-   Clear the browser cache and cookies or restart the browser.
+-   To restart the browser, users must QUIT the browser, not just close it. Closing the browser will not hard reset or clear the cache.
+
+If the issue persists after trying these steps, we recommend the following:
+
+-   Open developer tools
+-   Switch to the network tab
+-   Check the 'Disable cache' checkbox
+-   Reload the Dynamics application and test it again
 
 If the issue persists after completing the correct setup, please follow these steps:
 
--   Collect HAR and console logs from the 'Customer Service Hub' screen. Right-click anywhere on the screen, inspect the element, and reload the page. Ask the customer to open the RingCentral for Dynamics panel in the top right corner.
--   I also recommend the admin add the 'Channel Access' role to the 'Select the Roles for the Channel' section.
+-   Collect HAR and console logs from the 'Customer Service Hub'/application screen where the CFI is installed. Right-click anywhere on the screen, inspect the element, and reload the page. Ask the customer to open the RingCentral for Dynamics panel in the top right corner.
