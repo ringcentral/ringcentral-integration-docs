@@ -15,11 +15,12 @@ Use this action to create a post in RingCentral Team Messaging chats.
 ## Configure
 
 1. Select how you want to specify that chat to post to. There are 4 options:
+
     - Use personal chat
     - Pick from recent teams
     - Enter a conversation link
     - Enter a specific chat Id
-  
+
     ![how to specify chat](./img/create-post-input-chat.png)
 
 2. If you choose to pick from recent teams, you will see a list of recent teams to choose from. The list is limited to 250 items and support searching within the 250 items. Please note that only teams are included, direct chats and group conversations are not included.
@@ -42,11 +43,22 @@ Use this action to create a post in RingCentral Team Messaging chats.
 
     ![id invalid](./img/create-post-input-id-invalid.png)
 
-7. Lastly, enter the message you want to post. Currently, only simple text is supported.
+7. Enter the message you want to post. Currently, only simple text is supported.
 
     ![message](./img/create-post-input-only-text.png)
 
 8. Once you have configured all the fields, please click continue and make sure to test the action before publishing the zap. This test will verify that the current user has access to post in the specified chat.
+
+## File Upload Support
+
+This action supports file uploads with the following limitations due to Zapier's execution time constraints:
+
+- Maximum file size: 150MB (Zapier limit)
+- Maximum files per post: 10
+
+For large files or multiple file sharing, we recommend using external storage solutions and sharing file URLs within the message. This is also recommended if you are running into execution failures attaching files.
+
+![file upload](./img/create-post-file-upload.png)
 
 ## Output
 
