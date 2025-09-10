@@ -113,6 +113,9 @@ nav:
           - "General Questions": zendesk/questions.md
       - "RingCentral for Microsoft Dynamics 365":
           - "Introduction": dynamics/index.md
+          - "Admin Guide":
+              - "Introduction": dynamics/admin-introduction.md
+              - "Installation and Configuration": dynamics/admin-installation.md
           - "General Questions": dynamics/questions.md
   - "Productivity Integrations":
       - "RingCentral for MS Teams":
