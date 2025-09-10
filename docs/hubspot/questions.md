@@ -234,10 +234,10 @@ Note: The workflow always sends the SMS from the contact owner's phone number. T
 
 There is a quick way to test to ensure the workflow works:
 
--   Login to RingCentral integration with the same email address used for signing in to HubSpot.
--   Connect to the Hub which the HubSpot is connected to.
--   Navigate to the Messages section in the RingCentral integration and then send a test text message.
--   If the message is sent successfully from the above test, then execute the workflow.
+- Login to RingCentral integration with the same email address used for signing in to HubSpot.
+- Connect to the Hub which the HubSpot is connected to.
+- Navigate to the Messages section in the RingCentral integration and then send a test text message.
+- If the message is sent successfully from the above test, then execute the workflow.
 
 ##Q. Why do I see the error message "Please enter a valid phone number for this contact" while setting up a workflow in HubSpot?
 
@@ -310,7 +310,7 @@ A. This is a known feature from HubSpot when call goes out from RingCentral inte
 -   In this case, our native CTI only receives a request to make a call; our app does not automatically initiate dialing on its own. Essentially, HubSpot instructs our app to make the call.
 -   Our Chrome extension did not function this way because it does not fully integrate with HubSpot's CTI solution. For example, clicking on native phone buttons in HubSpot does not work with the extension, but the extension scans the page to offer our own injected call buttons.
 
-**Workarounds:**
+Workarounds:
 
 -   The only known workaround is to create tasks as "To-Do" type rather than call tasks.
 
@@ -363,3 +363,101 @@ I would also recommend that the user reach out to HubSpot support to inquire why
 A. This issue stems from a feature limitation in the RingCentral for HubSpot integration. The current implementation lacks permission checks, resulting in users seeing contacts without proper access. The contact search API calls don't include user permission filters. Consequently, the HubSpot API returns all matching contacts, and the integration doesn't filter contacts based on the current user's ownership or access rights.
 
 We call the Search API "https://api-rcapps.ringcentral.com/crm-framework/v1/services/hubspot/contacts/search". This API returns all contacts present in HubSpot that match the search criteria, regardless of user permissions.
+
+## Q. There is no ringer audio when there is an inbound call to RingEx by RingCentral app in HubSpot.
+A. This is a common issue caused by browser auto-play protection policies. Modern browsers (Chrome, Edge, Firefox) block audio playback until the user interacts with the page to prevent unwanted sounds.
+
+To resolve this:
+
+1. Click anywhere on the RingEx by RingCentral standalone window when you first open it.
+2. Interact with any element(buttons, menus, etc.) in the window
+3. Refresh the page if the issue persists
+
+Why this happens:
+
+- Browsers require user interaction before allowing audio playback
+- The first/initial inbound call of the day often triggers this protection
+- RingCentral for HubSpot integration needs audio permissions to play ringtones and call sounds
+
+Pro tip: Always click on the RingEx by RingCentral integration window once after opening it to ensure audio permissions are granted for the entire session. If the issue continues after following these steps, please contact RingCentral support for further assistance.
+
+## Q. When I use SSO to log in to RingCentral for HubSpot or RingEx by RingCentral native HubSpot integration, I get the error message "We didn't find any matched account. Try another account to log in again."
+
+A. The user is experiencing this issue because:
+- SSO only handles RingCentral authentication.
+- It doesn't automatically connect to HubSpot.
+- The system needs to know which HubSpot account belongs to your RingCentral account.
+- This connection must be established first using username/password authentication.
+
+Solution:
+
+Step 1: Use Username/Password First (NOT SSO)
+
+You need to use username/password authentication first to establish the connection:
+
+- Go to RingCentral HubSpot integration.
+- Click "Sign In" and "Next" (NOT "Single Sign-on").
+- Enter your RingCentral username and password. (Ensure the email address you use to sign in to the RingCentral app is the same one you use to sign in to HubSpot.)
+- Complete the authentication process.
+- This establishes the connection between your RingCentral account and HubSpot account.
+
+Step 2: Then SSO Will Work
+
+After the connection is established:
+
+- SSO will work because the system now knows which HubSpot account matches your RingCentral credentials.
+- You can use "Single Sign-on" for future logins.
+- The account matching will succeed because the connection is already established.
+
+## Q. Why is there a delay in auto logging SMS to HubSpot Contact Activity?
+A. The SMS auto-logging feature operates on a scheduled sync cycle, not in real-time, which can cause delays in when messages appear in HubSpot Contact Activity.
+
+Expected behavior:
+
+- Typical delay: 8-10 minutes after receiving/sending an SMS
+- Maximum delay: Up to 15 minutes in some cases
+- Sync frequency: Messages are processed in batches throughout the day
+
+Why this happens:
+
+- RingCentral processes SMS messages in scheduled intervals to optimize performance
+- The system batches multiple messages together for efficient HubSpot API calls
+- Network latency and HubSpot API response times contribute to the overall delay
+
+What to expect:
+
+- SMS messages will eventually appear in HubSpot Contact Activity
+- The delay is normal and not indicative of a system error
+- All messages are queued and processed automatically
+
+Note: This delay only affects auto-logging. Manual SMS logging through the RingCentral integration appears immediately in HubSpot. If you experience delays longer than 15 minutes, please contact RingCentral support for investigation.
+
+## Q. Why can I not log SMS to leads, companies, deals, or tickets in the HubSpot integration?
+
+A. Currently, the RingCentral for HubSpot integration is designed to log SMS conversations exclusively to Contact records. This design decision was made to provide a streamlined experience for the most common use case, as SMS conversations are typically person-to-person interactions.
+
+What this means:
+
+- SMS conversations are logged to Contacts in HubSpot Contact Activity
+- SMS cannot be logged directly to Leads, Companies, Deals, or Tickets
+- This is a current limitation of the integration, not a technical issue
+
+Why this happens:
+
+- The integration was built with a focus on contact-based communication tracking
+- HubSpot's API fully supports logging activities to all entity types
+- This was a product design decision for simplicity and performance
+
+Available alternatives:
+
+- Use HubSpot Workflows to automatically associate SMS conversations with other entities
+- Manual association of SMS activities with relevant leads, deals, or companies
+- Create custom properties to track SMS communication across different record types
+
+Future enhancement:
+
+We have documented this as a feature request and added it to our product roadmap. The enhancement would allow customers to configure SMS logging for multiple entity types based on their specific business needs.
+
+Current workaround:
+
+SMS conversations logged to contacts can be manually or automatically associated with other HubSpot entities using HubSpot's built-in automation tools and association features.
