@@ -25,3 +25,21 @@ hide:
     Trigger a workflow in Zapier. -->
 
 </div>
+
+### Triggers
+
+<div class="grid cards" markdown>
+
+-   :fontawesome-solid-clock:{ .lg .middle } [**New Call Log Record**](call-log.md)
+
+    ***
+
+    Trigger a workflow when a new call log record is created.
+
+-   :fontawesome-solid-clock:{ .lg .middle } [**New Call Recording**](new-call-recording.md)
+
+    ***
+
+    Trigger a workflow when a new call recording is available.
+
+</div>
