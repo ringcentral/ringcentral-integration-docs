@@ -49,7 +49,7 @@ Use this action to create a post in RingCentral Team Messaging chats.
 
 8. Once you have configured all the fields, please click continue and make sure to test the action before publishing the zap. This test will verify that the current user has access to post in the specified chat.
 
-## File Upload Support
+<!-- ## File Upload Support
 
 This action supports file uploads with the following limitations due to Zapier's execution time constraints:
 
@@ -58,7 +58,7 @@ This action supports file uploads with the following limitations due to Zapier's
 
 For large files or multiple file sharing, we recommend using external storage solutions and sharing file URLs within the message. This is also recommended if you are running into execution failures attaching files.
 
-![file upload](./img/create-post-file-upload.png)
+![file upload](./img/create-post-file-upload.png) -->
 
 ## Output
 
