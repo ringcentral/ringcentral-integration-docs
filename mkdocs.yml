@@ -20,6 +20,7 @@ theme:
     - navigation.path
     # - navigation.sections
     - navigation.tabs
+    - toc.integrate
     - search.sharing
     - search.highlight
   palette:
@@ -120,6 +121,7 @@ nav:
   - "Productivity Integrations":
       - "RingCentral for MS Teams":
           - "Overview": msteams/index.md
+          - "Local Network Access permission control from Chromium v142": msteams/chrome-lna-update.md
           - "General Questions": msteams/questions.md
       - "RingCentral for Zapier":
           - "Overview": zapier/index.md
