@@ -38,6 +38,10 @@ If all browser permissions are allowed and the error persists, recommend checkin
 2. Ensure either "Include Permissions-Policy HTTP header" is unchecked, or if checked, set Microphone to Always
 3. Reference: https://help.salesforce.com/s/articleView?id=000570789&type=1
 
+## Q. Why am I receiving an insufficient privileges error message?
+
+A. Users require access to the RingCentral Visualforce page in their profile. To set up this access, go to the user's profile in Salesforce. Under Visualforce Page Access, check that the page OpenCTIIndex is included.
+
 ## Q. Why is the Related To field not auto-populated when logging a call?
 
 A. To ensure the "Related To" field is auto-populated when logging a call, follow these steps:

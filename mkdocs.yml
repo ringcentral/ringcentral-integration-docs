@@ -122,8 +122,17 @@ nav:
       - "RingCentral for MS Teams":
           - "Overview": msteams/index.md
           - "Local Network Access permission control from Chromium v142": msteams/chrome-lna-update.md
+          - "RingCentral for Microsoft Teams - Log Collection": msteams/log-collection.md
           - "General Questions": msteams/questions.md
       - "RingCentral for Zapier":
           - "Overview": zapier/index.md
           - "Actions":
               - "Create Post": zapier/create-post.md
+  - "Scheduling Tools":
+      - "RingCentral Scheduler":
+          - "Overview": scheduler/index.md
+          - "General Questions": scheduler/questions.md
+      - "RingCentral for Microsoft Outlook":
+          - "Overview": outlook/index.md
+      - "RingCentral for Google Workspace":
+          - "Overview": googleworkspace/index.md

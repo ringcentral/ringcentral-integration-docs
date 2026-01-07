@@ -9,6 +9,38 @@ hide:
 
 A: When a call comes in, it rings on your softphone (or any other client with the same account). Simultaneously, the call log section in RC for Dynamics with matched entities will expand from the sidebar.
 
+##Q: Why am I seeing the message "Your email login {email address} does not match the authenticated MS Dynamics 365 account. Please use the same email address you used for your RingCentral account so that you can have access to all these features"?
+
+A: This message appears when:
+
+- Your Dynamics administrator has connected your Dynamics 365 environment to RingCentral's Auto Call Logging (AAL) service
+- The email address associated with your RingCentral account does not match the email address of any user in your Dynamics 365 environment
+
+**Why this happens:**
+
+The integration requires the email address used for your RingCentral account to match the email address of a Dynamics 365 user to authenticate and enable features like automatic call logging, contact matching, and other integration capabilities. When these email addresses don't match, the system cannot authenticate you as a valid Dynamics user, which limits access to integration features.
+
+**How to resolve this:**
+
+1. Verify the email address in your RingCentral account (Admin Portal → Users → your user → Email)
+2. Verify the email address in Dynamics 365 (Settings → Security → Users → your user → Email)
+3. Ensure both email addresses match exactly (case-sensitive)
+4. If your organization uses UPN (User Principal Name) for authentication, ensure the email address in your Identity Provider (IDP) profile matches the email address in your RingCentral user details (contact email). The system uses the email from your IDP profile for authentication, so it must match the email in your RingCentral account
+
+5. If they differ:
+    - Update your RingCentral account email to match your Dynamics 365 email (or your IDP profile email if using UPN), OR
+    - Update your Dynamics 365 user email (or IDP profile email if using UPN) to match your RingCentral account email
+
+6. After updating, sign out and sign back in to the RingCentral for Dynamics integration
+
+**Note:** If you cannot change either email address, contact your Dynamics administrator to verify the AAL connection and user mapping, or contact RingCentral Support for assistance.
+
+**Additional information:**
+
+- This check occurs when your Dynamics administrator has authorized the environment on AAL (adminAuth: true) but your email doesn't match a Dynamics user (isAuthenticated: false)
+- The email address shown in the message is the one associated with your RingCentral account
+- Once the emails match, you'll have access to all integration features including automatic call logging, contact matching, and call activity synchronization
+
 ##Q: I can see some phone numbers in Dynamics, but the click-to-call icon is not displayed.
 
 A: By default, the phone icon is present on Business Phone and Mobile Phone fields as they are of phone type. To see a phone icon beside other phone numbers for click-to-dial functionality, those fields must be configured as "Phone" fields. This configuration needs to be done separately by your administrator following the admin guide (https://assets.ringcentral.com/us/guide/admin-guide/dynamics_beta_admin.pdf) on page 15, Step 4: Enable Click to Dial with RingCentral Description.

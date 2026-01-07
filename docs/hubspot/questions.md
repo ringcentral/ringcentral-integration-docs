@@ -461,3 +461,141 @@ We have documented this as a feature request and added it to our product roadmap
 Current workaround:
 
 SMS conversations logged to contacts can be manually or automatically associated with other HubSpot entities using HubSpot's built-in automation tools and association features.
+
+## Q. Why do calls show "Call with unknown contact" as the title in HubSpot?
+
+A. This happens when calls are manually logged without selecting a contact. The system matches contacts and shows suggestions, but if none are selected before saving, the call is saved without associations, so HubSpot displays "Call with unknown contact."
+
+### Common Reasons:
+
+- Multiple contact matches appear and the user isn't sure which to select
+- The user doesn't notice the suggested contacts dropdown
+- The user saves quickly without selecting a contact
+
+### How to Fix Existing Logs:
+
+1. Open the call engagement in HubSpot
+2. Click "Edit"
+3. In the "Contact" or "Associated with" field, search for and select the correct contact
+4. Save the changes
+5. The title will update to "Call with [Contact Name]"
+
+### How to Prevent This:
+
+When manually logging calls from RingCentral call history:
+
+1. Click "Create Log" for the call
+2. Review the suggested contacts in the dropdown
+3. Select at least one contact before saving
+4. If multiple matches appear, choose the most relevant one (check name, company, or recent activity)
+5. Click "Save" only after selecting a contact
+
+**Important:** The system cannot automatically link calls after saving. You must select a contact during the logging process.
+
+### For Multiple Matches:
+
+If you see several suggested contacts, select the one that matches the person you spoke with, or the most recently active contact. You can edit the log in HubSpot later to change associations if needed.
+
+### Long-term Solution:
+
+Consider enabling Activity Auto Logging (AAL) with the CREATE_CONTACT setting for unknown numbers. This automatically creates and links contacts, reducing manual errors and "Call with unknown contact" entries.
+
+## Q. Why are some of the calls not auto-logged to HubSpot Activity?
+
+A. If some of the calls are not logged from RingEx by RingCentral integration in HubSpot, you need to check the call history to see if there are any multiple matches detected for that phone number.
+
+When the system finds multiple matching contacts, the call will NOT automatically log unless the user makes a selection during the call. If the customer did not make a selection, the call would remain unlogged and would need to be manually logged later from the call history.
+
+### How to resolve this:
+
+1. **Check for multiple matches**: Review the call history in RingCentral to see if multiple contact suggestions appeared
+2. **Manual logging required**: For calls with multiple matches that weren't resolved during the call, use the "Create Log" button in call history
+3. **Select the correct contact**: When manually logging, choose the appropriate contact from the suggested matches
+4. **Prevention**: Train users to always select a contact when multiple matches appear during active calls
+
+### Why this happens:
+
+- The system cannot automatically choose between multiple potential matches
+- User intervention is required to ensure the call is logged to the correct contact
+- This prevents incorrect contact associations and maintains data accuracy
+
+## Q. How do the Contacted and Association fields work?
+
+A. When a call is made to a contact through the RingCentral extension, the integration automatically retrieves all CRM records currently associated with that contact in HubSpot. This includes contacts, companies, deals, and tickets that are already linked to the contact in HubSpot CRM. These records appear as "suggested" options in the Associations field dropdown.
+
+### How the Association field works:
+
+- **Automatic retrieval**: The system pulls all related records linked to the contact in HubSpot
+- **Manual selection required**: By default, nothing is automatically selected and the user needs to manually check the boxes for the records they want to associate with the call
+- **Selective logging**: Only the records explicitly selected will be saved with the call log
+- **Multiple record types**: Shows contacts, companies, deals, and tickets that are relevant to the call
+
+### How the Contacted field works:
+
+- **Contact-specific**: Works similarly to the Association field but only shows contacts
+- **Manual selection**: Users must manually select which contacts to associate with the call
+- **No automatic selection**: The system does not automatically select contacts even if there's only one match
+
+### Best practices:
+
+1. **Review suggestions**: Always check the suggested associations before logging the call
+2. **Select relevant records**: Only associate records that are actually related to the call
+3. **Check all record types**: Consider whether the call relates to specific deals, companies, or tickets
+4. **Verify accuracy**: Ensure you're selecting the correct records to maintain data integrity
+
+## Q. Why did my SMS workflows stop working after switching to the native RingEX by RingCentral integration, and why do SMS activities now appear under Communication instead of Integrations?
+
+A. The behavior difference is expected due to an architectural change in how the integration logs SMS activities:
+
+### Integration Architecture Changes:
+
+- **Old Chrome Extension / RingCentral Labs Integration**: SMS logs were created as custom app events under "RingEX by RingCentral" using HubSpot's Custom Events/Engagements API. This allowed filtering and workflow triggers via **Integrations** → **RingEX by RingCentral** → **SMS log**.
+
+- **New Native HubSpot Integration**: SMS logs are now created using HubSpot's native Communication Timeline API as standard SMS activity types. This follows HubSpot's recommended patterns for communications and is why SMS activities now appear under **Communication** → **SMS** instead of the Integrations filter.
+
+### Impact on Workflows:
+
+Workflows that were previously set up to trigger on "Custom Events → App Event → RingEX by RingCentral → SMS log" will no longer work because the Native integration logs SMS as standard HubSpot communication events, not as custom app events.
+
+### Resolution:
+
+The customer will need to rebuild their workflows to use HubSpot's standard communication triggers instead of the old custom app event triggers. HubSpot Support can assist with this by providing guidance on building workflows based on standard SMS communication events.
+
+### Getting Help from HubSpot Support:
+
+When contacting HubSpot Support, the customer can say:
+
+> "I'm using the native RingEX by RingCentral integration and need help building workflows that trigger from HubSpot's standard SMS communication events (SMS sent/delivered/failed/etc.) instead of the old RingCentral custom 'SMS Log' app events."
+
+### Important Note:
+
+This change is a result of the integration being natively embedded in HubSpot and is not a bug or regression - it's the intended design of the native integration to leverage HubSpot's standard activity types for better compatibility with HubSpot's native features.
+
+## Q. Why is there a new contact created by the integration with "Caller +Phone number" format when I use phone numbers that are stored in secondary phone fields?
+
+A. The RingCentral for HubSpot integration only searches the standard **"Phone"** field in HubSpot contacts for contact matching. It does not search additional phone fields such as "Phone number 2", "Phone number 3", or other custom phone properties.
+
+### What happens:
+
+When the customer clicks to call from a phone number stored in "Phone number 2" or "Phone number 3" fields, the integration cannot match it to the existing contact. As a result, after the call ends, the integration automatically creates a new contact named **"Caller [phone number]"**.
+
+### Why this happens:
+
+- **Limited field search**: The integration's contact matching only searches the standard "Phone" field
+- **Multiple phone fields not supported**: Secondary phone fields like "Phone number 2", "Phone number 3", or custom phone properties are not included in the matching logic
+- **Automatic contact creation**: When no match is found in the standard "Phone" field, the system creates a new contact to log the call
+
+### Resolution:
+
+The customer should ensure that phone numbers they want to be matched are stored in the standard **"Phone"** field in HubSpot contacts. If they need to store multiple phone numbers for a contact, the primary phone number (used most often for calls) should be in the standard "Phone" field.
+
+### Workaround for multiple phone numbers:
+
+1. **Primary number**: Store the most frequently called number in the standard "Phone" field
+2. **Secondary numbers**: Use additional fields for backup/alternative numbers
+3. **Manual matching**: If calling secondary numbers, manually select the correct contact during call logging
+4. **Contact consolidation**: Merge any duplicate contacts created from secondary number calls
+
+### Known limitation:
+
+This is a known limitation of the current integration. We have noted this as a potential enhancement to search across all phone fields in HubSpot contacts for future development consideration.
