@@ -87,6 +87,36 @@ RingCentral offers premium integrations that seamlessly connect with the industr
 
 </div>
 
+### Scheduling Tools
+
+<div class="grid cards" markdown>
+
+-   :material-calendar-clock:{ .lg .middle } **RingCentral Scheduler**
+
+    ***
+
+    The Scheduler Outlook Add-in allows you to schedule video meetings in a single click directly within Outlook.
+
+    [:octicons-arrow-right-24: Learn more](scheduler/index.md)
+
+-   :material-microsoft-outlook:{ .lg .middle } **RingCentral for Microsoft Outlook**
+
+    ***
+
+    Seamlessly blend phone and video capabilities into Outlook.
+
+    [:octicons-arrow-right-24: Learn more](outlook/index.md)
+
+-   :simple-google:{ .lg .middle } **RingCentral for Google Workspace**
+
+    ***
+
+    Simplify communication within Gmail and Google Calendar with the Google Workspace Add-on.
+
+    [:octicons-arrow-right-24: Learn more](googleworkspace/index.md)
+
+</div>
+
 ### Data archival and compliance
 
 <div class="grid cards" markdown>
