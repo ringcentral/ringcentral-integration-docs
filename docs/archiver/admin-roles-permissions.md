@@ -1,6 +1,6 @@
 ---
 hide:
-    - toc
+    - navigation
 ---
 
 # Admin Roles and Permissions

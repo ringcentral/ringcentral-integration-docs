@@ -1,6 +1,6 @@
 ---
 hide:
-    - toc
+    - navigation
 ---
 
 # Syncing RingCentral data backup to cloud storage

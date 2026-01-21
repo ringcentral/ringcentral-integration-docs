@@ -1,29 +1,57 @@
-#ringcentral-automator + .admonition {
+#ringcentral-automator+.admonition {
     font-size: 0.75rem;
 }
 
-.float-left { float: left; }
-.float-right { float: right; }
-.md-typeset img.mw-100 { max-width: 100px; }
-.md-typeset img.mw-200 { max-width: 200px; }
-.md-typeset img.mw-250 { max-width: 250px; }
-.md-typeset img.mw-300 { max-width: 300px; }
-.md-typeset img.mw-400 { max-width: 400px; }
-.md-typeset img.mw-500 { max-width: 500px; }
-.md-typeset img.mw-600 { max-width: 600px; }
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.md-typeset img.mw-100 {
+    max-width: 100px;
+}
+
+.md-typeset img.mw-200 {
+    max-width: 200px;
+}
+
+.md-typeset img.mw-250 {
+    max-width: 250px;
+}
+
+.md-typeset img.mw-300 {
+    max-width: 300px;
+}
+
+.md-typeset img.mw-400 {
+    max-width: 400px;
+}
+
+.md-typeset img.mw-500 {
+    max-width: 500px;
+}
+
+.md-typeset img.mw-600 {
+    max-width: 600px;
+}
 
 .carousel .column {
-  float: left;
-  width: 50%;
+    float: left;
+    width: 50%;
 }
-.carousel .column:first-child + .column {
+
+.carousel .column:first-child+.column {
     padding-left: 40px;
 }
+
 /* Clear floats after the columns */
 .carousel .row:after {
-  content: "";
-  display: table;
-  clear: both;
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .qs-hero {
@@ -31,28 +59,35 @@
     border-radius: 20px;
     background-image: url(img/hero-bg-03.png);
 }
+
 .qs-hero h3:first-child {
     margin-bottom: 0;
 }
+
 .qs-hero p:nth-of-type(1) {
     font-size: 1rem;
 }
+
 .qs-hero h2 {
     font-weight: 900;
     font-size: 1.8rem;
     margin-top: 1rem;
 }
-.qs-hero #developer-product-spotlight + h2 {
+
+.qs-hero #developer-product-spotlight+h2 {
     margin-top: 0.2rem;
 }
+
 .qs-hero h3 {
     text-transform: uppercase;
     font-size: .8rem;
 }
+
 .qs-hero .grid li {
     background: white;
     font-size: 0.9rem;
 }
+
 .qs-hero .grid li .twemoji {
     font-size: 1rem;
 }
@@ -65,6 +100,7 @@
     background-size: contain;
     padding-bottom: 20px;
 }
+
 .home-hero .inner {
     background-image: url(img/RingCentral_logo_color.png);
     background-repeat: no-repeat;
@@ -74,6 +110,7 @@
     background-size: 130px;
     padding: 20px;
 }
+
 .home-hero h1 {
     font-weight: 900;
     font-size: 2.25rem;
@@ -81,9 +118,11 @@
     margin-bottom: 1px;
     color: black;
 }
+
 .home-hero h2 {
     margin-top: 0em;
 }
+
 .intro {
     font-size: 1.1rem;
 }
@@ -93,6 +132,7 @@
     font-weight: bold;
     background-color: rgb(255, 122, 0);
 }
+
 .md-banner .upgrade-button {
     display: inline-block;
     border-radius: 20px;
@@ -100,20 +140,439 @@
     background: white;
     margin-left: 10px;
 }
+
 .md-banner .md-typeset .learn-more {
     color: white;
     padding-left: 10px;
-} 
+}
+
 .md-banner .md-typeset a {
     color: rgb(122, 36, 0);
 }
+
 .md-typeset a {
     color: #066fac
 }
+
 .md-typeset a:hover {
     color: #066fac;
     text-decoration: underline;
 }
+
 :root {
     --md-primary-fg-color: #002755;
+}
+
+/* Archiver Hero Section */
+.archiver-hero {
+    background: linear-gradient(135deg, #002755 0%, #004d99 50%, #0066cc 100%);
+    color: white;
+    padding: 3rem 2.5rem;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.archiver-hero::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(ellipse, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.archiver-hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ff7a00, #ffb347, #ff7a00);
+}
+
+.archiver-hero h1 {
+    color: white !important;
+    font-size: 2.5rem !important;
+    font-weight: 800 !important;
+    margin-bottom: 0.5rem !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.archiver-hero h1 .twemoji {
+    font-size: 2.2rem;
+    margin-right: 0.5rem;
+}
+
+.archiver-hero p {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.15rem;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+}
+
+.archiver-hero p strong {
+    color: #ffb347;
+    font-size: 1.3rem;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.archiver-hero .md-button {
+    margin-right: 0.75rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.archiver-hero .md-button--primary {
+    background-color: #ff7a00;
+    border-color: #ff7a00;
+    color: white;
+}
+
+.archiver-hero .md-button--primary:hover {
+    background-color: #ff9933;
+    border-color: #ff9933;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 122, 0, 0.4);
+}
+
+.archiver-hero .md-button:not(.md-button--primary) {
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    color: white;
+}
+
+.archiver-hero .md-button:not(.md-button--primary):hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: white;
+    transform: translateY(-2px);
+}
+
+/* Enhanced Grid Cards for Archiver */
+.md-typeset .grid.cards>ul>li {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.md-typeset .grid.cards>ul>li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Icon colors in cards */
+.md-typeset .grid.cards .twemoji.lg {
+    color: #004d99;
+}
+
+/* Storage Provider Hero Sections */
+.storage-hero {
+    color: white;
+    padding: 2rem 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.storage-hero::before {
+    content: "";
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 40%;
+    height: 160%;
+    background: radial-gradient(ellipse, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.storage-hero h1 {
+    color: white !important;
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.storage-hero h1 .twemoji {
+    font-size: 1.8rem;
+    margin-right: 0.4rem;
+}
+
+.storage-hero p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* SFTP - Dark Slate */
+.storage-hero--sftp {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+.storage-hero--sftp::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #e94560, #ff6b6b);
+}
+
+/* Google Drive - Google Colors */
+.storage-hero--gdrive {
+    background: linear-gradient(135deg, #1a73e8 0%, #4285f4 50%, #34a853 100%);
+}
+
+.storage-hero--gdrive::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #ea4335, #fbbc04, #34a853, #4285f4);
+}
+
+/* Box - Box Blue */
+.storage-hero--box {
+    background: linear-gradient(135deg, #0061d5 0%, #0078d4 50%, #00a4ef 100%);
+}
+
+.storage-hero--box::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #00d4aa;
+}
+
+/* Dropbox - Dropbox Blue */
+.storage-hero--dropbox {
+    background: linear-gradient(135deg, #0061fe 0%, #0070e0 50%, #007ee5 100%);
+}
+
+.storage-hero--dropbox::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #a2d2ff, #00d4ff);
+}
+
+/* Smarsh - Enterprise Green */
+.storage-hero--smarsh {
+    background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 50%, #40916c 100%);
+}
+
+.storage-hero--smarsh::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #95d5b2, #52b788);
+}
+
+/* Steps Container Styling */
+.steps-container {
+    background: var(--md-code-bg-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #ff7a00;
+}
+
+.steps-container p strong {
+    color: #ff7a00;
+}
+
+/* Archiver Section Navigation - Right Side (Responsive) */
+.archiver-section-nav {
+    position: fixed;
+    top: 76px;
+    right: 0;
+    width: 185px;
+    padding: 0.6rem 0.6rem 0.6rem 0.8rem;
+    border-left: 2px solid #ff7a00;
+    background: var(--md-default-bg-color);
+    max-height: calc(100vh - 90px);
+    overflow-y: auto;
+    z-index: 10;
+}
+
+.archiver-section-nav h4 {
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #ff7a00;
+    margin: 0 0 0.5rem 0;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.archiver-section-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.archiver-section-nav li {
+    margin-bottom: 0.05rem;
+}
+
+.archiver-section-nav a {
+    display: block;
+    padding: 0.2rem 0.4rem;
+    font-size: 0.65rem;
+    line-height: 1.3;
+    color: var(--md-default-fg-color--light);
+    text-decoration: none;
+    border-radius: 3px;
+    transition: all 0.15s ease;
+}
+
+.archiver-section-nav a:hover {
+    background: var(--md-accent-fg-color--transparent);
+    color: var(--md-accent-fg-color);
+    text-decoration: none;
+}
+
+.archiver-section-nav a.active {
+    background: linear-gradient(90deg, rgba(255, 122, 0, 0.12) 0%, transparent 100%);
+    color: #ff7a00;
+    font-weight: 600;
+    border-left: 2px solid #ff7a00;
+    margin-left: -2px;
+    padding-left: calc(0.4rem + 2px);
+}
+
+.archiver-section-nav .nav-group {
+    margin-bottom: 0.25rem;
+}
+
+.archiver-section-nav .nav-group-title {
+    font-size: 0.52rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--md-default-fg-color--lighter);
+    margin: 0.45rem 0 0.2rem 0;
+}
+
+/* Medium screens (laptops) - make it smaller */
+@media screen and (max-width: 1500px) {
+    .archiver-section-nav {
+        width: 155px;
+        padding: 0.5rem 0.4rem 0.5rem 0.6rem;
+    }
+
+    .archiver-section-nav h4 {
+        font-size: 0.55rem;
+    }
+
+    .archiver-section-nav a {
+        font-size: 0.58rem;
+        padding: 0.15rem 0.3rem;
+    }
+
+    .archiver-section-nav .nav-group-title {
+        font-size: 0.48rem;
+    }
+}
+
+/* Smaller laptops - even more compact */
+@media screen and (max-width: 1300px) {
+    .archiver-section-nav {
+        width: 135px;
+        padding: 0.4rem 0.3rem 0.4rem 0.5rem;
+    }
+
+    .archiver-section-nav h4 {
+        font-size: 0.5rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .archiver-section-nav a {
+        font-size: 0.52rem;
+        padding: 0.12rem 0.25rem;
+        line-height: 1.25;
+    }
+
+    .archiver-section-nav .nav-group-title {
+        font-size: 0.45rem;
+        margin: 0.35rem 0 0.15rem 0;
+    }
+
+    .archiver-section-nav .nav-group {
+        margin-bottom: 0.15rem;
+    }
+}
+
+/* Small screens - minimal but still visible */
+@media screen and (max-width: 1100px) {
+    .archiver-section-nav {
+        width: 120px;
+        padding: 0.35rem 0.25rem 0.35rem 0.4rem;
+        top: 70px;
+    }
+
+    .archiver-section-nav h4 {
+        font-size: 0.48rem;
+    }
+
+    .archiver-section-nav a {
+        font-size: 0.48rem;
+        padding: 0.1rem 0.2rem;
+    }
+
+    .archiver-section-nav .nav-group-title {
+        font-size: 0.42rem;
+    }
+}
+
+/* Very small screens - hide only on mobile/tablet */
+@media screen and (max-width: 900px) {
+    .archiver-section-nav {
+        display: none;
+    }
+}
+
+/* Adjust main content area for archiver pages to make room for right nav */
+body.has-archiver-nav .md-content {
+    margin-right: 195px;
+}
+
+@media screen and (max-width: 1500px) {
+    body.has-archiver-nav .md-content {
+        margin-right: 165px;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    body.has-archiver-nav .md-content {
+        margin-right: 145px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    body.has-archiver-nav .md-content {
+        margin-right: 130px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    body.has-archiver-nav .md-content {
+        margin-right: 0;
+    }
 }
