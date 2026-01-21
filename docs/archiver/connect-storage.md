@@ -1,6 +1,6 @@
 ---
 hide:
-    - toc
+    - navigation
 ---
 
 # Linking Cloud Storage to RingCentral Archiver

@@ -43,6 +43,8 @@ extra:
       link: https://github.com/ringcentral
 extra_css:
   - extra.css
+extra_javascript:
+  - archiver-nav.js
 
 plugins:
   - privacy
@@ -79,6 +81,7 @@ nav:
       - "Linking Storages to Archiver": archiver/connect-storage.md
       - "Connect Dropbox": archiver/connect-dropbox.md
       - "Connect SFTP": archiver/connect-sftp.md
+      - "SFTP Security Upgrade": archiver/sftp-security-upgrade.md
       - "Connect Google Drive": archiver/connect-gdrive.md
       - "Connect Box": archiver/connect-box.md
       - "Connect Smarsh": archiver/connect-smarsh.md

@@ -1,58 +1,156 @@
 ---
 hide:
-    - toc
+    - navigation
 ---
 
-# Connecting RingCentral with Smarsh
+<div class="storage-hero storage-hero--smarsh" markdown>
+
+# :material-shield-check: Connect Smarsh
+
+Enterprise archiving and compliance platform for regulated industries.
+
+</div>
+
+## Overview
+
+Smarsh provides enterprise-grade archiving and compliance solutions designed for regulated industries. Integrate RingCentral with Smarsh to meet your organization's compliance and e-discovery requirements.
+
+---
 
 ## Prerequisites
 
-There are four prerequisites for setting up the RingCentral for Smarsh in your environment:
+!!! warning "Before You Begin"
+    Ensure the following prerequisites are met before proceeding with the setup.
 
-1. RingCentral Archiver access: Premium or above
-2. A Smarsh account (token of 32-characters long)
-3. You must be granted the RingCentral app Admin privilege for your RingCentral account
-4. Enabled Compliance Exports configuration in the RingCentral app
+<div class="grid cards" markdown>
 
-See your IT admin to ensure prerequisites 1-3 have been set up. To comply with prerequisite 4, go to the RingCentral app -> Settings -> Administration -> Messaging, then toggle the button in Enable message data export to the ON position.
+-   :material-star:{ .lg .middle } **RingCentral Archiver**
 
-![Retry Options1](./img/enable-data-export.png)
+    ---
 
-## Configuring RingCentral Archiver to connect with Smarsh
+    Premium subscription or above required
 
-1. Go to the RingCentral Online account, and click on Tools > Archiver Beta
-2. By default, there is no connection to a storage repository. Click Connect on Smarsh
-3. The screen displays a pop-up window with fields to enter the Smarsh Token and Description. Click Connect to proceed.
+-   :material-key:{ .lg .middle } **Smarsh Account**
 
-After providing the Smarsh Token to enable the connection to Smarsh, a pop-up window will display, allowing you to select data types.
+    ---
 
-4. Click Go to Sync Options and click OK in the next pop-up window to be redirected to Sync Options
+    Valid Smarsh token (32 characters)
 
-## Configuring RingCentral Archiver to select data types for archiving in Smarsh
+-   :material-shield-account:{ .lg .middle } **Admin Privileges**
 
-1. Go to the Sync Options tab and select Account Settings from the drop down menu
-2. Check the box beside RingCentral app Messages
+    ---
 
-If you choose Account Settings, all the extensions managed by this admin account will be archived. Currently, only the RingCentral app is supported. Additional options will be supported in future releases.
+    RingCentral app Admin privilege required
 
-When enabled, you will see a message confirming the connection.
+-   :material-toggle-switch:{ .lg .middle } **Compliance Exports**
 
-## Data search in Smarsh
+    ---
 
-### Initiating a new search
+    Must be enabled in RingCentral settings
 
-After logging in to Smarsh, go to the Search tab to initiate a new search
+</div>
 
-![Retry Options1](./img/data-search-smarsh.png)
+### Enable Compliance Exports
 
-### Search result list
+To enable message data export:
 
-Your search results display will be shown as below: you can click any one thread to see the breakdown info inside. Different prefix headers are shown for different message types, such as MESSAGE and DIRECT MESSAGE.
+1. Go to **RingCentral app** → **Settings** → **Administration** → **Messaging**
+2. Toggle **Enable message data export** to the **ON** position
 
-![Retry Options1](./img/search-results-smarsh.png)
+![Enable Data Export](./img/enable-data-export.png)
 
-### Search result preview or download
+---
 
-Some subtypes from the RingCentral app are shown as attached files within the thread, including Event, Task, Note, and Attached file. The attached file within Task attached directly to the message rather than the event itself. Click an attachment to either download it or preview it online.
+## Connection Steps
 
-![Retry Options1](./img/search-result-download.png)
+<div class="steps-container" markdown>
+
+**Step 1:** Go to your RingCentral Online account and click **Tools** → **Archiver Beta**
+
+**Step 2:** Click **Connect** next to Smarsh
+
+**Step 3:** Enter your credentials in the pop-up window:
+
+| Field | Description |
+|-------|-------------|
+| **Smarsh Token** | Your 32-character Smarsh authentication token |
+| **Description** | *(Optional)* A description for this connection |
+
+**Step 4:** Click **Connect** to proceed
+
+**Step 5:** Click **Go to Sync Options** and confirm in the next pop-up to configure archiving
+
+</div>
+
+---
+
+## Configure Data Types
+
+After connecting, configure which data types to archive:
+
+1. Go to the **Sync Options** tab
+2. Select **Account Settings** from the dropdown menu
+3. Check the box beside **RingCentral app Messages**
+
+!!! info "Account-Level Archiving"
+    When using Account Settings, all extensions managed by this admin account will be archived. Currently, only RingCentral app messages are supported. Additional options will be available in future releases.
+
+When enabled, you will see a confirmation message.
+
+---
+
+## Searching Data in Smarsh
+
+### Initiate a New Search
+
+After logging in to Smarsh, navigate to the **Search** tab to begin searching your archived data.
+
+![Data Search in Smarsh](./img/data-search-smarsh.png)
+
+### View Search Results
+
+Search results display as threads. Click any thread to view the detailed breakdown. Different message types show distinct prefix headers:
+
+- **MESSAGE** - Standard messages
+- **DIRECT MESSAGE** - Private conversations
+
+![Search Results](./img/search-results-smarsh.png)
+
+### Preview or Download
+
+Certain RingCentral content types appear as attachments within threads:
+
+| Content Type | Description |
+|--------------|-------------|
+| **Event** | Calendar events |
+| **Task** | Task items |
+| **Note** | Notes and memos |
+| **Attached file** | File attachments |
+
+Click any attachment to preview it online or download it.
+
+![Search Result Download](./img/search-result-download.png)
+
+---
+
+## Related Resources
+
+<div class="grid cards" markdown>
+
+-   :material-sync:{ .lg .middle } **Sync Options**
+
+    ---
+
+    Configure archiving schedules and data types.
+
+    [:octicons-arrow-right-24: Configure Sync](sync-options.md)
+
+-   :material-file-document:{ .lg .middle } **Archive Logs**
+
+    ---
+
+    Monitor archive activity and troubleshoot issues.
+
+    [:octicons-arrow-right-24: View Logs](archive-logs.md)
+
+</div>
