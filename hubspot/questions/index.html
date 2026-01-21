@@ -1,0 +1,4282 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ringcentral.github.io/ringcentral-integration-docs/hubspot/questions/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../migration/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>General Questions - RingCentral Integrations</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../assets/external/fonts.googleapis.com/css.b26d7f94.css">
+        <style>:root{--md-text-font:"Inter Tight";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#general-questions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="RingCentral Integrations" class="md-header__button md-logo" aria-label="RingCentral Integrations" data-md-component="logo">
+      
+  <img src="../../img/RingCentral_logo_color.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RingCentral Integrations
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              General Questions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../archiver/" class="md-tabs__link">
+          
+  
+  
+  RingCentral Archiver
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  CRM Integrations
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../msteams/" class="md-tabs__link">
+          
+  
+  
+  Productivity Integrations
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../scheduler/" class="md-tabs__link">
+          
+  
+  
+  Scheduling Tools
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="RingCentral Integrations" class="md-nav__button md-logo" aria-label="RingCentral Integrations" data-md-component="logo">
+      
+  <img src="../../img/RingCentral_logo_color.png" alt="logo">
+
+    </a>
+    RingCentral Integrations
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RingCentral Archiver
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RingCentral Archiver
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/user-notice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Notice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/enable-archiver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enable Archiver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/admin-roles-permissions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Admin Roles and Permissions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/user-roles-permissions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Roles and Permissions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/system-requirements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Requirements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/connect-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linking Storages to Archiver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/connect-dropbox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connect Dropbox
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/connect-sftp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connect SFTP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/sftp-security-upgrade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SFTP Security Upgrade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/connect-gdrive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connect Google Drive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/connect-box/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connect Box
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/connect-smarsh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connect Smarsh
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/sync-options/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sync Options
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_15" id="__nav_2_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive Logs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive Logs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/archive-logs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/retry-mechanism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Retry Mechanism
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/archive-status/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive Status and Data Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/notifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CRM Integrations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CRM Integrations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RingCentral for HubSpot
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RingCentral for HubSpot
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General Questions
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#q-i-keep-seeing-webphone-unavailable-error-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. I keep seeing 'Webphone Unavailable' error message?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-the-contact-page-does-not-open-in-hubspot-when-there-is-an-inbound-call-in-ringcentral-for-hubspot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. The contact page does not open in HubSpot when there is an inbound call in RingCentral for HubSpot?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-why-isnt-my-sms-being-logged-automatically" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Why isn't my SMS being logged automatically?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-why-is-a-contact-getting-created-in-hubspot-for-unknown-phone-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Why is a contact getting created in HubSpot for unknown phone numbers?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-why-is-there-no-available-hub-to-log-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q Why is there no available hub to log in?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-i-have-enabledupdated-call-outcomecall-type-in-hubspot-but-why-are-the-changes-not-synced-back-to-ringcentral-for-hubspot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. I have enabled/updated call outcome/call type in HubSpot, but why are the changes not synced back to RingCentral for HubSpot?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-why-do-i-see-the-error-message-cannot-match-contact-try-clicking-the-create-log-icon-in-your-call-history-when-i-make-or-pick-up-a-call" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Why do I see the error message "Cannot match contact. Try clicking the Create log icon in your call history." when I make or pick up a call?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-why-is-the-call-not-matched-but-the-contact-exists-in-my-hubspot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Why is the call not matched, but the contact exists in my HubSpot?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-why-is-there-no-call-recording-link-for-playback-in-hubspot-contact-activity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Why is there no call recording link for playback in HubSpot contact activity?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-can-i-make-calls-directly-from-hubspot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Can I make calls directly from HubSpot?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-will-inbound-calls-be-logged-in-hubspot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Will inbound calls be logged in HubSpot?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-what-happens-if-i-take-a-call-outside-of-hubspot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. What happens if I take a call outside of HubSpot?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-does-ringcentral-for-hubspot-support-call-recordings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Does RingCentral for HubSpot support call recordings?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-can-i-use-ringcentral-for-hubspot-on-mobile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Can I use RingCentral for HubSpot on mobile?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-is-ringcentral-for-hubspot-free" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Is RingCentral for HubSpot free?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-what-hubspot-objects-does-ringcentral-integrate-with" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. What HubSpot objects does RingCentral integrate with?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-does-ringcentral-work-with-hubspot-automations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Does RingCentral work with HubSpot automations?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-who-should-i-contact-for-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Who should I contact for support?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-how-to-set-up-workflow-in-hubspot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. How to set up workflow in HubSpot?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-does-ringcentral-for-hubspot-workflow-support-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Does RingCentral for HubSpot workflow support calls?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-sms-are-not-sent-through-workflow-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. SMS are not sent through Workflow automation.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-i-see-an-error-message-the-contact-owners-phone-number-is-not-set-up-to-send-text-messages-from-ringcentral-for-hubspot-check-the-numbers-permissions-or-contact-your-administrator-for-help-in-the-actions-logs-for-ringcentral" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. I see an error message: "The contact owner's phone number is not set up to send text messages from RingCentral for HubSpot. Check the number's permissions or contact your administrator for help." in the Actions logs for RingCentral.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-why-do-i-see-the-error-message-please-enter-a-valid-phone-number-for-this-contact-while-setting-up-a-workflow-in-hubspot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Why do I see the error message "Please enter a valid phone number for this contact" while setting up a workflow in HubSpot?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-can-we-use-the-company-main-number-to-send-sms-using-the-workflow-automation-in-hubspot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Can we use the company main number to send SMS using the workflow automation in HubSpot?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-why-do-i-see-the-message-this-call-wasnt-recorded-for-the-logged-call-in-hubspot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Why do I see the message 'This call wasn't recorded' for the logged call in HubSpot?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-why-are-missed-call-queue-calls-not-logged-to-hubspot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Why are missed call queue calls not logged to HubSpot?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-why-are-the-notes-overridden-in-the-call-log-after-the-call-is-logged-to-hubspot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Why are the notes overridden in the call log after the call is logged to HubSpot?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-why-isnt-there-a-send-sms-engagement-option-on-the-contact-detail-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Why isn't there a Send SMS engagement option on the Contact detail page?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-why-is-there-an-automatic-call-made-to-the-contact-from-ringex-by-the-ringcentral-hubspot-native-integration-when-switching-tabs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Why is there an automatic call made to the contact from RingEX by the RingCentral HubSpot Native integration when switching tabs?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-unable-to-select-ringex-by-ringcentral-in-the-location-field-while-editing-or-scheduling-a-meeting-in-hubspot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Unable to select RingEx by RingCentral in the location field while editing or scheduling a meeting in HubSpot.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-can-ringcentral-for-hubspot-integration-help-progress-the-lead-to-the-next-stage-after-a-call-is-completed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Can RingCentral for HubSpot integration help progress the Lead to the next stage after a call is completed?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-why-can-i-not-generate-reports-for-the-logged-sms-in-hubspot-crm-while-i-can-generate-reports-with-logged-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Why can I not generate reports for the logged SMS in HubSpot CRM, while I can generate reports with logged calls?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-why-do-i-see-all-hubspot-contacts-in-ringcentral-integration-i-can-access-contacts-which-i-dont-have-permission-to" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Why do I see all HubSpot contacts in RingCentral integration? I can access contacts which I don't have permission to.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-there-is-no-ringer-audio-when-there-is-an-inbound-call-to-ringex-by-ringcentral-app-in-hubspot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. There is no ringer audio when there is an inbound call to RingEx by RingCentral app in HubSpot.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-when-i-use-sso-to-log-in-to-ringcentral-for-hubspot-or-ringex-by-ringcentral-native-hubspot-integration-i-get-the-error-message-we-didnt-find-any-matched-account-try-another-account-to-log-in-again" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. When I use SSO to log in to RingCentral for HubSpot or RingEx by RingCentral native HubSpot integration, I get the error message "We didn't find any matched account. Try another account to log in again."
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-why-is-there-a-delay-in-auto-logging-sms-to-hubspot-contact-activity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Why is there a delay in auto logging SMS to HubSpot Contact Activity?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-why-can-i-not-log-sms-to-leads-companies-deals-or-tickets-in-the-hubspot-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Why can I not log SMS to leads, companies, deals, or tickets in the HubSpot integration?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-why-do-calls-show-call-with-unknown-contact-as-the-title-in-hubspot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Why do calls show "Call with unknown contact" as the title in HubSpot?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Q. Why do calls show &#34;Call with unknown contact&#34; as the title in HubSpot?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-reasons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Reasons:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-fix-existing-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Fix Existing Logs:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-prevent-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Prevent This:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-multiple-matches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Multiple Matches:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#long-term-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Long-term Solution:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-why-are-some-of-the-calls-not-auto-logged-to-hubspot-activity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Why are some of the calls not auto-logged to HubSpot Activity?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Q. Why are some of the calls not auto-logged to HubSpot Activity?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-resolve-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to resolve this:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-happens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this happens:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-how-do-the-contacted-and-association-fields-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. How do the Contacted and Association fields work?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Q. How do the Contacted and Association fields work?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-the-association-field-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How the Association field works:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-the-contacted-field-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How the Contacted field works:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best practices:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-why-did-my-sms-workflows-stop-working-after-switching-to-the-native-ringex-by-ringcentral-integration-and-why-do-sms-activities-now-appear-under-communication-instead-of-integrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Why did my SMS workflows stop working after switching to the native RingEX by RingCentral integration, and why do SMS activities now appear under Communication instead of Integrations?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Q. Why did my SMS workflows stop working after switching to the native RingEX by RingCentral integration, and why do SMS activities now appear under Communication instead of Integrations?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integration-architecture-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration Architecture Changes:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#impact-on-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Impact on Workflows:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resolution:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-help-from-hubspot-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Help from HubSpot Support:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#important-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Note:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-why-is-there-a-new-contact-created-by-the-integration-with-caller-phone-number-format-when-i-use-phone-numbers-that-are-stored-in-secondary-phone-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q. Why is there a new contact created by the integration with "Caller +Phone number" format when I use phone numbers that are stored in secondary phone fields?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Q. Why is there a new contact created by the integration with &#34;Caller +Phone number&#34; format when I use phone numbers that are stored in secondary phone fields?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-happens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What happens:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-happens_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this happens:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolution_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resolution:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workaround-for-multiple-phone-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workaround for multiple phone numbers:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#known-limitation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known limitation:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migration Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RingCentral for Salesforce
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RingCentral for Salesforce
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../salesforce/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Admin Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Admin Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../salesforce/admin-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../salesforce/admin-installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install/Uninstall
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../salesforce/admin-environment-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../salesforce/admin-application-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../salesforce/user-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../salesforce/user-initiating-ringcentral/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Initiating RingCentral
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../salesforce/user-calls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calls
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../salesforce/user-messages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Messages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../salesforce/user-video/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Video
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../salesforce/user-reports-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reports and Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../salesforce/questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RingCentral for Zendesk
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RingCentral for Zendesk
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zendesk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zendesk/questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RingCentral for Microsoft Dynamics 365
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RingCentral for Microsoft Dynamics 365
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_2" id="__nav_3_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Admin Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Admin Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dynamics/admin-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dynamics/admin-installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation and Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dynamics/questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Productivity Integrations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Productivity Integrations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RingCentral for MS Teams
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RingCentral for MS Teams
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../msteams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../msteams/chrome-lna-update/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local Network Access permission control from Chromium v142
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../msteams/log-collection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RingCentral for Microsoft Teams - Log Collection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../msteams/questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RingCentral for Zapier
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RingCentral for Zapier
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zapier/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2" id="__nav_4_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Actions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zapier/create-post/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Create Post
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scheduling Tools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Scheduling Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RingCentral Scheduler
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RingCentral Scheduler
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scheduler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scheduler/questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RingCentral for Microsoft Outlook
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RingCentral for Microsoft Outlook
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../outlook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RingCentral for Google Workspace
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RingCentral for Google Workspace
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../googleworkspace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+  
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    CRM Integrations
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    RingCentral for HubSpot
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+
+<h1 id="general-questions">General Questions</h1>
+<h2 id="q-i-keep-seeing-webphone-unavailable-error-message">Q. I keep seeing 'Webphone Unavailable' error message?</h2>
+<p>A. Users may encounter a "Webphone Unavailable" error message when attempting to call from RingCentral for HubSpot. This error typically occurs due to insufficient microphone permissions in the browser. To identify and resolve the issue, consider the following rules:</p>
+<p>Solution 1: Enable Microphone Permissions</p>
+<p>When users see the "Webphone Unavailable" error message, instruct them to click on it. This action will open the browser site settings. Ensure that the toggle for Microphone is turned on. Once enabled, the error message should disappear, allowing users to use RingCentral for HubSpot for making calls.</p>
+<p>Solution 2: Check Browser Privacy Settings</p>
+<p>If users still encounter the "Webphone Unavailable" error message after allowing microphone permissions, recommend checking the browser privacy settings. For Google Chrome:</p>
+<ol>
+<li>Go to Browser Settings</li>
+<li>Select Privacy and security</li>
+<li>Select Microphone</li>
+<li>Verify the following: - The correct microphone is selected (e.g., MacBook Pro Microphone (Built-in)(System default)) - Under default behavior, "Sites can ask to use your microphone" radio button is selected - The HubSpot site is not listed under "Not allowed to use your microphone" - The HubSpot site is present under "Allowed to use your microphone"</li>
+</ol>
+<h2 id="q-the-contact-page-does-not-open-in-hubspot-when-there-is-an-inbound-call-in-ringcentral-for-hubspot">Q. The contact page does not open in HubSpot when there is an inbound call in RingCentral for HubSpot?</h2>
+<p>A. Contact Page Not Opening for Inbound Calls</p>
+<p>The screen pop feature in HubSpot opens a contact screen or the contact search page for multiple matches when a user receives an inbound call. If it does not work as expected, there are several reasons to check if the customer has configured the settings correctly.</p>
+<p>Check if the user has enabled the toggle for 'Show matches for inbound calls'. If the user has not enabled this toggle in the RingCentral for HubSpot integration, the screen pop feature will not work.</p>
+<p>Even if the 'Show matches for inbound calls' toggle is enabled and users don't see the feature working, we need to determine if they are checking this feature after the inbound phone call is answered or while it is ringing. This feature only works when the inbound phone call is answered, not when the integration starts ringing with the matched contact.</p>
+<p>If the user has already enabled 'Show matches for inbound calls', is answering inbound calls, and the feature still does not work, we need to check if there are any browser pop-up blockers in place. Go to Settings -&gt; Privacy and security -&gt; Site settings -&gt; Pop-ups and redirects -&gt; Ensure that the radio button is selected for 'Sites can send pop-ups and use redirects'.</p>
+<h2 id="q-why-isnt-my-sms-being-logged-automatically">Q. Why isn't my SMS being logged automatically?</h2>
+<p>A: Once you enable the Auto-Log Texts toggle in Settings, all new incoming and outgoing texts will be logged automatically by the app. SMS messages are typically logged within 10 minutes, and the app will retry any failed attempts.</p>
+<p>If you don't see your SMS in HubSpot, it could be due to one of the following:</p>
+<p>The RingCentral for HubSpot app may not be showing the most up-to-date logging status.</p>
+<p>You might be viewing the wrong HubSpot contact, company, or deal.</p>
+<p>To resolve this:</p>
+<ol>
+<li>
+<p>Sign out and sign back in to the RingCentral for HubSpot app to refresh the sync.</p>
+</li>
+<li>
+<p>Click the "View Log Details" icon to open the exact record where the SMS has been logged in HubSpot.</p>
+</li>
+</ol>
+<h2 id="q-why-is-a-contact-getting-created-in-hubspot-for-unknown-phone-numbers">Q. Why is a contact getting created in HubSpot for unknown phone numbers?</h2>
+<p>A. When the "Auto log calls" toggle is enabled in RingCentral for HubSpot settings, the app creates a new contact for inbound calls with no matching record. The new contact is named "Caller + phone number in e164 format," and the call is logged under this new contact. The same process applies to SMS messages. If there's no matched record, the app creates a new contact named "SMS + phone number in e164 format" and logs the SMS to this new record.</p>
+<h2 id="q-why-is-there-no-available-hub-to-log-in">Q Why is there no available hub to log in?</h2>
+<p>A. If you're unable to log in, reach out to your HubSpot administrator to connect the HubSpot account you would like to use with RingCentral.
+If this has already been done, please ensure:</p>
+<ul>
+<li>You have access to the Hub in HubSpot</li>
+<li>You use the same email to sign in to both HubSpot and RingCentral for HubSpot
+    If you are still unable to log in after verifying these points, please contact RingCentral Support for assistance.</li>
+</ul>
+<h2 id="q-i-have-enabledupdated-call-outcomecall-type-in-hubspot-but-why-are-the-changes-not-synced-back-to-ringcentral-for-hubspot">Q. I have enabled/updated call outcome/call type in HubSpot, but why are the changes not synced back to RingCentral for HubSpot?</h2>
+<p>A. To sync the changes, log out of the app and then log back in.</p>
+<h2 id="q-why-do-i-see-the-error-message-cannot-match-contact-try-clicking-the-create-log-icon-in-your-call-history-when-i-make-or-pick-up-a-call">Q. Why do I see the error message "Cannot match contact. Try clicking the Create log icon in your call history." when I make or pick up a call?</h2>
+<p>A. This error message appears when your company reaches the rate limit imposed by HubSpot at that specific moment. As a result, the call information is displayed as "Unknown" because the contact matching process fails due to the rate limitation. However, potential matches may still exist despite the "Unknown" status. To resolve this, you can return to your call history and click the "Create call log" icon for the specific call. This action will trigger the contact matching process again, attempting to find and associate the correct contact information.</p>
+<p>I have checked with Jack and have the same insights. This would be considered a product feature request, and there is currently no estimated time of arrival (ETA) for its implementation and delivery. I will proceed to create an improvement ticket. You can also refer the customer to my previous comment and suggest they submit a feature request through ideas.ringcentral.com.</p>
+<p>Please let me know if you have any additional concerns.</p>
+<h2 id="q-why-is-the-call-not-matched-but-the-contact-exists-in-my-hubspot">Q. Why is the call not matched, but the contact exists in my HubSpot?</h2>
+<p>A. First, ensure you have signed into the hub where your contacts exist in RingCentral for HubSpot.
+Second, RingCentral for HubSpot follows the contact match logic for both national and international calls. If you make or receive national calls, the company/contact records with phone number or mobile phone number in any format will be matched. For example, if a phone number +16508888888 calls you and there are 4 contacts with the phone number saved as +16508888888, 1 (650)-888-8888, 650_888_8888, 6508888888 in your HubSpot, all of these will be matched.</p>
+<h2 id="q-why-is-there-no-call-recording-link-for-playback-in-hubspot-contact-activity">Q. Why is there no call recording link for playback in HubSpot contact activity?</h2>
+<p>A. If there is no call recording link present inside the HubSpot contact/company activity for the logged call, it is most likely that the integration was closed immediately after the call ended. We recommend users not to hit the close button for the integration after the call is ended, as this will terminate the integration instance and prevent the update API calls from occurring to update the call log with several parameters such as Call Duration, Call Recording Link, and Call Ended Time. If the user did not close the integration and still does not see the call recording playback link, please check the RingCentral admin portal to see if that call was recorded. If it is present there, please report the issue to RingCentral support.</p>
+<h2 id="q-can-i-make-calls-directly-from-hubspot">Q. Can I make calls directly from HubSpot?</h2>
+<p>A. Yes. You can use the RingCentral dialer inside HubSpot to call contacts. Calls are logged automatically with details like duration, timestamp, and optional notes.</p>
+<h2 id="q-will-inbound-calls-be-logged-in-hubspot">Q. Will inbound calls be logged in HubSpot?</h2>
+<p>A. Yes. Both answered and missed incoming calls are logged, helping you track all interactions. If you take a call outside HubSpot, it's still logged through Activity sync if it's set up.</p>
+<h2 id="q-what-happens-if-i-take-a-call-outside-of-hubspot">Q. What happens if I take a call outside of HubSpot?</h2>
+<p>A. Calls made or received on your deskphone and RingCentral mobile or desktop apps are still logged in HubSpot through Activity Sync. You may need to manually add notes and update call details.</p>
+<h2 id="q-does-ringcentral-for-hubspot-support-call-recordings">Q. Does RingCentral for HubSpot support call recordings?</h2>
+<p>A. Yes. If call recording is turned on in your RingCentral account, a playback link will appear in HubSpot. Recordings are stored in RingCentral's system.</p>
+<h2 id="q-can-i-use-ringcentral-for-hubspot-on-mobile">Q. Can I use RingCentral for HubSpot on mobile?</h2>
+<p>A. You can make and receive calls using the RingCentral mobile app. However, full integration features like in-app calling and automatic logging work best on the HubSpot desktop or web app. You need to use the HubSpot app to manually disposition and log calls. HubSpot doesn't currently support third-party calling from RingCentral in their mobile app.</p>
+<h2 id="q-is-ringcentral-for-hubspot-free">Q. Is RingCentral for HubSpot free?</h2>
+<p>A. The integration is free for RingCentral Advanced and Ultra users.</p>
+<h2 id="q-what-hubspot-objects-does-ringcentral-integrate-with">Q. What HubSpot objects does RingCentral integrate with?</h2>
+<p>A. RingCentral for HubSpot primarily integrates with:</p>
+<ul>
+<li>Contacts: Call logs link to HubSpot contacts to help track interactions.</li>
+<li>Companies: Calls can be linked to company records for easier team collaboration.</li>
+<li>Deals: Calls can be logged under active deals to track communications during the sales process.</li>
+<li>Tickets: Support teams can log calls under tickets to keep a record of customer interactions.</li>
+</ul>
+<h2 id="q-does-ringcentral-work-with-hubspot-automations">Q. Does RingCentral work with HubSpot automations?</h2>
+<p>A. Yes. RingCentral integrates with HubSpot workflows and automation tools. You can:</p>
+<ul>
+<li>Trigger workflows based on call events, like creating a follow-up task when a call is logged.</li>
+<li>Send notifications when a call is completed or missed.</li>
+<li>Create follow-up reminders to help boost customer engagement.</li>
+</ul>
+<h2 id="q-who-should-i-contact-for-support">Q. Who should I contact for support?</h2>
+<p>A.</p>
+<ul>
+<li>For RingCentral technical issues, contact Support.</li>
+<li>For HubSpot CRM questions, contact HubSpot Support.</li>
+<li>End users should visit the RingCentral support site or reach out to their system admin for integration-related questions.</li>
+</ul>
+<h2 id="q-how-to-set-up-workflow-in-hubspot">Q. How to set up workflow in HubSpot?</h2>
+<p>A. RingCentral for HubSpot provides a contact-based workflow action called "Send text message (SMS)," enabling a workflow to send text messages to enrolled contacts via the RingCentral for HubSpot app. These messages can be logged manually or automatically based on your app settings.</p>
+<p>You can find Workflows in your HubSpot Automation &gt; Workflows (see figure below). For more details on how to set up a workflow, read "Create workflows" (https://knowledge.hubspot.com/workflows/create-workflows).</p>
+<p><img alt="Workflow" src="../img/Workflow.png" /></p>
+<p>"Send text message (SMS)" is a custom contact-based workflow action. You can find it in the HubSpot workflow action section (see figure).</p>
+<p><img alt="RingExRingCentral" src="../img/RingExRingCentral.png" /></p>
+<p>When you add this action to your workflow, you can configure:</p>
+<ul>
+<li>Send text to: Define the phone number to send a message to (Figure, step 1). Usually choose the contact records' phone number field and/or mobile phone number field.</li>
+<li>Message: Define the SMS content (Figure, step 2).</li>
+</ul>
+<p>Using the example in the figure, the workflow will enroll a contact record with a deal amount over 100,000 and send an SMS to the enrolled contact automatically. For instance, if a contact named Dean Porter has a deal with an amount of 150,000 and the contact owner for Dean is Grace Tao, Dean will receive a message sent from Grace Porter's RingCentral number to his phone number with the content: "Hi Dean Porter, one of our specialists will reach out to you soon for the deal. Have a nice day!" The workflow uses Grace's RingCentral account to send the SMS as if Grace does it herself. Please ensure the contact owner (Grace Tao in this case) has a valid RingCentral account and is able to sign in to RingCentral for HubSpot.</p>
+<p><img alt="SendSMS" src="../img/SendSMS.png" /></p>
+<p>Workflow results and errors will be tracked in HubSpot workflow action logs (see figure). Read "Understand your workflow details page" for more information.</p>
+<p><img alt="ActionLog1" src="../img/ActionLog1.png" />
+<img alt="ActionLog2" src="../img/ActionLog2.png" /></p>
+<h2 id="q-does-ringcentral-for-hubspot-workflow-support-calls">Q. Does RingCentral for HubSpot workflow support calls?</h2>
+<p>A. No, currently RingCentral for HubSpot Workflow automation only supports the SMS feature. All other RingCentral features, including those related to calls, faxes, and contacts, are not supported.</p>
+<h2 id="q-sms-are-not-sent-through-workflow-automation">Q. SMS are not sent through Workflow automation.</h2>
+<p>A. There could be several reasons why the workflow automation does not execute and send SMS from the RingCentral for HubSpot integration. To identify if the RingCentral integration has failed to execute the "Send text message" action, navigate to the action log of the workflow and check the Action section. Look for "Send text message (SMS)" with a failure event. The events can include the following error messages:</p>
+<ol>
+<li>
+<p>General Error Messages:</p>
+<ul>
+<li>"Something went wrong when sending the message."</li>
+<li>"Connection failed. Please try again later."</li>
+<li>"Cannot connect due to internal errors. Please try again later."</li>
+<li>"Cannot connect due to network issues. Please try again later."</li>
+</ul>
+</li>
+<li>
+<p>Permission-Related Errors:</p>
+<ul>
+<li>"You don't have permission to send messages."</li>
+<li>"You don't have permission to send messages to recipients outside of your organization."</li>
+<li>"In order to call this API endpoint, user needs to have [InternalSMS] permission for requested resource."</li>
+</ul>
+</li>
+<li>
+<p>Phone Number Validation Errors:</p>
+<ul>
+<li>"Please enter a valid phone number."</li>
+<li>"Phone Number Validation Error."</li>
+<li>"Please enter a valid receiver number."</li>
+<li>"A valid phone number is required to send text messages to recipients outside of your company. Please contact your administrator to add a direct number to your account."</li>
+</ul>
+</li>
+<li>
+<p>Extension-Related Errors:</p>
+<ul>
+<li>"The extension number does not exist."</li>
+<li>"Sending SMS from/to extension numbers is not available"</li>
+<li>"Cannot send to an extension number with main phone number. If you want to send to an extension number, please just enter extension number."</li>
+</ul>
+</li>
+<li>
+<p>International/Regional Errors:</p>
+<ul>
+<li>"International SMS is not supported"</li>
+<li>"International MMS feature is not available"</li>
+<li>"Sending SMS to international phone number is not supported"</li>
+</ul>
+</li>
+<li>
+<p>Special Number Errors:</p>
+<ul>
+<li>"Sending texts to emergency/special service numbers is not supported."</li>
+<li>"Sending SMS to short numbers is not available"</li>
+</ul>
+</li>
+<li>
+<p>Text Content Errors:</p>
+<ul>
+<li>"Please enter the text to be sent."</li>
+<li>"Text is too long, 1,000-character limit"</li>
+<li>"Text is too long, 5000 limit"</li>
+</ul>
+</li>
+<li>
+<p>Sender-Related Errors:</p>
+<ul>
+<li>"You must select a number from your phone numbers to send"</li>
+<li>"Please set {areaCodeLink} to use 7-digit local phone numbers."</li>
+</ul>
+</li>
+<li>
+<p>Account Configuration Errors:</p>
+<ul>
+<li>"A valid phone number is required to send text messages to recipients outside of your company. Please contact your administrator to add a direct number to your account."</li>
+</ul>
+</li>
+<li>
+<p>Message Status Errors:</p>
+<ul>
+<li>"Queued"</li>
+<li>"Delivered"</li>
+<li>"Sent"</li>
+<li>"SendingFailed"</li>
+<li>"DeliveryFailed"</li>
+</ul>
+</li>
+</ol>
+<p>These error messages are localized and available in multiple languages (English, German, Italian, etc.) to provide a better user experience for international users.</p>
+<h2 id="q-i-see-an-error-message-the-contact-owners-phone-number-is-not-set-up-to-send-text-messages-from-ringcentral-for-hubspot-check-the-numbers-permissions-or-contact-your-administrator-for-help-in-the-actions-logs-for-ringcentral">Q. I see an error message: "The contact owner's phone number is not set up to send text messages from RingCentral for HubSpot. Check the number's permissions or contact your administrator for help." in the Actions logs for RingCentral.</h2>
+<p>A. Users will see this error message when they do not have permission to send messages from their RingCentral extension. Also, ensure the following note from the user guide is satisfied (https://assets.ringcentral.com/us/guide/RingCentral_for_Hubspot_User_Guide.pdf):</p>
+<p>Note: The workflow always sends the SMS from the contact owner's phone number. Therefore, please ensure the contact owner has a valid RingCentral account (using the same email address to sign in to both HubSpot and RingCentral) and is able to sign in to RingCentral for HubSpot, so that the "Send text message (SMS)" action will work properly.</p>
+<p>There is a quick way to test to ensure the workflow works:</p>
+<ul>
+<li>Login to RingCentral integration with the same email address used for signing in to HubSpot.</li>
+<li>Connect to the Hub which the HubSpot is connected to.</li>
+<li>Navigate to the Messages section in the RingCentral integration and then send a test text message.</li>
+<li>If the message is sent successfully from the above test, then execute the workflow.</li>
+</ul>
+<h2 id="q-why-do-i-see-the-error-message-please-enter-a-valid-phone-number-for-this-contact-while-setting-up-a-workflow-in-hubspot">Q. Why do I see the error message "Please enter a valid phone number for this contact" while setting up a workflow in HubSpot?</h2>
+<p>A. Users encounter this error message when they do not enter a valid phone number in the "Send text to" field while setting up the workflow. To resolve this issue:</p>
+<ul>
+<li>Ensure you select the correct phone number field (e.g., Phone Number or Mobile Phone Number).</li>
+<li>Alternatively, enter a phone number manually in the e.164 format.</li>
+<li>Update the changes and perform a test of the workflow automation.</li>
+</ul>
+<h2 id="q-can-we-use-the-company-main-number-to-send-sms-using-the-workflow-automation-in-hubspot">Q. Can we use the company main number to send SMS using the workflow automation in HubSpot?</h2>
+<p>A. No. Unfortunately, it is not possible to send SMS from your company's main number if it is tied to your main company line. This number cannot be used as the SMS Caller ID in the HubSpot workflow.</p>
+<p>There is a related thread on our Community Site that our engineers are actively working on. Feel free to join the discussion and add your question there:</p>
+<p>https://community.ringcentral.com/developer-platform-apis-integrations-5/cannot-send-sms-from-main-company-number-2658If</p>
+<p>However, if the main company number and company number(s) have the SMS feature enabled for sending text messages from those phone numbers, only the user extension assigned to handle SMS for those company numbers would be allowed to send SMS from the RingEx by RingCentral integration. The assignment is set by default to the main super admin user but can be changed from the admin portal (service.ringcentral.com) via the company auto-receptionist general settings. Follow these steps:</p>
+<ul>
+<li>Login to service.ringcentral.com as a RingCentral admin user</li>
+<li>Navigate to Phone System -&gt; Auto Receptionist -&gt; General Settings</li>
+<li>Under Call Handling section -&gt; settings</li>
+<li>Scroll down to Fax/SMS recipient and click on the 'Select Extension' button (Select an extension that will send and receive faxes and SMS text messages using the company phone numbers.)</li>
+</ul>
+<p>The extension selected above can send/receive fax and SMS for the company main number in RingEx by RingCentral integration.</p>
+<h2 id="q-why-do-i-see-the-message-this-call-wasnt-recorded-for-the-logged-call-in-hubspot">Q. Why do I see the message 'This call wasn't recorded' for the logged call in HubSpot?</h2>
+<p>A. Users may see this message on the HubSpot logged call for multiple reasons:</p>
+<ul>
+<li>If the call was not recorded from the RingEx by RingCentral integration, the call recording is not added to the call log. We recommend checking the RingCentral Admin Portal (service.ringcentral.com) Call Log reports to see if the call recordings exist. This applies to both on-demand and automatic call recordings.</li>
+<li>If a user closes the HubSpot integration (by clicking the 'X' button on the integration) immediately after the call is completed, it will terminate the call-log sync API call that updates the call log with necessary information such as call recording and call duration. It is recommended not to close the integration after the call ends; users can navigate to other HubSpot pages or browser tabs instead.</li>
+<li>If users check the call log for the call recording soon after the call has just ended, they are more likely to see the message 'This call wasn't recorded'.</li>
+</ul>
+<p>Here is background information on how this feature works:
+When the Integration is logging the call during the active call period and immediately after the call has ended, it uses telephony session data to log the call. This data does not contain recording information. The Integration must wait until it receives the same call data from the call-log API to obtain the recording information. The longer the recorded call, the longer the wait time. It can take up to 30 minutes for calls lasting a few hours. There is no clear estimation of the delay as it depends on the recorded call time and possibly the server load.</p>
+<h2 id="q-why-are-missed-call-queue-calls-not-logged-to-hubspot">Q. Why are missed call queue calls not logged to HubSpot?</h2>
+<p>A. Missed call queue calls are not logged to HubSpot for the following reason:</p>
+<p>If a call is missed by one member and picked up by another, multiple records would be created as one member logs it as a missed call, while another logs it as a connected call. This issue becomes more complex if the queue rings all members simultaneously. To address this problem, the application now ignores Call Queue calls that are ringing and appear to be missed by the current user. Ringing queue calls are ignored because the outcome of the call can only be determined after it's been picked up by someone or completely missed by the account. Missed calls are ignored as presumably another member will pick up the call and log it.</p>
+<p>This behavior is intentional. The call should be logged by another member if it is picked up. If the call is completely missed, it will likely not be logged. The logic to log this would conflict with the logic to avoid duplications. As a workaround, users should follow the server-side call logging logic, which requires an admin to complete the setup in the integration console (integrations.ringcentral.com) and enable Activity Sync. Our server component handles the logging of calls and will be able to log missed call queue calls correctly, as the service sees the call logs from the standpoint of the entire account.</p>
+<h2 id="q-why-are-the-notes-overridden-in-the-call-log-after-the-call-is-logged-to-hubspot">Q. Why are the notes overridden in the call log after the call is logged to HubSpot?</h2>
+<p>A. Below is how the call logging feature works:</p>
+<ul>
+<li>RingEx by RingCentral Integration app continuously updates the call log as the call progresses through different stages. After the call ends, there is a final update when we obtain the call recording link.</li>
+<li>Simultaneously, customers may use other third-party integrations with HubSpot or manually add content to the notes section after the call.</li>
+<li>This creates a race condition where sometimes the third-party integration or manually entered information populates the contents first, and sometimes RingEx by RingCentral integration app insert the recording link first.</li>
+<li>If the third-party integration or manually typed information is added first, RingEx by RingCentral integration app may override that content when we update the notes with recording links.</li>
+</ul>
+<h2 id="q-why-isnt-there-a-send-sms-engagement-option-on-the-contact-detail-page">Q. Why isn't there a Send SMS engagement option on the Contact detail page?</h2>
+<p>A. In HubSpot, the CRM contact page has a set of default engagement types such as Call, Email, Task, and Meeting. HubSpot does not provide support for SMS. Adding a custom activity button (like for SMS) directly to that row of activity buttons isn't natively supported through the default UI, but there are workarounds you can use.</p>
+<ul>
+<li>On the right section of the contact page, users should see a Text Messaging section with an "Open RingCentral Text Messaging" button. This button will open the native integration for users to enable texting within HubSpot using 'RingCentral' as the provider.</li>
+<li>Attaching a screenshot for reference.</li>
+</ul>
+<p><img alt="Open RingCentral Text Messaging" src="../img/open-ringcentral-text-messaging.png" /></p>
+<h2 id="q-why-is-there-an-automatic-call-made-to-the-contact-from-ringex-by-the-ringcentral-hubspot-native-integration-when-switching-tabs">Q. Why is there an automatic call made to the contact from RingEX by the RingCentral HubSpot Native integration when switching tabs?</h2>
+<p>A. This is a known feature from HubSpot when call goes out from RingCentral integration that means a 'Call' type task is created for that contact.</p>
+<ul>
+<li>This call task and dialing interaction is a core feature of HubSpot's power dialing functionality. It works as intended, assuming users who click on call tasks want to immediately engage in the call.</li>
+<li>According to https://community.hubspot.com/t5/CRM/How-to-stop-auto-opening-action-box-from-Tasks-view/m-p/1037304, there currently appears to be no workaround other than creating a different type of task.</li>
+<li>In this case, our native CTI only receives a request to make a call; our app does not automatically initiate dialing on its own. Essentially, HubSpot instructs our app to make the call.</li>
+<li>Our Chrome extension did not function this way because it does not fully integrate with HubSpot's CTI solution. For example, clicking on native phone buttons in HubSpot does not work with the extension, but the extension scans the page to offer our own injected call buttons.</li>
+</ul>
+<p>Workarounds:</p>
+<ul>
+<li>The only known workaround is to create tasks as "To-Do" type rather than call tasks.</li>
+</ul>
+<p>We recommend the customer consider this workaround or contact HubSpot for potential alternative solutions. Our partnership with HubSpot may lead to full support of their native solution and potential retirement of the extension in the future. It may be more effective if the request to disable this auto-dialing behavior comes from customers rather than from RingCentral.</p>
+<h2 id="q-unable-to-select-ringex-by-ringcentral-in-the-location-field-while-editing-or-scheduling-a-meeting-in-hubspot">Q. Unable to select RingEx by RingCentral in the location field while editing or scheduling a meeting in HubSpot.</h2>
+<p>A. When users encounter a disabled RingEx by RingCentral option in the location field while editing or scheduling a meeting, it may be due to the following reasons:</p>
+<ul>
+<li>
+<p>Ensure you are logged in to the RingEx by RingCentral integration in your HubSpot CRM. You may see a message stating, "Please login to RingCentral for HubSpot and refresh the page to continue scheduling a meeting."</p>
+</li>
+<li>
+<p>If you are logged in to the integration but still see the option disabled, it is likely that the email address used for the RingCentral integration differs from the one used to sign in to HubSpot. Always ensure you log in to the RingCentral integration using the same email address you use to sign in to HubSpot.</p>
+</li>
+</ul>
+<h2 id="q-can-ringcentral-for-hubspot-integration-help-progress-the-lead-to-the-next-stage-after-a-call-is-completed">Q. Can RingCentral for HubSpot integration help progress the Lead to the next stage after a call is completed?</h2>
+<p>A. No, RingCentral for HubSpot does not automatically move leads to the next stage when you complete a call. This is a HubSpot feature that needs to be configured separately.</p>
+<p>How to Achieve Lead Stage Progression:</p>
+<p>To automatically move leads to the next stage when calls are completed, you need to:</p>
+<ol>
+<li>Configure HubSpot Workflows: Set up workflows in HubSpot that trigger based on call log creation.</li>
+<li>Use Call Outcomes as Triggers: Configure workflows to move leads when specific call outcomes are logged.</li>
+<li>Set Up Property Updates: Create workflow rules that update lead stage properties based on call activity.</li>
+</ol>
+<p>Example HubSpot Workflow Setup:</p>
+<ol>
+<li>Go to HubSpot Settings → Automation → Workflows</li>
+<li>Create a new workflow triggered by "Call logged"</li>
+<li>Add conditions based on call outcomes (e.g., "Connected" calls)</li>
+<li>Add actions to update lead stage property</li>
+<li>Set the target stage (e.g., from "New" to "Qualified")</li>
+</ol>
+<p>The lead stage progression is a HubSpot workflow automation feature, not a RingCentral feature. RingCentral provides the call logging data that can be used as triggers for HubSpot workflows, but the actual stage progression logic must be configured within HubSpot's automation system.</p>
+<h2 id="q-why-can-i-not-generate-reports-for-the-logged-sms-in-hubspot-crm-while-i-can-generate-reports-with-logged-calls">Q. Why can I not generate reports for the logged SMS in HubSpot CRM, while I can generate reports with logged calls?</h2>
+<p>A. This is not an issue but rather an intentional design choice that optimizes user experience. SMS logs appear in the Activities tab with full content visibility, aligning with user expectations. Calls, however, appear in both Activities and Reports for comprehensive tracking. These different logging methods effectively serve distinct use cases.</p>
+<p>Reasons why SMS does not appear in Reports:</p>
+<ul>
+<li>SMS is logged as a "custom timeline event," whereas calls are logged as "Engagements" in HubSpot's Contact/Company/Deals/Leads Activities.</li>
+<li>We opted not to log SMS as an "Engagement" field type due to its limitations, particularly in text content length. SMS messages often contain longer text that wouldn't fit well in standard engagement fields. Custom Timeline Events allow for richer content display.</li>
+<li>Choosing to use the engagement field for SMS would result in losing the rich SMS content display in the timeline, as the content would be truncated to fit engagement field limits.</li>
+</ul>
+<p>I would also recommend that the user reach out to HubSpot support to inquire why 'custom timeline events' are not showing up in the HubSpot Reports.</p>
+<h2 id="q-why-do-i-see-all-hubspot-contacts-in-ringcentral-integration-i-can-access-contacts-which-i-dont-have-permission-to">Q. Why do I see all HubSpot contacts in RingCentral integration? I can access contacts which I don't have permission to.</h2>
+<p>A. This issue stems from a feature limitation in the RingCentral for HubSpot integration. The current implementation lacks permission checks, resulting in users seeing contacts without proper access. The contact search API calls don't include user permission filters. Consequently, the HubSpot API returns all matching contacts, and the integration doesn't filter contacts based on the current user's ownership or access rights.</p>
+<p>We call the Search API "https://api-rcapps.ringcentral.com/crm-framework/v1/services/hubspot/contacts/search". This API returns all contacts present in HubSpot that match the search criteria, regardless of user permissions.</p>
+<h2 id="q-there-is-no-ringer-audio-when-there-is-an-inbound-call-to-ringex-by-ringcentral-app-in-hubspot">Q. There is no ringer audio when there is an inbound call to RingEx by RingCentral app in HubSpot.</h2>
+<p>A. This is a common issue caused by browser auto-play protection policies. Modern browsers (Chrome, Edge, Firefox) block audio playback until the user interacts with the page to prevent unwanted sounds.</p>
+<p>To resolve this:</p>
+<ol>
+<li>Click anywhere on the RingEx by RingCentral standalone window when you first open it.</li>
+<li>Interact with any element(buttons, menus, etc.) in the window</li>
+<li>Refresh the page if the issue persists</li>
+</ol>
+<p>Why this happens:</p>
+<ul>
+<li>Browsers require user interaction before allowing audio playback</li>
+<li>The first/initial inbound call of the day often triggers this protection</li>
+<li>RingCentral for HubSpot integration needs audio permissions to play ringtones and call sounds</li>
+</ul>
+<p>Pro tip: Always click on the RingEx by RingCentral integration window once after opening it to ensure audio permissions are granted for the entire session. If the issue continues after following these steps, please contact RingCentral support for further assistance.</p>
+<h2 id="q-when-i-use-sso-to-log-in-to-ringcentral-for-hubspot-or-ringex-by-ringcentral-native-hubspot-integration-i-get-the-error-message-we-didnt-find-any-matched-account-try-another-account-to-log-in-again">Q. When I use SSO to log in to RingCentral for HubSpot or RingEx by RingCentral native HubSpot integration, I get the error message "We didn't find any matched account. Try another account to log in again."</h2>
+<p>A. The user is experiencing this issue because:
+- SSO only handles RingCentral authentication.
+- It doesn't automatically connect to HubSpot.
+- The system needs to know which HubSpot account belongs to your RingCentral account.
+- This connection must be established first using username/password authentication.</p>
+<p>Solution:</p>
+<p>Step 1: Use Username/Password First (NOT SSO)</p>
+<p>You need to use username/password authentication first to establish the connection:</p>
+<ul>
+<li>Go to RingCentral HubSpot integration.</li>
+<li>Click "Sign In" and "Next" (NOT "Single Sign-on").</li>
+<li>Enter your RingCentral username and password. (Ensure the email address you use to sign in to the RingCentral app is the same one you use to sign in to HubSpot.)</li>
+<li>Complete the authentication process.</li>
+<li>This establishes the connection between your RingCentral account and HubSpot account.</li>
+</ul>
+<p>Step 2: Then SSO Will Work</p>
+<p>After the connection is established:</p>
+<ul>
+<li>SSO will work because the system now knows which HubSpot account matches your RingCentral credentials.</li>
+<li>You can use "Single Sign-on" for future logins.</li>
+<li>The account matching will succeed because the connection is already established.</li>
+</ul>
+<h2 id="q-why-is-there-a-delay-in-auto-logging-sms-to-hubspot-contact-activity">Q. Why is there a delay in auto logging SMS to HubSpot Contact Activity?</h2>
+<p>A. The SMS auto-logging feature operates on a scheduled sync cycle, not in real-time, which can cause delays in when messages appear in HubSpot Contact Activity.</p>
+<p>Expected behavior:</p>
+<ul>
+<li>Typical delay: 8-10 minutes after receiving/sending an SMS</li>
+<li>Maximum delay: Up to 15 minutes in some cases</li>
+<li>Sync frequency: Messages are processed in batches throughout the day</li>
+</ul>
+<p>Why this happens:</p>
+<ul>
+<li>RingCentral processes SMS messages in scheduled intervals to optimize performance</li>
+<li>The system batches multiple messages together for efficient HubSpot API calls</li>
+<li>Network latency and HubSpot API response times contribute to the overall delay</li>
+</ul>
+<p>What to expect:</p>
+<ul>
+<li>SMS messages will eventually appear in HubSpot Contact Activity</li>
+<li>The delay is normal and not indicative of a system error</li>
+<li>All messages are queued and processed automatically</li>
+</ul>
+<p>Note: This delay only affects auto-logging. Manual SMS logging through the RingCentral integration appears immediately in HubSpot. If you experience delays longer than 15 minutes, please contact RingCentral support for investigation.</p>
+<h2 id="q-why-can-i-not-log-sms-to-leads-companies-deals-or-tickets-in-the-hubspot-integration">Q. Why can I not log SMS to leads, companies, deals, or tickets in the HubSpot integration?</h2>
+<p>A. Currently, the RingCentral for HubSpot integration is designed to log SMS conversations exclusively to Contact records. This design decision was made to provide a streamlined experience for the most common use case, as SMS conversations are typically person-to-person interactions.</p>
+<p>What this means:</p>
+<ul>
+<li>SMS conversations are logged to Contacts in HubSpot Contact Activity</li>
+<li>SMS cannot be logged directly to Leads, Companies, Deals, or Tickets</li>
+<li>This is a current limitation of the integration, not a technical issue</li>
+</ul>
+<p>Why this happens:</p>
+<ul>
+<li>The integration was built with a focus on contact-based communication tracking</li>
+<li>HubSpot's API fully supports logging activities to all entity types</li>
+<li>This was a product design decision for simplicity and performance</li>
+</ul>
+<p>Available alternatives:</p>
+<ul>
+<li>Use HubSpot Workflows to automatically associate SMS conversations with other entities</li>
+<li>Manual association of SMS activities with relevant leads, deals, or companies</li>
+<li>Create custom properties to track SMS communication across different record types</li>
+</ul>
+<p>Future enhancement:</p>
+<p>We have documented this as a feature request and added it to our product roadmap. The enhancement would allow customers to configure SMS logging for multiple entity types based on their specific business needs.</p>
+<p>Current workaround:</p>
+<p>SMS conversations logged to contacts can be manually or automatically associated with other HubSpot entities using HubSpot's built-in automation tools and association features.</p>
+<h2 id="q-why-do-calls-show-call-with-unknown-contact-as-the-title-in-hubspot">Q. Why do calls show "Call with unknown contact" as the title in HubSpot?</h2>
+<p>A. This happens when calls are manually logged without selecting a contact. The system matches contacts and shows suggestions, but if none are selected before saving, the call is saved without associations, so HubSpot displays "Call with unknown contact."</p>
+<h3 id="common-reasons">Common Reasons:</h3>
+<ul>
+<li>Multiple contact matches appear and the user isn't sure which to select</li>
+<li>The user doesn't notice the suggested contacts dropdown</li>
+<li>The user saves quickly without selecting a contact</li>
+</ul>
+<h3 id="how-to-fix-existing-logs">How to Fix Existing Logs:</h3>
+<ol>
+<li>Open the call engagement in HubSpot</li>
+<li>Click "Edit"</li>
+<li>In the "Contact" or "Associated with" field, search for and select the correct contact</li>
+<li>Save the changes</li>
+<li>The title will update to "Call with [Contact Name]"</li>
+</ol>
+<h3 id="how-to-prevent-this">How to Prevent This:</h3>
+<p>When manually logging calls from RingCentral call history:</p>
+<ol>
+<li>Click "Create Log" for the call</li>
+<li>Review the suggested contacts in the dropdown</li>
+<li>Select at least one contact before saving</li>
+<li>If multiple matches appear, choose the most relevant one (check name, company, or recent activity)</li>
+<li>Click "Save" only after selecting a contact</li>
+</ol>
+<p><strong>Important:</strong> The system cannot automatically link calls after saving. You must select a contact during the logging process.</p>
+<h3 id="for-multiple-matches">For Multiple Matches:</h3>
+<p>If you see several suggested contacts, select the one that matches the person you spoke with, or the most recently active contact. You can edit the log in HubSpot later to change associations if needed.</p>
+<h3 id="long-term-solution">Long-term Solution:</h3>
+<p>Consider enabling Activity Auto Logging (AAL) with the CREATE_CONTACT setting for unknown numbers. This automatically creates and links contacts, reducing manual errors and "Call with unknown contact" entries.</p>
+<h2 id="q-why-are-some-of-the-calls-not-auto-logged-to-hubspot-activity">Q. Why are some of the calls not auto-logged to HubSpot Activity?</h2>
+<p>A. If some of the calls are not logged from RingEx by RingCentral integration in HubSpot, you need to check the call history to see if there are any multiple matches detected for that phone number.</p>
+<p>When the system finds multiple matching contacts, the call will NOT automatically log unless the user makes a selection during the call. If the customer did not make a selection, the call would remain unlogged and would need to be manually logged later from the call history.</p>
+<h3 id="how-to-resolve-this">How to resolve this:</h3>
+<ol>
+<li><strong>Check for multiple matches</strong>: Review the call history in RingCentral to see if multiple contact suggestions appeared</li>
+<li><strong>Manual logging required</strong>: For calls with multiple matches that weren't resolved during the call, use the "Create Log" button in call history</li>
+<li><strong>Select the correct contact</strong>: When manually logging, choose the appropriate contact from the suggested matches</li>
+<li><strong>Prevention</strong>: Train users to always select a contact when multiple matches appear during active calls</li>
+</ol>
+<h3 id="why-this-happens">Why this happens:</h3>
+<ul>
+<li>The system cannot automatically choose between multiple potential matches</li>
+<li>User intervention is required to ensure the call is logged to the correct contact</li>
+<li>This prevents incorrect contact associations and maintains data accuracy</li>
+</ul>
+<h2 id="q-how-do-the-contacted-and-association-fields-work">Q. How do the Contacted and Association fields work?</h2>
+<p>A. When a call is made to a contact through the RingCentral extension, the integration automatically retrieves all CRM records currently associated with that contact in HubSpot. This includes contacts, companies, deals, and tickets that are already linked to the contact in HubSpot CRM. These records appear as "suggested" options in the Associations field dropdown.</p>
+<h3 id="how-the-association-field-works">How the Association field works:</h3>
+<ul>
+<li><strong>Automatic retrieval</strong>: The system pulls all related records linked to the contact in HubSpot</li>
+<li><strong>Manual selection required</strong>: By default, nothing is automatically selected and the user needs to manually check the boxes for the records they want to associate with the call</li>
+<li><strong>Selective logging</strong>: Only the records explicitly selected will be saved with the call log</li>
+<li><strong>Multiple record types</strong>: Shows contacts, companies, deals, and tickets that are relevant to the call</li>
+</ul>
+<h3 id="how-the-contacted-field-works">How the Contacted field works:</h3>
+<ul>
+<li><strong>Contact-specific</strong>: Works similarly to the Association field but only shows contacts</li>
+<li><strong>Manual selection</strong>: Users must manually select which contacts to associate with the call</li>
+<li><strong>No automatic selection</strong>: The system does not automatically select contacts even if there's only one match</li>
+</ul>
+<h3 id="best-practices">Best practices:</h3>
+<ol>
+<li><strong>Review suggestions</strong>: Always check the suggested associations before logging the call</li>
+<li><strong>Select relevant records</strong>: Only associate records that are actually related to the call</li>
+<li><strong>Check all record types</strong>: Consider whether the call relates to specific deals, companies, or tickets</li>
+<li><strong>Verify accuracy</strong>: Ensure you're selecting the correct records to maintain data integrity</li>
+</ol>
+<h2 id="q-why-did-my-sms-workflows-stop-working-after-switching-to-the-native-ringex-by-ringcentral-integration-and-why-do-sms-activities-now-appear-under-communication-instead-of-integrations">Q. Why did my SMS workflows stop working after switching to the native RingEX by RingCentral integration, and why do SMS activities now appear under Communication instead of Integrations?</h2>
+<p>A. The behavior difference is expected due to an architectural change in how the integration logs SMS activities:</p>
+<h3 id="integration-architecture-changes">Integration Architecture Changes:</h3>
+<ul>
+<li>
+<p><strong>Old Chrome Extension / RingCentral Labs Integration</strong>: SMS logs were created as custom app events under "RingEX by RingCentral" using HubSpot's Custom Events/Engagements API. This allowed filtering and workflow triggers via <strong>Integrations</strong> → <strong>RingEX by RingCentral</strong> → <strong>SMS log</strong>.</p>
+</li>
+<li>
+<p><strong>New Native HubSpot Integration</strong>: SMS logs are now created using HubSpot's native Communication Timeline API as standard SMS activity types. This follows HubSpot's recommended patterns for communications and is why SMS activities now appear under <strong>Communication</strong> → <strong>SMS</strong> instead of the Integrations filter.</p>
+</li>
+</ul>
+<h3 id="impact-on-workflows">Impact on Workflows:</h3>
+<p>Workflows that were previously set up to trigger on "Custom Events → App Event → RingEX by RingCentral → SMS log" will no longer work because the Native integration logs SMS as standard HubSpot communication events, not as custom app events.</p>
+<h3 id="resolution">Resolution:</h3>
+<p>The customer will need to rebuild their workflows to use HubSpot's standard communication triggers instead of the old custom app event triggers. HubSpot Support can assist with this by providing guidance on building workflows based on standard SMS communication events.</p>
+<h3 id="getting-help-from-hubspot-support">Getting Help from HubSpot Support:</h3>
+<p>When contacting HubSpot Support, the customer can say:</p>
+<blockquote>
+<p>"I'm using the native RingEX by RingCentral integration and need help building workflows that trigger from HubSpot's standard SMS communication events (SMS sent/delivered/failed/etc.) instead of the old RingCentral custom 'SMS Log' app events."</p>
+</blockquote>
+<h3 id="important-note">Important Note:</h3>
+<p>This change is a result of the integration being natively embedded in HubSpot and is not a bug or regression - it's the intended design of the native integration to leverage HubSpot's standard activity types for better compatibility with HubSpot's native features.</p>
+<h2 id="q-why-is-there-a-new-contact-created-by-the-integration-with-caller-phone-number-format-when-i-use-phone-numbers-that-are-stored-in-secondary-phone-fields">Q. Why is there a new contact created by the integration with "Caller +Phone number" format when I use phone numbers that are stored in secondary phone fields?</h2>
+<p>A. The RingCentral for HubSpot integration only searches the standard <strong>"Phone"</strong> field in HubSpot contacts for contact matching. It does not search additional phone fields such as "Phone number 2", "Phone number 3", or other custom phone properties.</p>
+<h3 id="what-happens">What happens:</h3>
+<p>When the customer clicks to call from a phone number stored in "Phone number 2" or "Phone number 3" fields, the integration cannot match it to the existing contact. As a result, after the call ends, the integration automatically creates a new contact named <strong>"Caller [phone number]"</strong>.</p>
+<h3 id="why-this-happens_1">Why this happens:</h3>
+<ul>
+<li><strong>Limited field search</strong>: The integration's contact matching only searches the standard "Phone" field</li>
+<li><strong>Multiple phone fields not supported</strong>: Secondary phone fields like "Phone number 2", "Phone number 3", or custom phone properties are not included in the matching logic</li>
+<li><strong>Automatic contact creation</strong>: When no match is found in the standard "Phone" field, the system creates a new contact to log the call</li>
+</ul>
+<h3 id="resolution_1">Resolution:</h3>
+<p>The customer should ensure that phone numbers they want to be matched are stored in the standard <strong>"Phone"</strong> field in HubSpot contacts. If they need to store multiple phone numbers for a contact, the primary phone number (used most often for calls) should be in the standard "Phone" field.</p>
+<h3 id="workaround-for-multiple-phone-numbers">Workaround for multiple phone numbers:</h3>
+<ol>
+<li><strong>Primary number</strong>: Store the most frequently called number in the standard "Phone" field</li>
+<li><strong>Secondary numbers</strong>: Use additional fields for backup/alternative numbers</li>
+<li><strong>Manual matching</strong>: If calling secondary numbers, manually select the correct contact during call logging</li>
+<li><strong>Contact consolidation</strong>: Merge any duplicate contacts created from secondary number calls</li>
+</ol>
+<h3 id="known-limitation">Known limitation:</h3>
+<p>This is a known limitation of the current integration. We have noted this as a potential enhancement to search across all phone fields in HubSpot contacts for future development consideration.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2025 RingCentral, Inc. All rights reserved.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/ringcentral" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.path", "navigation.tabs", "toc.integrate", "search.sharing", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../archiver-nav.js"></script>
+      
+    
+  </body>
+</html>
