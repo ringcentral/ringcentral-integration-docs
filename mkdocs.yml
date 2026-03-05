@@ -124,6 +124,12 @@ nav:
   - "Productivity Integrations":
       - "RingCentral for MS Teams":
           - "Overview": msteams/index.md
+          - "Teams Embedded App":
+              - "Admin Guide": msteams/embedded-app-admin.md
+              - "User Guide": msteams/embedded-app-user.md
+          - "Teams Presence Sync":
+              - "Admin Guide": msteams/presence-sync-admin.md
+              - "User Guide": msteams/presence-sync-user.md
           - "Local Network Access permission control from Chromium v142": msteams/chrome-lna-update.md
           - "RingCentral for Microsoft Teams - Log Collection": msteams/log-collection.md
           - "General Questions": msteams/questions.md
