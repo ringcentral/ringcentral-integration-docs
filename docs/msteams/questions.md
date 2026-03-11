@@ -33,8 +33,19 @@ A. Unlike the .MSI installer, the .EXE installer it self does not work as a unin
 
 A. The Embedded App's user session is stored in the following locations, please make sure to preserve these folders to keep the user session alive. Most users should be using the new MS Teams app currently, but there may be some virtual desktop users that are still using the classic MS Teams app.
 
-- The new MS Teams app: `C:\Users\%username%\AppData\Local\Packages\MSTeams_8wekyb3d8bbwe`
-- The classic MS Teams app: `%appdata%\Microsoft\Teams`
+- **The classic MS Teams app:** 
+  - `%appdata%\Microsoft\Teams` 
+  - Note that classic Teams should have been deprecated by Microsoft already.
+- **The new MS Teams app:** 
+  - `C:\Users\%username%\AppData\Local\Packages\MSTeams_8wekyb3d8bbwe` 
+  - Or `%LOCALAPPDATA%\Packages\MSTeams_8wekyb3d8bbwe`
+  - Note that persisting this entire folder can sometimes cause MS Teams to fail to launch in Citrix. In that case, persist only the specific session folder instead of the entire folder. The session folder is:
+    - `C:\Users\%username%\AppData\Local\Packages\MSTeams_8wekyb3d8bbwe\LocalCache\Microsoft\MSTeams\EBWebView\WV2Profile_tfw`
+    - Or `%LOCALAPPDATA%\Packages\MSTeams_8wekyb3d8bbwe\LocalCache\Microsoft\MSTeams\EBWebView\WV2Profile_tfw`
+- **Desktop Plugin (local settings):** 
+  - Some settings are stored locally in the Desktop Plugin instead of in the Embedded App session. To preserve those, persist: 
+    - `C:\Users\%username%\AppData\Roaming\ringcentral-desktop-plugin`
+    - Or `%APPDATA%\ringcentral-desktop-plugin`
 
 ## Q. When I search for a contact in the Embedded App, contacts are not loaded or appearing. How can I resolve this?
 
