@@ -1,0 +1,4116 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ringcentral.github.io/ringcentral-integration-docs/msteams/embedded-app-user/">
+      
+      
+        <link rel="prev" href="../embedded-app-teams-admin-center-install/">
+      
+      
+        <link rel="next" href="../presence-sync-admin/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>User Guide - RingCentral Integrations</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../assets/external/fonts.googleapis.com/css.b26d7f94.css">
+        <style>:root{--md-text-font:"Inter Tight";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#using-the-ringcentral-for-microsoft-teams-embedded-app" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="RingCentral Integrations" class="md-header__button md-logo" aria-label="RingCentral Integrations" data-md-component="logo">
+      
+  <img src="../../img/RingCentral_logo_color.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RingCentral Integrations
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              User Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../archiver/" class="md-tabs__link">
+          
+  
+  
+  RingCentral Archiver
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../hubspot/" class="md-tabs__link">
+          
+  
+  
+  CRM Integrations
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Productivity Integrations
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../scheduler/" class="md-tabs__link">
+          
+  
+  
+  Scheduling Tools
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="RingCentral Integrations" class="md-nav__button md-logo" aria-label="RingCentral Integrations" data-md-component="logo">
+      
+  <img src="../../img/RingCentral_logo_color.png" alt="logo">
+
+    </a>
+    RingCentral Integrations
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RingCentral Archiver
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RingCentral Archiver
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/user-notice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Notice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/enable-archiver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enable Archiver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/admin-roles-permissions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Admin Roles and Permissions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/user-roles-permissions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Roles and Permissions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/system-requirements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Requirements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/connect-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linking Storages to Archiver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/connect-dropbox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connect Dropbox
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/connect-sftp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connect SFTP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/sftp-security-upgrade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SFTP Security Upgrade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/connect-gdrive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connect Google Drive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/connect-box/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connect Box
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/connect-smarsh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connect Smarsh
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/sync-options/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sync Options
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_15" id="__nav_2_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive Logs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive Logs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/archive-logs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/retry-mechanism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Retry Mechanism
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/archive-status/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive Status and Data Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/notifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archiver/questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CRM Integrations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CRM Integrations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RingCentral for HubSpot
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RingCentral for HubSpot
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hubspot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hubspot/questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hubspot/migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migration Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RingCentral for Salesforce
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RingCentral for Salesforce
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../salesforce/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Admin Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Admin Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../salesforce/admin-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../salesforce/admin-installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install/Uninstall
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../salesforce/admin-environment-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../salesforce/admin-application-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../salesforce/user-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../salesforce/user-initiating-ringcentral/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Initiating RingCentral
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../salesforce/user-calls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calls
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../salesforce/user-messages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Messages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../salesforce/user-video/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Video
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../salesforce/user-reports-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reports and Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../salesforce/questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RingCentral for Zendesk
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RingCentral for Zendesk
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zendesk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zendesk/questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RingCentral for Microsoft Dynamics 365
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RingCentral for Microsoft Dynamics 365
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_2" id="__nav_3_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Admin Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Admin Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dynamics/admin-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dynamics/admin-installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation and Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dynamics/questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Productivity Integrations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Productivity Integrations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RingCentral for MS Teams
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RingCentral for MS Teams
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_2" id="__nav_4_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Teams Embedded App
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Teams Embedded App
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../embedded-app-admin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Admin Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../embedded-app-multiple-m365-tenants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multiple Microsoft 365 tenants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../embedded-app-teams-admin-center-install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Teams admin center install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites-for-installing-the-ringcentral-for-teams-embedded-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites for installing the RingCentral for Teams embedded app
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-the-ringcentral-for-teams-embedded-app-for-desktop-and-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing the RingCentral for Teams embedded app for desktop and web
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing the RingCentral for Teams embedded app for desktop and web">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#launching-the-embedded-app-once-installed-by-it-admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Launching the embedded app once installed by IT admin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-the-embedded-app-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding the embedded app yourself
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signing-in-to-the-ringcentral-for-teams-embedded-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signing in to the RingCentral for Teams embedded app
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-the-desktop-plugin-and-quick-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding the desktop plugin and quick checks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#granting-microphone-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Granting microphone access
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desktop-plugin-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Desktop plugin features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desktop plugin features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#auto-launch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto launch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#call-experience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Call experience
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-the-desktop-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Updating the desktop plugin
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ringcentral-for-teams-embedded-app-user-experience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RingCentral for Teams embedded app user experience
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RingCentral for Teams embedded app user experience">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#queue-experience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Queue experience
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notifications
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Notifications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#managing-notifications-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Managing notifications settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text-message-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Text message settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fax
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customizable-menu-bar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Customizable menu bar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managing-contacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Managing contacts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#headset-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Headset support
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Headset support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minimum-requirements-for-using-headsets-with-ringcentral" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimum requirements for using headsets with RingCentral
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-turn-on-your-headset-with-the-embedded-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to turn on your headset with the embedded app
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tips-for-supporting-multiple-headsets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tips for supporting multiple headsets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usb-hid-devices-with-the-embedded-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        USB HID devices with the embedded app
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="USB HID devices with the embedded app">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-usb-hid-devices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting up USB HID devices
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phone-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phone settings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reporting-issues-to-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reporting issues to support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-presence-sync-feature-in-the-embedded-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using the Presence sync feature in the embedded app
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-ringcentral-for-teams-embedded-app-in-companion-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using the RingCentral for Teams embedded app in companion mode
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_3" id="__nav_4_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Teams Presence Sync
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Teams Presence Sync
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../presence-sync-admin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Admin Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../presence-sync-user/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chrome-lna-update/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local Network Access permission control from Chromium v142
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../log-collection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RingCentral for Microsoft Teams - Log Collection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RingCentral for Zapier
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RingCentral for Zapier
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zapier/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2" id="__nav_4_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Actions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zapier/create-post/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Create Post
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scheduling Tools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Scheduling Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RingCentral Scheduler
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RingCentral Scheduler
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scheduler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scheduler/questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RingCentral for Microsoft Outlook
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RingCentral for Microsoft Outlook
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../outlook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RingCentral for Google Workspace
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RingCentral for Google Workspace
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../googleworkspace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Productivity Integrations
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    RingCentral for MS Teams
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../embedded-app-admin/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Teams Embedded App
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="using-the-ringcentral-for-microsoft-teams-embedded-app">Using the RingCentral for Microsoft Teams embedded app</h1>
+<p>The RingCentral for Teams embedded app lets you communicate and collaborate with team members by placing phone calls, managing call queues, looking up contacts, and more.</p>
+<p>Features include:</p>
+<ul>
+<li>A redesigned user experience in the Teams desktop and web apps.</li>
+<li>Unified contact search across RingCentral and Teams directories.</li>
+<li>Integrated SMS and fax capabilities.</li>
+<li>Notifications for missed calls, new texts, and new voicemails.</li>
+<li>Ability to customize RingCentral phone settings within Teams.</li>
+</ul>
+<h2 id="prerequisites-for-installing-the-ringcentral-for-teams-embedded-app">Prerequisites for installing the RingCentral for Teams embedded app</h2>
+<p>Before installing the RingCentral integration for Microsoft Teams, make sure you’ve installed these applications:</p>
+<ul>
+<li><a href="https://www.microsoft.com/en-us/microsoft-teams/download-app">Microsoft Teams desktop or web app</a></li>
+<li><a href="https://www.ringcentral.com/microsoft-teams.html">RingCentral for Microsoft Teams embedded app</a></li>
+<li><a href="https://support.ringcentral.com/download.html">RingCentral for Microsoft Teams desktop plugin</a></li>
+</ul>
+<p>Supported operating systems:</p>
+<ul>
+<li>Windows 10, or later</li>
+<li>macOS 10.15 (Catalina), or later</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Due to the May 2023 Electron framework upgrades for RingCentral for Teams, the integration won’t function on these operating systems:</p>
+<ul>
+<li><a href="https://www.electronjs.org/blog/windows-7-to-8-1-deprecation-notice">Windows 7, 8 and 8.1</a></li>
+<li><a href="https://www.electronjs.org/docs/latest/breaking-changes#removed-macos-1013--1014-support">Mac 10.13 and 10.14</a></li>
+</ul>
+</div>
+<p>Supported Microsoft 365 licenses for RingCentral for Teams 2.0 desktop and web versions:</p>
+<ul>
+<li>Enterprise E1, E3, and E5</li>
+<li>Business Standard and Business Premium</li>
+<li>Frontline F1 and F3</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Due to recent changes by Google Chrome as part of the <a href="https://privacysandbox.com/">Privacy Sandbox project</a>, RingCentral for Teams users will encounter issues on Chrome Version 113 and below. To minimize the impact of this conflict:</p>
+<ul>
+<li>Update your Chrome Browser to the <a href="https://chromereleases.googleblog.com/">latest version</a>.</li>
+<li>Per your company policies, allow <a href="https://support.google.com/chrome/answer/95647?hl=en&amp;co=GENIE.Platform%3DDesktop&amp;oco=0#zippy=%2Callow-or-block-third-party-cookies:~:text=Change%20your%20cookie%20settings">third-party cookies for websites</a>.</li>
+</ul>
+</div>
+<p>You can use the RingCentral for Teams embedded app in full or companion mode. The full mode includes all RingCentral's telephony features if your users do not have Microsoft Teams phone licenses. The <a href="./#using-the-ringcentral-for-teams-embedded-app-in-companion-mode">embedded app companion mode</a> is used with the <a href="https://support.ringcentral.com/article-v2/Enabling-direct-routing-in-RingCentral-and-Microsoft-Teams.html?brand=RingCentral&amp;product=RingEX&amp;language=en_US">Direct Routing 2.0 integration</a>.</p>
+<h2 id="installing-the-ringcentral-for-teams-embedded-app-for-desktop-and-web">Installing the RingCentral for Teams embedded app for desktop and web</h2>
+<p>Either you or your IT admin can install the RingCentral for Teams 2.0 embedded app. We recommend that your <a href="../embedded-app-admin/">IT admin install the embedded app</a>, as they can grant the necessary permissions that let you access all available features.</p>
+<h3 id="launching-the-embedded-app-once-installed-by-it-admin">Launching the embedded app once installed by IT admin</h3>
+<p>If your IT admin has installed RingCentral for Teams:</p>
+<ol>
+<li>Find the app by clicking the three-dot More icon in the left menu of the Teams app.</li>
+</ol>
+<p><img alt="TeamsDW1" src="../img/TeamsDW1.png" /></p>
+<ol start="2">
+<li>
+<p>Click the RingCentral icon to open the app.</p>
+</li>
+<li>
+<p>Right-click the icon, then select Pin. This adds the app launcher to the main menu bar.</p>
+</li>
+</ol>
+<p><img alt="TeamsDW2" src="../img/TeamsDW2.webp" /></p>
+<h3 id="adding-the-embedded-app-yourself">Adding the embedded app yourself</h3>
+<p>You can search for and add the RingCentral embedded app within the Teams desktop or web app.</p>
+<ol>
+<li>In the left menu, click Apps (a). Alternatively, click the three-dot More icon (b) in the left menu, then click Get more apps (c).</li>
+</ol>
+<p><img alt="TeamsDW3" src="../img/TeamsDW3.webp" /></p>
+<ol start="2">
+<li>
+<p>Search for RingCentral.</p>
+</li>
+<li>
+<p>At the top right of the search result tile, click Add.</p>
+</li>
+</ol>
+<p><img alt="TeamsDW5" src="../img/TeamsDW5.webp" /></p>
+<p>As an alternative to the process above, you can install the embedded app for Teams from <a href="https://appsource.microsoft.com/en-us/product/office/WA200000135?exp=ubp8">Microsoft AppSource</a>, then contact your IT admin for permission to use the embedded app. <a href="https://support.ringcentral.com/article-v2/Using-the-Microsoft-Team-admin-experience.html?brand=RingCentral&amp;product=RingEX&amp;language=en_US">Learn more about installing the RingCentral for Teams 2.0 integration using Azure</a>.</p>
+<h2 id="signing-in-to-the-ringcentral-for-teams-embedded-app">Signing in to the RingCentral for Teams embedded app</h2>
+<p>Open the app, then click Sign in to enter your RingCentral credentials and use the app.</p>
+<p><img alt="TeamsDW6" src="../img/TeamsDW6.webp" /></p>
+<h2 id="adding-the-desktop-plugin-and-quick-checks">Adding the desktop plugin and quick checks</h2>
+<p>If your IT admin hasn’t deployed the RingCentral for Teams desktop plugin, the embedded app will display this message, “To make and receive calls, you need to download and install the desktop plugin.”. Click Download to get the plugin.</p>
+<p><img alt="TeamsDW7" src="../img/TeamsDW7.webp" /></p>
+<p>You can also access the latest plugin links on the <a href="https://support.ringcentral.com/download.html">app downloads page</a>: <a href="https://teams.ringcentral.com/assets/desktop-plugin/rc/latest/windows/RingCentralForTeamsDesktopPlugin-admin-x32.msi">Windows 32-bit</a>, <a href="https://teams.ringcentral.com/assets/desktop-plugin/rc/latest/windows/RingCentralForTeamsDesktopPlugin.exe">Windows 64-bit</a>, <a href="https://teams.ringcentral.com/assets/desktop-plugin/rc/latest/mac/RingCentralForTeamsDesktopPlugin-x64.pkg">Mac (Apple/Intel chip)</a>.</p>
+<h2 id="granting-microphone-access">Granting microphone access</h2>
+<p>If asked during installation, grant access to your microphone. To enable permissions:</p>
+<ol>
+<li>Click the App permissions icon in the top right corner of the embedded app.</li>
+</ol>
+<p><img alt="TeamsDW8" src="../img/TeamsDW8.png" /></p>
+<p><img alt="TeamsDW9" src="../img/TeamsDW9.webp" /></p>
+<ol start="2">
+<li>Click the Media (Camera, microphone, speakers) toggle on.</li>
+</ol>
+<p><img alt="TeamsDW10" src="../img/TeamsDW10.webp" /></p>
+<p>If there isn't a microphone banner in the embedded app:</p>
+<ul>
+<li>Turn on microphone access for the Microsoft Teams app in your system settings or browser settings if you use the web version of the app.</li>
+<li>Turn on media permissions for the embedded app from the Settings &gt; App permissions menu in Microsoft Teams.</li>
+</ul>
+<p><img alt="rcteamsdesktopweb10b" src="../img/rcteamsdesktopweb10b.webp" /></p>
+<p>Make sure the RingCentral for Teams Desktop Plugin has permission to use your microphone in your system settings.</p>
+<h2 id="desktop-plugin-features">Desktop plugin features</h2>
+<p>Once you’ve installed the desktop plugin, you’ll have access to these features in RingCentral for Teams.</p>
+<h3 id="auto-launch">Auto launch</h3>
+<p>Turn on Auto launch to launch the plugin automatically when your computer boots up.</p>
+<p>On macOS, the app icon appears in the menu bar as an R in a rounded square. Click this icon to launch the plugin.</p>
+<p><img alt="TeamsDW12" src="../img/TeamsDW12.webp" /></p>
+<p>On Windows, the app icon appears in the Start menu as an R in a rounded square. Click this icon to launch the plugin.</p>
+<p><img alt="TeamsDW13" src="../img/TeamsDW13.webp" /></p>
+<h3 id="menu">Menu</h3>
+<p>The Menu feature shows you general information about the plugin. To access the menu, click the desktop plugin icon. From the menu:</p>
+<p><img alt="TeamsDW14" src="../img/TeamsDW14.webp" /></p>
+<ul>
+<li>Click About to view more information about the desktop plugin.</li>
+<li>Click Quit to quit the desktop plugin.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Once you quit the plugin, the app’s inbound and outbound call features won’t function.</p>
+</div>
+<h3 id="call-experience">Call experience</h3>
+<p>When you make an outgoing call using the embedded app, the desktop plugin will pop up and display the active call controls. Once the call ends, the plugin will return to the background.</p>
+<p><img alt="TeamsDW15" src="../img/TeamsDW15.webp" /></p>
+<p>You can also initiate audio conference calls in the plugin quick actions button.</p>
+<p><img alt="new-actions" src="../img/new-actions.png" /></p>
+<p>Start-a-conference-call</p>
+<p>Click to dial</p>
+<p>By default, the plugin lets you make calls from websites and supported apps. To turn this feature off:</p>
+<ol>
+<li>
+<p>In the RingCentral for Teams app, click the Settings icon.</p>
+</li>
+<li>
+<p>Click Phone.</p>
+</li>
+<li>
+<p>Scroll down to General, then click the Use RingCentral for click to dial toggle off.</p>
+</li>
+</ol>
+<p><img alt="TeamsDW16" src="../img/TeamsDW16.webp" /></p>
+<p>You can also use your OS settings to select the desktop plugin as your default calling app.</p>
+<p>On macOS:</p>
+<ol>
+<li>
+<p>In the FaceTime app menu bar, click FaceTime, then Settings.</p>
+</li>
+<li>
+<p>Under General, click the Default for calls dropdown, then select the plugin.</p>
+</li>
+</ol>
+<p><img alt="TeamsDW17" src="../img/TeamsDW17.webp" /></p>
+<p>On Windows:</p>
+<ol>
+<li>
+<p>In the Start menu, click Settings.</p>
+</li>
+<li>
+<p>In the dialog box, click Apps, then Default apps.</p>
+</li>
+<li>
+<p>Select the RingCentral desktop plugin.</p>
+</li>
+</ol>
+<p><img alt="TeamsDW18" src="../img/TeamsDW18.webp" /></p>
+<h2 id="updating-the-desktop-plugin">Updating the desktop plugin</h2>
+<p>When the desktop plugin is running, a prompt in the embedded app will request that you upgrade to the latest version. Click Restart to upgrade to complete this process.</p>
+<p><img alt="TeamsDW19" src="../img/TeamsDW19.webp" /></p>
+<p>The desktop plugin icon will also display a small indicator that informs you of any available upgrades.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This alert won’t appear if your admin has installed your plugin. To upgrade to the latest version, contact your admin.</p>
+</div>
+<h2 id="ringcentral-for-teams-embedded-app-user-experience">RingCentral for Teams embedded app user experience</h2>
+<p>Once installed, the RingCentral embedded app will be available within your Teams app on desktop, web, and mobile.</p>
+<p>Features of the embedded app include:</p>
+<ul>
+<li>Phone: Make and receive calls and access voicemail recordings.</li>
+<li>Inbox: Send, receive, and manage voicemails, texts (SMS), and faxes.</li>
+<li>HUD: Manage heads-up display extensions.</li>
+<li>Contacts: Access contacts from your personal and company directories.</li>
+<li>More (three-dot icon):</li>
+<li>Analytics: Open RingCentral Analytics in your browser. (Availability determined by admin setup)</li>
+<li>Customize: Change tab order and display settings.</li>
+<li>More settings (gear icon):</li>
+<li>View profile: See the details of your RingCentral profile.</li>
+<li>Call rules: Change call handling settings.</li>
+<li>Accept queue calls: Enables call queue feature. (Availability determined by admin setup)</li>
+<li>Settings: View and change embedded app settings.</li>
+<li>Sign out: Log out of the embedded app.</li>
+</ul>
+<p><img alt="TeamsDW20" src="../img/TeamsDW20.webp" /></p>
+<h3 id="queue-experience">Queue experience</h3>
+<p>If you manage queue calls, the Accept queue calls toggle in the embedded app’s Settings menu will be available. Click the toggle on to answer inbound calls.</p>
+<p><img alt="TeamsDW21" src="../img/TeamsDW21.webp" /></p>
+<p>If you manage multiple calls and accept queue calls, the Manage queues option in the Settings menu will be available.</p>
+<h3 id="notifications">Notifications</h3>
+<p>You can use the embedded app to receive notifications about missed calls, texts, or faxes. To access this feature, click the Activity menu. All users receive daily unread notification summaries at their local time of 8 AM. Summary notifications also appear whenever users sign in.</p>
+<h4 id="managing-notifications-settings">Managing notifications settings</h4>
+<p>All notifications are enabled by default for users. To manage notification settings:</p>
+<ol>
+<li>
+<p>In the RingCentral for Teams app, click the Settings icon.</p>
+</li>
+<li>
+<p>Click Notifications.</p>
+</li>
+<li>
+<p>For any notifications you don’t want to receive, click the toggles off.</p>
+</li>
+</ol>
+<p><img alt="notifications-menu" src="../img/notifications-menu.webp" /></p>
+<h3 id="text-message-settings">Text message settings</h3>
+<p>You can use the embedded app to send, receive, and respond to text (SMS) messages.</p>
+<p>To create a new SMS, click the Text tab, then click the plus (+) icon.</p>
+<p><img alt="TeamsDW23" src="../img/TeamsDW23.webp" /></p>
+<h3 id="fax">Fax</h3>
+<p>You can use the embedded app to compose faxes and view your fax history.</p>
+<p>To create a new fax, click the Fax tab, then click the plus (+) icon.</p>
+<p><img alt="TeamsDW24" src="../img/TeamsDW24.webp" /></p>
+<h3 id="customizable-menu-bar">Customizable menu bar</h3>
+<p>You can customize how the tabs appear in the navigation bar:</p>
+<ol>
+<li>
+<p>In the RingCentral for Teams app, click the Settings icon.</p>
+</li>
+<li>
+<p>Click Customize tabs.</p>
+</li>
+</ol>
+<p><img alt="Customize-tabs" src="../img/Customize-tabs.webp" /></p>
+<h3 id="managing-contacts">Managing contacts</h3>
+<p>Click the Contacts tab to view your Microsoft and RingCentral contacts in the embedded app’s unified contact list.</p>
+<p>Advanced Microsoft 365 contact sync:</p>
+<p>You can choose which Microsoft 365 contacts are shown in the embedded app:</p>
+<ul>
+<li>Default contact list: Displays all Microsoft 365 contacts, including your company’s Global Address List, personal, and shared contacts.</li>
+<li>Selective contact list: Select which contacts from your company’s Global Address List, personal, and shared contacts to display.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note: Admin consent is required to display the Global Address List.</p>
+</div>
+<p>Admin consent is only needed for users on your account to display the Global Address List in their RingCentral for Microsoft Teams embedded app. When a user in your organization accesses the app Settings and clicks Manage next to Advanced Microsoft 365 contact sync, the Calendar Service enterprise application is created in your Microsoft Azure Admin Portal.</p>
+<p>To grant admin consent to the Global Address List:</p>
+<ol>
+<li>
+<p>Sign in to your Azure Admin Portal with Global Admin access.</p>
+</li>
+<li>
+<p>Open the Calendar Service app.</p>
+</li>
+<li>
+<p>In the navigation bar, click Permissions.</p>
+</li>
+<li>
+<p>Click Grant admin consent for MSFT.</p>
+</li>
+</ol>
+<p><img alt="Connected-Global-address-list-MS-Azure" src="../img/Connected-Global-address-list-MS-Azure.webp" /></p>
+<p>grant admin consent to the Global Address List</p>
+<p>This setting only needs to be updated once to allow users to show or hide the Global Address List in their RingCentral app.</p>
+<p>Create a new contact:</p>
+<p>To create a new contact, click the Contacts tab, then the plus (+) icon.</p>
+<p><img alt="TeamsDW26" src="../img/TeamsDW26.webp" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note: If you don’t see all of your contacts in the Contacts tab, contact your IT admin.</p>
+</div>
+<h2 id="headset-support">Headset support</h2>
+<p>The RingCentral for Teams embedded app and desktop plugin supports Plantronics and Jabra headsets. Once set up, you can control calls using your headset buttons or your USB human interface device (HID).</p>
+<p>Call controls include answer/end, mute/unmute, and volume up/down.</p>
+<h3 id="minimum-requirements-for-using-headsets-with-ringcentral">Minimum requirements for using headsets with RingCentral</h3>
+<p>Supported operating systems:</p>
+<ul>
+<li>Windows 7 or later</li>
+<li>Mac OS 10.13 (Sierra) or later</li>
+</ul>
+<p>Supported browsers (latest versions):</p>
+<ul>
+<li>Chrome (Recommended)</li>
+<li>Firefox</li>
+<li>Safari</li>
+<li>Edge</li>
+<li>Chromium Edge</li>
+</ul>
+<h3 id="how-to-turn-on-your-headset-with-the-embedded-app">How to turn on your headset with the embedded app</h3>
+<ol>
+<li>
+<p>In the RingCentral for Teams app, click the Settings icon.</p>
+</li>
+<li>
+<p>Click Audio.</p>
+</li>
+<li>
+<p>Under Headset, click the Use headset control buttons to answer, end, and mute phone calls toggle on.</p>
+</li>
+<li>
+<p>If you haven’t installed the Plantronics Hub or Jabra extensions, click Download App under Plantronics Hub or Jabra. These extensions are required to control calls using your headset.</p>
+</li>
+</ol>
+<p><img alt="teamsheadset1" src="../img/teamsheadset1.webp" /></p>
+<p>If you’re using a Jabra headset and the RingCentral app on Google Chrome, you must install:</p>
+<ul>
+<li>Jabra Chrome extension</li>
+<li>Jabra Chrome host app</li>
+</ul>
+<p>For Plantronics, you must install the Plantronics Hub.</p>
+<h3 id="tips-for-supporting-multiple-headsets">Tips for supporting multiple headsets</h3>
+<p>If you have more than one headset connected to the app, the one connected last is considered the active one.</p>
+<p>For Jabra headsets, the list of connected devices and currently active headsets are shown in the RingCentral app.</p>
+<p>For Poly headsets, choose the active headset in the Plantronics Hub app.</p>
+<h3 id="usb-hid-devices-with-the-embedded-app">USB HID devices with the embedded app</h3>
+<p>RingCentral works with USB HIDs — headsets that connect to your computer through a USB port. You can use these headsets to control calls. The set of controls available on your device depends on the manufacturer and model.</p>
+<p>Google Chrome 89 or later</p>
+<p>Microsoft Edge 79 or later</p>
+<h4 id="setting-up-usb-hid-devices">Setting up USB HID devices</h4>
+<ol>
+<li>
+<p>Connect your USB HID device to your computer.</p>
+</li>
+<li>
+<p>Open and sign in to your RingCentral for Teams embedded app.</p>
+</li>
+<li>
+<p>Click Settings in the upper right corner.</p>
+</li>
+<li>
+<p>Click Audio.</p>
+</li>
+<li>
+<p>Under Headset, click the Use headset control buttons to answer, end, and mute phone calls toggle on.</p>
+</li>
+</ol>
+<p><img alt="teamsheadset2" src="../img/teamsheadset2.png" /></p>
+<ol start="6">
+<li>Click the HID headsets toggle on.</li>
+</ol>
+<p><img alt="teamsheadset3" src="../img/teamsheadset3.webp" /></p>
+<ol start="7">
+<li>Click Connect.</li>
+</ol>
+<p>If this is your first time connecting your device, confirm the request to connect your device to the embedded app.</p>
+<h2 id="phone-settings">Phone settings</h2>
+<p>The embedded app offers phone settings, including default caller ID, call handling, voicemail, and audio preferences. Click the Settings icon to adjust these settings.</p>
+<h2 id="reporting-issues-to-support">Reporting issues to support</h2>
+<p>If you have problems with the embedded app or desktop plugin, please report them by filing a case.</p>
+<ol>
+<li>
+<p>In the RingCentral for Teams app, click the Settings icon.</p>
+</li>
+<li>
+<p>Under General, click Contact Support.</p>
+</li>
+</ol>
+<p><img alt="TeamsDW27" src="../img/TeamsDW27.webp" /></p>
+<ol start="3">
+<li><a href="https://support.ringcentral.com/article-v2/4362.html?brand=RC_US&amp;product=RingEX&amp;language=en_US">Fill in all relevant information about your issue</a>.</li>
+</ol>
+<p>You can also help RingCentral address your issue by automatically attaching your app logs to any cases you submit.</p>
+<ol>
+<li>When you follow Steps 1-2 above, click the link in “For efficient troubleshooting, click here to send app logs to our support team” to download the app log.</li>
+</ol>
+<p><img alt="TeamsDW28" src="../img/TeamsDW28.webp" /></p>
+<ol start="2">
+<li>Attach the log when submitting your case.</li>
+</ol>
+<h2 id="using-the-presence-sync-feature-in-the-embedded-app">Using the Presence sync feature in the embedded app</h2>
+<p>RingCentral Presence Sync lets you display a single, current status that synchronizes across the Microsoft Teams and RingCentral apps. To learn more about this feature, visit <a href="../presence-sync-user/">Understanding presence sync between Microsoft Teams and RingCentral</a>.</p>
+<h2 id="using-the-ringcentral-for-teams-embedded-app-in-companion-mode">Using the RingCentral for Teams embedded app in companion mode</h2>
+<p>The RingCentral for Microsoft Teams Direct Routing integration allows users to make and receive calls directly within the Teams app. This integration can be paired with the companion mode of the RingCentral for Teams embedded app for access to fax services, text messaging, and advanced call history management.</p>
+<p><img alt="24-MS-Teams-embedded-app-companion-mode" src="../img/24-MS-Teams-embedded-app-companion-mode.webp" /></p>
+<p>When Direct Routing is set up, the embedded app won’t display calling features to users. The companion mode is auto-detected based on your Microsoft Teams connection status in the RingCentral Admin Portal.</p>
+<p><img alt="Admin-Portal-connected-accounts" src="../img/Admin-Portal-connected-accounts.webp" /></p>
+<p>RingCentral-for-Teams-connection-status-in-Admin-Portal</p>
+<p>You don't need to install the desktop plugin if you're using Direct Routing 2.0 with companion mode.</p>
+<p>Follow the instructions <a href="https://support.cloudwork.bt.com/article-v2/RingCentral-s-next-generation-integration-for-the-Microsoft-Teams-desktop-and-web-app.html?brand=BT&amp;product=Cloud_Work&amp;language=en_US">to install</a> and <a href="./#signing-in-to-the-ringcentral-for-teams-embedded-app">sign in</a> to the RingCentral for Teams embedded app.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2025 RingCentral, Inc. All rights reserved.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/ringcentral" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.path", "navigation.tabs", "toc.integrate", "search.sharing", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../archiver-nav.js"></script>
+      
+        <script src="../../presence-sync-method-tabs.js"></script>
+      
+        <script src="../../external-links-new-tab.js"></script>
+      
+    
+  </body>
+</html>
