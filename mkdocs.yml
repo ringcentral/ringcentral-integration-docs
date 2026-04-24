@@ -45,6 +45,8 @@ extra_css:
   - extra.css
 extra_javascript:
   - archiver-nav.js
+  - presence-sync-method-tabs.js
+  - external-links-new-tab.js
 
 plugins:
   - privacy
@@ -59,6 +61,7 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - admonition
+  - markdown.extensions.sane_lists
   - mdx_include
   - pymdownx.superfences
   - pymdownx.tabbed:
@@ -126,6 +129,8 @@ nav:
           - "Overview": msteams/index.md
           - "Teams Embedded App":
               - "Admin Guide": msteams/embedded-app-admin.md
+              - "Multiple Microsoft 365 tenants": msteams/embedded-app-multiple-m365-tenants.md
+              - "Teams admin center install": msteams/embedded-app-teams-admin-center-install.md
               - "User Guide": msteams/embedded-app-user.md
           - "Teams Presence Sync":
               - "Admin Guide": msteams/presence-sync-admin.md

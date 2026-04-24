@@ -63,18 +63,125 @@ A. To resolve contact search issues in the Embedded App, follow these steps:
 
 If contacts still don't appear after following these steps, escalate to the integration team for further investigation.
 
-## Q. Why don't I see the Phone tab inside the Embedded App?
+## Q. Why don't I see the dialer in the RingCentral Microsoft Teams embedded app, or why is the Phone tab missing?
 
-A. When a user is identified as a Direct Routing (DR) user, the RingCentral for Teams Embedded App automatically disables the Phone tab because calling functionality is handled through the Microsoft Teams native dialer (Calls tab) instead.
+A. For users who are set up as DR (Direct Routing) users with Microsoft calling (Cloud PBX), the RingCentral for Microsoft Teams embedded app intentionally hides or limits some calling UI—including the Phone tab—because outbound/inbound calling is expected to run through Microsoft Teams (the native Calls tab and Teams dialer), not through the embedded RingCentral dialer.
 
-**How to confirm DR mode:** Check if the user sees a dialpad in the Microsoft Teams native Calls tab. If the dialpad is visible there, it confirms the user is operating in DR mode.
+**How to confirm this is expected for your account**
 
-**To restore the Phone tab:** The user must be removed from CloudPBX, which will:
-- Remove the dialpad from the Microsoft Teams native Calls tab
-- Enable the full Phone tab functionality in the RingCentral Embedded App
-- Allow access to all RingCentral calling features within the embedded app
+In Microsoft Teams, open the native Calls tab. If the Teams dialpad is available there, you are typically in the Teams-native calling / DR-style setup where the embedded app does not expose the full RingCentral Phone tab.
 
-**Next steps:** First, verify if the customer wants to use the RingCentral Embedded App for calling instead of Teams native calling via CloudPBX. If yes, escalate to Tier 3 or Service Engineering team to remove the user from CloudPBX (note: search by phone number as it may be assigned to a different user). If the customer prefers to keep CloudPBX/DR mode, explain that the limited Phone tab visibility is expected behavior for DR users.
+**If you want the full RingCentral embedded experience (including Phone)**
+
+That usually means not using Teams as the primary RingCentral calling surface for that user. In practice, the customer must decide whether they want:
+
+- RingCentral calling inside the embedded app (full Phone tab / RC dialer), or
+- Calling via Microsoft Teams / Cloud PBX (embedded app without full Phone tab).
+
+If they want the full embedded Phone experience, the account configuration that puts the user in Cloud PBX / DR mode generally needs to be changed (your process: remove the user from Cloud PBX—often handled by Tier 3 / Service Engineering after customer approval). After that change:
+
+- The Teams native Calls dialpad behavior can change (per your tenant setup), and
+- The RingCentral embedded Phone tab / dialer can become available again, depending on final licensing and assignment.
+
+**If the customer wants to keep Cloud PBX / DR mode**
+
+Then no Phone tab (or a limited Phone experience) in the embedded app is expected. It is not a defect—the UI matches the Teams-first calling design for that user type.
+
+**Suggested next steps (support)**
+
+- **Confirm intent:** Does the customer want RC calling in the embedded app or Teams native calling?
+- **If they want the embedded Phone tab:** Escalate per your runbook (Tier 3 / Service Engineering) to adjust Cloud PBX / DR assignment for the affected user(s).
+- **If they want to keep DR / Cloud PBX:** Document that missing Phone tab is by design and train users to use Teams Calls for dialer functions.
+
+## Q. Why does the installation status in the Microsoft Teams embedded app section show fewer users than we know actually have the app?
+
+A. Installation status shown there is stored in IndexedDB (a client-side database in the browser). If Step 1 (Microsoft Teams connection in the setup flow) was disconnected at some point, IndexedDB can be cleared, which removes the stored installation status records for users who were installed earlier. Those users can still have the app installed and working in Teams; the gap is only what the portal can display, not necessarily whether the app is in use.
+
+The admin experience depends on that IndexedDB data to show who is "installed." Microsoft Graph does not offer a way to list current embedded-app installation status for every user in the organization, so we cannot rebuild the full historical list for users who were installed before IndexedDB was cleared. That is why live usage and portal counts may not match.
+
+For large organizations that need reliable, ongoing installation tracking, we recommend deploying the RingCentral for Microsoft Teams embedded app through the Microsoft Teams Admin Center, where installation and assignment can be managed and reported at scale. The RingCentral admin portal remains useful for installs and views driven from that flow (including filters such as department and status), but for enterprise-wide tracking, Teams Admin Center is the recommended approach.
+
+## Q. Why can't we finish Step 1 — Connect your Microsoft 365 tenant(s) for the Microsoft Teams embedded app in Service Web?
+
+A. Step 1 uses OAuth and must be done by someone who meets the role requirements on both Microsoft 365 and RingCentral, as described in the [admin guide](embedded-app-admin.md).
+
+**Microsoft 365:** The account used for Step 1 must be either a Global administrator, or have all of these roles: Privileged Role Administrator, User Administrator, Teams Administrator, and Application Administrator. If the account only has Application Administrator (or another subset), Step 1 will not complete. Use a Global admin account, or assign the full set of four roles above in the Microsoft 365 admin center to the account that will run Step 1.
+
+**RingCentral:** The same person must have Super admin and User admin in RingCentral. If their Roles column appears empty or roles cannot be verified from the service side, confirm in the customer's RingCentral admin portal that the user has Super admin and User admin.
+
+**Microsoft Teams admin center:** Confirm that third-party apps are allowed, that the embedded app (e.g. TELUS Business Connect for Microsoft Teams) is allowed under Manage apps, and that required permissions for the app are enabled.
+
+Until both Microsoft 365 and RingCentral role requirements are satisfied—and Teams policies allow the app—Step 1 may fail or stay incomplete even though the UI looks ready to connect.
+
+## Q. Why don't we see notifications in the Microsoft Teams embedded RingCentral app?
+
+A. Notifications in Teams depend on RingCentral being connected correctly for your tenant and identity, Teams itself allowing notifications, and sometimes a clean app state after policy-driven installs. Work through the checks below.
+
+1. **Complete Microsoft 365 connection (Step 1)**  
+   For the embedded app flow, Step 1 — Connect your Microsoft 365 tenant(s) in Service Web / the admin portal must be completed successfully. If Step 1 failed or was disconnected, embedded features (including some notification-related behaviour) may be incomplete or inconsistent.
+
+2. **Align the signed-in user with Teams / Microsoft 365**  
+   The person using the app should be signed into RingCentral with the same organizational identity you use in Teams (typically the same work email / Entra ID UPN as in Microsoft 365). If RC is opened under a different email or a personal account while Teams is the work profile, you can miss notifications or see the wrong context.
+
+3. **Confirm Teams is allowed to show notifications**  
+   In Microsoft Teams (desktop or web), check Settings → Notifications (and OS-level Do Not Disturb / Focus). If Teams suppresses banners or activity, RingCentral alerts that surface through Teams may not appear even when RingCentral is working.
+
+4. **Try a reinstall if Step 1 is already OK**  
+   If Step 1 is complete and identity matches, try removing the embedded app from Teams and adding it again (or signing out of RingCentral inside the embedded app and back in), then retest.
+
+5. **If there is no "Uninstall" option — global deployment**  
+   When Uninstall is missing, the app is often deployed and/or pinned by IT using a Teams app setup policy (or similar org-wide assignment). In that case, end users cannot uninstall it themselves. **Next step for IT:** Have the Microsoft Teams administrator either:
+    - Temporarily remove the user from the app setup policy so the user can uninstall/reinstall locally, or
+    - Remove / redeploy the app for that user (or group) from the Microsoft Teams admin center.
+
+**If it still fails after the above**
+
+Collect approximate time, Teams client (desktop vs web), whether other Teams apps notify normally, and whether the issue is RingCentral in-app alerts vs Teams banners—that narrows whether the problem is Teams notification settings, tenant policy, or RingCentral subscription / session on the backend.
+
+## MS Teams general questions
+
+## Q. What should we try when the Teams client seems unstable (notification badge, embedded app missing, or errors opening the app)?
+
+A. We have seen similar symptoms in other cases when the Teams client is in a bad state, for example:
+
+- Notification badge not updating on Teams desktop
+- RingCentral for Teams (embedded app) missing or hard to find in Teams
+- The embedded app crashes or shows a broken / error face when opened from the Teams icon
+
+**Recommendation:**
+
+Please ask affected users to fully quit Microsoft Teams, clear the Teams client cache (or use the Reset option for New Teams on Windows, which removes app data), then restart Teams and test again. The first launch after clearing cache may be slower than usual while Teams rebuilds its cache.
+
+**Short steps (summary)**
+
+**Windows – Classic Teams:** Win+R → open `%appdata%\Microsoft\Teams` → delete all files and folders in that folder → restart Teams.
+
+**Windows – New Teams:** Settings → Apps → Installed apps → Microsoft Teams → … → Advanced options → Reset (this clears app data), personalization settings will be removed from Teams
+
+or
+
+Win+R → `%userprofile%\appdata\local\Packages\MSTeams_8wekyb3d8bbwe\LocalCache\Microsoft\MSTeams` → delete contents → restart Teams.
+
+**macOS – Classic Teams:** Quit Teams → Terminal:
+
+```bash
+rm -r ~/Library/Application\ Support/Microsoft/Teams
+```
+
+→ restart Teams.
+
+**macOS – New Teams:** Quit Teams → Terminal:
+
+```bash
+rm -rf ~/Library/Group\ Containers/UBF8T346G9.com.microsoft.teams
+rm -rf ~/Library/Containers/com.microsoft.teams2
+```
+
+→ restart Teams.
+
+**Official guide:** [Clear Teams cache](https://learn.microsoft.com/en-us/troubleshoot/microsoftteams/teams-administration/clear-teams-cache)
+
+There have been online reports of broader Teams desktop issues after recent updates, so clearing cache or resetting the client is a reasonable first step. After users try this, please let us know whether the embedded app behavior improves.
 
 ---
 
@@ -96,6 +203,12 @@ Here, the customer has a choice for #2, they can use the customized presence syn
 A. Yes, when a user answers a call from a call queue, their status should be updated to "In a call" or "Busy." If the RingCentral call queue settings are configured to skip agents who are busy, the system will not route any new calls to that user, including subsequent calls from the same or different queues.
 
 Can be achieved with the customized presence sync feature described in the previous answer.
+
+#### Q. Why do some users still receive queue calls when they are already in a Microsoft Teams meeting?
+
+A. When you join a Teams meeting, Microsoft Teams often sets your presence to In a call, not In a meeting. In Presence sync → Step 3 (Customize call presence settings), In a call and In a meeting are separate rules. If In a call is mapped to Busy while In a meeting is mapped to Do not disturb, RingCentral follows In a call while you are in the meeting, which can allow queue calls if your queues treat Busy differently from Do not disturb.
+
+To fix it: In the RingCentral admin portal, open Presence sync → Step 3, find Microsoft Teams: In a call, set it to Do not disturb (aligned with how you want meetings handled), and save. If you need ordinary two-way calls to stay Busy, revisit that choice—Teams uses In a call for both meetings and calls, so this mapping is a tradeoff in the product, not something you change in Teams itself.
 
 ### Do Not Disturb (DND) Mode
 

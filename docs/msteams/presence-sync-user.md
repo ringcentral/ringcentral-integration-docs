@@ -89,7 +89,7 @@ If a user's Microsoft Teams status is "In a meeting" and the "Do not accept any 
 - Set the user's RingCentral presence to DND.
 - Prevent all incoming calls from ringing through to the user.
 
-!!! warning "Important"
+!!! important
     If your Microsoft Teams Busy status is mapped to RingCentral's Do Not Disturb (DND), your Teams status may still show Busy or DND after your call or meeting ends on either platform. This can happen when you make or receive a RingCentral call during a Teams call or meeting, or the other way around.
 
     To reset your status, manually change it back to Available in Teams.

@@ -163,8 +163,9 @@
     --md-primary-fg-color: #002755;
 }
 
-/* Archiver Hero Section */
-.archiver-hero {
+/* Archiver / Teams Embedded App hero (shared layout) */
+.archiver-hero,
+.embedded-app-hero {
     background: linear-gradient(135deg, #002755 0%, #004d99 50%, #0066cc 100%);
     color: white;
     padding: 3rem 2.5rem;
@@ -174,7 +175,8 @@
     overflow: hidden;
 }
 
-.archiver-hero::before {
+.archiver-hero::before,
+.embedded-app-hero::before {
     content: "";
     position: absolute;
     top: -50%;
@@ -185,7 +187,8 @@
     pointer-events: none;
 }
 
-.archiver-hero::after {
+.archiver-hero::after,
+.embedded-app-hero::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -195,7 +198,8 @@
     background: linear-gradient(90deg, #ff7a00, #ffb347, #ff7a00);
 }
 
-.archiver-hero h1 {
+.archiver-hero h1,
+.embedded-app-hero h1 {
     color: white !important;
     font-size: 2.5rem !important;
     font-weight: 800 !important;
@@ -203,26 +207,30 @@
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.archiver-hero h1 .twemoji {
+.archiver-hero h1 .twemoji,
+.embedded-app-hero h1 .twemoji {
     font-size: 2.2rem;
     margin-right: 0.5rem;
 }
 
-.archiver-hero p {
+.archiver-hero p,
+.embedded-app-hero p {
     color: rgba(255, 255, 255, 0.95);
     font-size: 1.15rem;
     margin-bottom: 1.5rem;
     max-width: 600px;
 }
 
-.archiver-hero p strong {
+.archiver-hero p strong,
+.embedded-app-hero p strong {
     color: #ffb347;
     font-size: 1.3rem;
     display: block;
     margin-bottom: 0.75rem;
 }
 
-.archiver-hero .md-button {
+.archiver-hero .md-button,
+.embedded-app-hero .md-button {
     margin-right: 0.75rem;
     margin-bottom: 0.5rem;
     border-radius: 8px;
@@ -230,26 +238,30 @@
     transition: all 0.2s ease;
 }
 
-.archiver-hero .md-button--primary {
+.archiver-hero .md-button--primary,
+.embedded-app-hero .md-button--primary {
     background-color: #ff7a00;
     border-color: #ff7a00;
     color: white;
 }
 
-.archiver-hero .md-button--primary:hover {
+.archiver-hero .md-button--primary:hover,
+.embedded-app-hero .md-button--primary:hover {
     background-color: #ff9933;
     border-color: #ff9933;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(255, 122, 0, 0.4);
 }
 
-.archiver-hero .md-button:not(.md-button--primary) {
+.archiver-hero .md-button:not(.md-button--primary),
+.embedded-app-hero .md-button:not(.md-button--primary) {
     background-color: transparent;
     border: 2px solid rgba(255, 255, 255, 0.8);
     color: white;
 }
 
-.archiver-hero .md-button:not(.md-button--primary):hover {
+.archiver-hero .md-button:not(.md-button--primary):hover,
+.embedded-app-hero .md-button:not(.md-button--primary):hover {
     background-color: rgba(255, 255, 255, 0.15);
     border-color: white;
     transform: translateY(-2px);
@@ -574,5 +586,411 @@ body.has-archiver-nav .md-content {
 @media screen and (max-width: 900px) {
     body.has-archiver-nav .md-content {
         margin-right: 0;
+    }
+}
+
+/* Presence Sync admin — OAuth / Azure switch (matches product-style pill control) */
+.md-typeset .presence-sync-method-picker {
+    max-width: 44rem;
+    margin: 2rem 0 2.25rem;
+    padding: 1.35rem 1.5rem 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 39, 85, 0.12);
+    background: linear-gradient(180deg, #fafbfd 0%, #f4f6f9 100%);
+    box-shadow: 0 2px 8px rgba(0, 39, 85, 0.06);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .presence-sync-method-picker {
+    border-color: rgba(255, 255, 255, 0.1);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+
+.md-typeset .presence-method-prompt {
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 1.1rem;
+    color: var(--md-typeset-color);
+    line-height: 1.35;
+}
+
+.md-typeset .presence-method-hint {
+    margin: 1rem 0 0;
+    font-size: 0.9rem;
+    color: var(--md-default-fg-color--lighter, #5f6368);
+}
+
+.md-typeset .presence-method-hint strong {
+    color: var(--md-typeset-color);
+    font-weight: 700;
+}
+
+/* Segmented pill track + two choices (active = dark pill, inactive = white outline) */
+.md-typeset .presence-method-switch {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 0.5rem;
+    padding: 0.35rem;
+    border-radius: 999px;
+    background: #e6e8ec;
+    border: 1px solid #d8dce3;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .presence-method-switch {
+    background: rgba(0, 0, 0, 0.35);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.md-typeset .presence-method-btn {
+    margin: 0;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.2;
+    padding: 0.65rem 1.5rem;
+    min-width: 8.5rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    background: #ffffff;
+    color: #1a1d21;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+    transition:
+        background 0.18s ease,
+        color 0.18s ease,
+        border-color 0.18s ease,
+        box-shadow 0.18s ease,
+        transform 0.12s ease;
+}
+
+.md-typeset .presence-method-btn:not(.is-active) {
+    border-color: #cfd4dc;
+    background: #ffffff;
+    color: #1a1d21;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .presence-method-btn:not(.is-active) {
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.92);
+    border-color: rgba(255, 255, 255, 0.14);
+    box-shadow: none;
+}
+
+.md-typeset .presence-method-btn:hover:not(.is-active) {
+    border-color: #b8c0cc;
+    background: #fafcff;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .presence-method-btn:hover:not(.is-active) {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.22);
+}
+
+/* Selected: charcoal / near-black pill, white label (screenshot reference) */
+.md-typeset .presence-method-btn.is-active {
+    background: #2a2d33;
+    color: #ffffff;
+    border-color: #2a2d33;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .presence-method-btn.is-active {
+    background: #f3f5f8;
+    color: #111418;
+    border-color: #f3f5f8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.md-typeset .presence-method-btn:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.md-typeset .presence-method-btn:focus-visible {
+    outline: 2px solid var(--md-accent-fg-color);
+    outline-offset: 3px;
+}
+
+.md-typeset .presence-sync-method-panel[hidden] {
+    display: none !important;
+}
+
+.md-typeset .presence-sync-method-panel:not([hidden]) {
+    margin-top: 0.5rem;
+}
+
+/* Embedded app admin — support-article style (minimal, black/white pills like KB) */
+.md-typeset .embedded-app-support-article {
+    max-width: 48rem;
+    margin: 1.75rem 0 2rem;
+    padding: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+}
+
+.md-typeset .embedded-app-support-article .presence-method-switch {
+    background: #f5f5f5;
+    border: 1px solid #e5e5e5;
+}
+
+.md-typeset .embedded-app-support-article .presence-method-btn:not(.is-active) {
+    border-color: #1a1a1a;
+    background: #ffffff;
+    color: #1a1a1a;
+}
+
+.md-typeset .embedded-app-support-article .presence-method-btn.is-active {
+    background: #1a1a1a;
+    color: #ffffff;
+    border-color: #1a1a1a;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .embedded-app-support-article .presence-method-btn:not(.is-active) {
+    border-color: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.95);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .embedded-app-support-article .presence-method-btn.is-active {
+    background: #f5f5f5;
+    color: #111;
+    border-color: #f5f5f5;
+}
+
+/* Markdown pipe tables: explicit vertical + horizontal cell borders */
+.md-typeset table {
+    border-collapse: collapse;
+}
+
+.md-typeset table th,
+.md-typeset table td {
+    border: 1px solid var(--md-typeset-table-color, rgba(0, 39, 85, 0.2));
+}
+
+[data-md-color-scheme="slate"] .md-typeset table th,
+[data-md-color-scheme="slate"] .md-typeset table td {
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+.md-typeset table th {
+    border-bottom: 2px solid var(--md-typeset-table-color, rgba(0, 39, 85, 0.28));
+}
+
+[data-md-color-scheme="slate"] .md-typeset table th {
+    border-bottom-color: rgba(255, 255, 255, 0.22);
+}
+
+/* Note admonitions — pale blue highlight (aligned with product UI) */
+.md-typeset .admonition.note,
+.md-typeset details.admonition.note {
+    border: 1px solid #a8c9ea;
+    border-radius: 6px;
+    background-color: #e8f2fc;
+    box-shadow: none;
+}
+
+.md-typeset .admonition.note > .admonition-title,
+.md-typeset details.admonition.note > summary {
+    background-color: #e8f2fc;
+    border-bottom: 1px solid #c5dcf0;
+    color: #0d2b4c;
+}
+
+.md-typeset .admonition.note > .admonition-title::before,
+.md-typeset details.admonition.note > summary::before {
+    background-color: #1a73e8;
+}
+
+.md-typeset .admonition.note > :not(.admonition-title),
+.md-typeset details.admonition.note > :not(summary) {
+    background-color: transparent;
+}
+
+.md-typeset .admonition.note,
+.md-typeset .admonition.note p,
+.md-typeset details.admonition.note {
+    color: #1a1a1a;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.note,
+[data-md-color-scheme="slate"] .md-typeset details.admonition.note {
+    border-color: rgba(138, 180, 248, 0.35);
+    background-color: rgba(26, 115, 232, 0.14);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.note > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset details.admonition.note > summary {
+    background-color: rgba(26, 115, 232, 0.14);
+    border-bottom-color: rgba(138, 180, 248, 0.28);
+    color: #e8f2fc;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.note,
+[data-md-color-scheme="slate"] .md-typeset .admonition.note p,
+[data-md-color-scheme="slate"] .md-typeset details.admonition.note {
+    color: rgba(255, 255, 255, 0.92);
+}
+
+/* Important admonitions — pale amber highlight */
+.md-typeset .admonition.important,
+.md-typeset details.admonition.important {
+    border: 1px solid #f0c78a;
+    border-radius: 6px;
+    background-color: #fff6e8;
+    box-shadow: none;
+}
+
+.md-typeset .admonition.important > .admonition-title,
+.md-typeset details.admonition.important > summary {
+    background-color: #fff6e8;
+    border-bottom: 1px solid #f5dcb8;
+    color: #5c3d10;
+}
+
+.md-typeset .admonition.important > .admonition-title::before,
+.md-typeset details.admonition.important > summary::before {
+    background-color: #e65100;
+}
+
+.md-typeset .admonition.important > :not(.admonition-title),
+.md-typeset details.admonition.important > :not(summary) {
+    background-color: transparent;
+}
+
+.md-typeset .admonition.important,
+.md-typeset .admonition.important p,
+.md-typeset details.admonition.important {
+    color: #1a1a1a;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.important,
+[data-md-color-scheme="slate"] .md-typeset details.admonition.important {
+    border-color: rgba(255, 183, 77, 0.45);
+    background-color: rgba(255, 152, 0, 0.14);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.important > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset details.admonition.important > summary {
+    background-color: rgba(255, 152, 0, 0.14);
+    border-bottom-color: rgba(255, 183, 77, 0.35);
+    color: #ffe8c8;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.important,
+[data-md-color-scheme="slate"] .md-typeset .admonition.important p,
+[data-md-color-scheme="slate"] .md-typeset details.admonition.important {
+    color: rgba(255, 255, 255, 0.92);
+}
+
+/* Tip admonitions — pale green highlight */
+.md-typeset .admonition.tip,
+.md-typeset details.admonition.tip {
+    border: 1px solid #9fd4b3;
+    border-radius: 6px;
+    background-color: #ecf8f1;
+    box-shadow: none;
+}
+
+.md-typeset .admonition.tip > .admonition-title,
+.md-typeset details.admonition.tip > summary {
+    background-color: #ecf8f1;
+    border-bottom: 1px solid #c5e8d4;
+    color: #0d3d24;
+}
+
+.md-typeset .admonition.tip > .admonition-title::before,
+.md-typeset details.admonition.tip > summary::before {
+    background-color: #2e7d32;
+}
+
+.md-typeset .admonition.tip > :not(.admonition-title),
+.md-typeset details.admonition.tip > :not(summary) {
+    background-color: transparent;
+}
+
+.md-typeset .admonition.tip,
+.md-typeset .admonition.tip p,
+.md-typeset details.admonition.tip {
+    color: #1a1a1a;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.tip,
+[data-md-color-scheme="slate"] .md-typeset details.admonition.tip {
+    border-color: rgba(129, 199, 132, 0.45);
+    background-color: rgba(46, 125, 50, 0.14);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.tip > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset details.admonition.tip > summary {
+    background-color: rgba(46, 125, 50, 0.14);
+    border-bottom-color: rgba(129, 199, 132, 0.35);
+    color: #d8f5e0;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.tip,
+[data-md-color-scheme="slate"] .md-typeset .admonition.tip p,
+[data-md-color-scheme="slate"] .md-typeset details.admonition.tip {
+    color: rgba(255, 255, 255, 0.92);
+}
+
+/* Glossary: tenant / tenants — highlight + tooltip (MS Teams embedded app multi-tenant page) */
+.md-typeset .rc-tenant-term {
+    position: relative;
+    display: inline;
+    cursor: help;
+    background-color: #ffe8d2;
+    padding: 0 0.15em;
+    border-radius: 3px;
+    outline: none;
+}
+
+.md-typeset .rc-tenant-term:hover,
+.md-typeset .rc-tenant-term:focus {
+    box-shadow: 0 0 0 2px rgba(230, 126, 34, 0.35);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .rc-tenant-term {
+    background-color: rgba(255, 183, 77, 0.22);
+    color: rgba(255, 255, 255, 0.96);
+}
+
+.md-typeset .rc-tenant-term::after {
+    content: "(MS Teams integration) A group of users or an organization that shares a single instance of a cloud service, managed as a separate unit with its own access and settings.";
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 10px);
+    transform: translateX(-50%);
+    min-width: 220px;
+    max-width: min(28rem, 92vw);
+    padding: 0.65rem 0.85rem;
+    background-color: #3a3a3a;
+    color: #f5f5f5;
+    font-size: 0.72rem;
+    font-weight: 400;
+    line-height: 1.45;
+    text-align: left;
+    white-space: normal;
+    border-radius: 4px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.12s ease, visibility 0.12s ease;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.md-typeset .rc-tenant-term:hover::after,
+.md-typeset .rc-tenant-term:focus::after {
+    visibility: visible;
+    opacity: 1;
+}
+
+@media (max-width: 44.9375em) {
+    .md-typeset .rc-tenant-term::after {
+        left: 0;
+        transform: none;
+        max-width: 85vw;
     }
 }
