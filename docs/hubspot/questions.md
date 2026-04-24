@@ -432,36 +432,6 @@ What to expect:
 
 Note: This delay only affects auto-logging. Manual SMS logging through the RingCentral integration appears immediately in HubSpot. If you experience delays longer than 15 minutes, please contact RingCentral support for investigation.
 
-## Q. Why can I not log SMS to leads, companies, deals, or tickets in the HubSpot integration?
-
-A. Currently, the RingCentral for HubSpot integration is designed to log SMS conversations exclusively to Contact records. This design decision was made to provide a streamlined experience for the most common use case, as SMS conversations are typically person-to-person interactions.
-
-What this means:
-
-- SMS conversations are logged to Contacts in HubSpot Contact Activity
-- SMS cannot be logged directly to Leads, Companies, Deals, or Tickets
-- This is a current limitation of the integration, not a technical issue
-
-Why this happens:
-
-- The integration was built with a focus on contact-based communication tracking
-- HubSpot's API fully supports logging activities to all entity types
-- This was a product design decision for simplicity and performance
-
-Available alternatives:
-
-- Use HubSpot Workflows to automatically associate SMS conversations with other entities
-- Manual association of SMS activities with relevant leads, deals, or companies
-- Create custom properties to track SMS communication across different record types
-
-Future enhancement:
-
-We have documented this as a feature request and added it to our product roadmap. The enhancement would allow customers to configure SMS logging for multiple entity types based on their specific business needs.
-
-Current workaround:
-
-SMS conversations logged to contacts can be manually or automatically associated with other HubSpot entities using HubSpot's built-in automation tools and association features.
-
 ## Q. Why do calls show "Call with unknown contact" as the title in HubSpot?
 
 A. This happens when calls are manually logged without selecting a contact. The system matches contacts and shows suggestions, but if none are selected before saving, the call is saved without associations, so HubSpot displays "Call with unknown contact."
