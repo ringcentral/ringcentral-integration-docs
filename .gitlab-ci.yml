@@ -7,8 +7,7 @@ build:
   image: python:3.11
   stage: build
   tags:
-    - aws
-    - docker
+    - techno
   script:
     - pip install -r requirements.txt
     - mkdocs build
@@ -24,8 +23,7 @@ pages:
   stage: deploy
   image: ruby:2.3
   tags:
-    - aws
-    - docker
+    - techno
   dependencies:
     - build
   script:
@@ -40,8 +38,7 @@ publish:
   stage: publish
   image: python:3.11
   tags:
-    - aws
-    - docker
+    - techno
   script:
     - |-
       git remote | grep "public" && echo "public remote found, removing it..." && git remote remove public || echo "public remote not found"
