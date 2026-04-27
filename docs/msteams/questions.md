@@ -63,6 +63,26 @@ A. To resolve contact search issues in the Embedded App, follow these steps:
 
 If contacts still don't appear after following these steps, escalate to the integration team for further investigation.
 
+## Q. What should I do if the Embedded App repeatedly shows the Open Plugin and Loading Plugin banners, or shows a Network unavailable error?
+
+A. This usually means the internal phone app inside the RingCentral for Teams Desktop Plugin did not load correctly, and cached data is a common cause. The Desktop Plugin now includes a built-in cache clear feature that can often resolve this issue.
+
+**Steps:**
+
+1. Find the RingCentral for Teams Desktop Plugin icon in the system tray, right click it, select **About**, and then click the **Clean cache** link in the **About** window.
+
+    ![Desktop Plugin About Window](./img/DPSystemTray.png)
+
+2. Click **Confirm** and wait for the cache clearing process to complete.
+
+    ![Confirm Clear Cache](./img/ConfirmClearCache.png)
+
+3. When the success message appears, click **OK**, then verify whether the Embedded App can connect to the Desktop Plugin successfully.
+
+    ![Cache Clear Success](./img/CacheClearSuccess.png)
+
+**Important note:** On lower-end devices, this may take a few minutes because the Desktop Plugin must fully load the internal app from the CDN again after the cache is cleared.
+
 ## Q. Why don't I see the dialer in the RingCentral Microsoft Teams embedded app, or why is the Phone tab missing?
 
 A. For users who are set up as DR (Direct Routing) users with Microsoft calling (Cloud PBX), the RingCentral for Microsoft Teams embedded app intentionally hides or limits some calling UI—including the Phone tab—because outbound/inbound calling is expected to run through Microsoft Teams (the native Calls tab and Teams dialer), not through the embedded RingCentral dialer.

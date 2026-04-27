@@ -19,8 +19,8 @@ hide:
 - [EA HAR/Console Logs](#ea-harconsole-logs)
 - [Manually Download EA Logs](#manually-download-ea-logs)
 - [DP Hidden UI HAR/console logs](#dp-hidden-ui-harconsole-logs)
-- [DP (Windows - Exe type): Installation/Uninstallation Debug logs](#dp-windows---exe-type-installationuninstallation-debug-logs)
-- [DP - Clear cache](#dp---clear-cache)
+- [DP (Windows - Exe type): Installation/Uninstallation Debug logs](#dp-windows-exe-type-installationuninstallation-debug-logs)
+- [DP - Clear cache](#dp-clear-cache)
 - [Log Submission via EA](#log-submission-via-ea)
 
 ---
@@ -88,7 +88,7 @@ They serve different purposes, and some can be difficult to collect. We will go 
 
 1. Find the DP in system tray, right click on the icon and select **About**. Then click on **"Download Log"**:
 
-    ![DP System Tray](./img/DPSystemTray.png)
+    ![Desktop Plugin About Window](./img/DPSystemTray.png)
 
 ## EA HAR/Console Logs
 
@@ -224,23 +224,23 @@ Use this way if you (or the customer) face issues during the DP installing or un
 
 ## DP - Clear cache
 
-Use this way if you (or the customer) wants to clear the localStorage/indexDB cache in the hidden main window in DP.
+Use this when you (or the customer) need to clear the Desktop Plugin cache, especially if the Embedded App repeatedly shows the Open Plugin and Loading Plugin banners, or shows a Network unavailable error.
 
 **Steps:**
 
-1. Open the development menu (by clicking the app icon on the system tray quickly for more than 5 times)
+1. Find the Desktop Plugin in the system tray, right click the icon, select **About**, and then click the **Clean cache** link in the **About** window.
 
-2. Click the app icon, navigate to **"Support"** → **"Clean app cache..."**
+    ![Desktop Plugin About Window](./img/DPSystemTray.png)
 
-    ![DP Clear Cache](./img/DPClearCache.png)
-
-3. Click **"Confirm"** to perform the cleaning
+2. Click **Confirm** to clear the cache.
 
     ![Confirm Clear Cache](./img/ConfirmClearCache.png)
 
-4. It is completed if you see the success message
+3. It is completed when you see the success message. Click **OK** and then verify whether the Embedded App can connect successfully.
 
     ![Cache Clear Success](./img/CacheClearSuccess.png)
+
+**Note:** On lower-end devices, it may take a few minutes for the Desktop Plugin to fully load the internal app from the CDN again after the cache is cleared.
 
 ## Log Submission via EA
 
