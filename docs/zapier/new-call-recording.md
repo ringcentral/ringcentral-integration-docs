@@ -16,19 +16,19 @@ The trigger simplifies recording data for easy use in Zapier workflows while als
 
 ## Configure
 
-1. **Call Log Type**: Choose between `User Call Log` and `Company Call Log`. 
+1. **Call Log Type**: Choose between `User Call Log` and `Company Call Log`.
 
     - **User Call Log**: Retrieves call recordings for the connected user only
     - **Company Call Log**: Retrieves call recordings for the entire company (requires `ReadAccountCallLog` permission or admin access)
 
-    Warning messages will be displayed if the required permissions are not met or if additional features like RingSense transcripts are unavailable.
+    Warning messages will be displayed if the required permissions are not met or if additional features like AI Conversation Expert transcripts are unavailable.
 
     ![Company Call Log Warning](./img/new-call-recording-company-warning.png)
 
 2. **Delay By** (Optional): Set a processing delay to ensure recording files are ready for download. There is typically a delay between when call log data becomes available and when recording files are fully processed. Choose a delay based on your average call length:
 
     - **5 minutes**: For short calls
-    - **15 minutes**: For typical business calls  
+    - **15 minutes**: For typical business calls
     - **30 minutes**: For longer calls (recommended minimum)
     - **1 hour**: For very long calls
     - **2 hours**: For exceptionally long calls or recordings
@@ -38,7 +38,7 @@ The trigger simplifies recording data for easy use in Zapier workflows while als
     ![Call Recording Delay Time](./img/new-call-recording-delay-by.png)
 
 !!! note "RingCentral Features Required"
-    To access call transcripts, the connected RingCentral account needs to have RingSense license enabled. For Company Call Log records, the individual users who made the calls also need RingSense licenses assigned. Warning messages will be displayed during configuration if these requirements are not met.
+    To access call transcripts, the connected RingCentral account needs to have an AI Conversation Expert license (formerly named RingSense). For Company Call Log records, the individual users who made the calls also need AI Conversation Expert licenses assigned. Warning messages will be displayed during configuration if these requirements are not met.
 
 ## Output
 
@@ -47,7 +47,7 @@ The New Call Recording trigger provides comprehensive information about each rec
 ### Basic Call Information
 
 - **URI**: Unique URI identifier for the call log record
-- **ID**: Unique identifier for the call log record  
+- **ID**: Unique identifier for the call log record
 - **Session ID**: Session identifier for the call
 - **Telephony Session ID**: Telephony session identifier
 
@@ -55,7 +55,7 @@ The New Call Recording trigger provides comprehensive information about each rec
 
 - **Start Time**: Date and time when the call started (datetime format)
 - **Duration**: Call length in seconds
-- **Type**: Type of call (e.g., Voice, Fax)
+- **Type**: Type of call. This trigger retrieves voice call records.
 - **Direction**: Call direction (Inbound or Outbound)
 - **Action**: Action performed during the call
 - **Result**: Call outcome (e.g., Call Connected, Voicemail, Busy, No Answer)
@@ -83,10 +83,10 @@ Since this trigger specifically filters for recorded calls, the following record
 
 ### Transcript Information
 
-- **Transcripts**: A text transcript of what was said during the call. This field is only available when call transcription is enabled and you have a RingSense license assigned.
+- **Transcripts**: A text transcript of what was said during the call. This field is only available when call transcription is enabled and the required AI Conversation Expert license is available.
 
-!!! note "RingSense Transcript Requirements"
-    To access call transcripts, the connected user extension requires the RingSense license assigned. For Company Call Log records, the individual user extensions that made the calls also need RingSense licenses assigned. If these requirements are not met, warning messages will be displayed during configuration.
+!!! note "AI Conversation Expert Transcript Requirements"
+    To access call transcripts, the connected user extension requires the AI Conversation Expert license (formerly named RingSense). For Company Call Log records, the individual user extensions that made the calls also need AI Conversation Expert licenses assigned. If these requirements are not met, warning messages will be displayed during configuration.
 
 ### Raw Data
 
