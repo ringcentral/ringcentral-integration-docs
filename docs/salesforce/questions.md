@@ -42,12 +42,32 @@ If all browser permissions are allowed and the error persists, recommend checkin
 
 A. Users require access to the RingCentral Visualforce page in their profile. To set up this access, go to the user's profile in Salesforce. Under Visualforce Page Access, check that the page OpenCTIIndex is included.
 
+## Q. Why can't I connect my Salesforce org in the integration console, and why do I see "Your connection is not set up successfully" or a server error?
+
+A. That message means the connection did not complete successfully. In some cases Salesforce returns an error like "sObject type 'ApexClass' is not supported" with code INVALID_TYPE. The integration then cannot finish setup because it expects Salesforce objects related to Apex (Apex is Salesforce's code layer; ApexClass is part of that). Turning on the API add-on does not change your edition: if your org does not include Apex, those objects are not available, and the connection can fail even when general API access works.
+
+This situation often appears on Salesforce Pro Suite–style orgs that are "clicks, not code" and do not include the Apex engine. RingCentral's Salesforce integration is not supported on orgs that cannot expose Apex metadata. Permissions or extra add-ons cannot replace a missing Apex platform.
+
+**What to do:** Confirm your Salesforce edition with your admin. If Apex is not part of your edition, move to an Apex-capable edition (for example Enterprise or another edition Salesforce documents as including Apex), then connect again. For Salesforce's own comparison of capabilities, see [Salesforce Help: compare capabilities](https://help.salesforce.com/s/articleView?id=000385436&type=1) and [Extend, click, automate (PDF)](https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/extend_click_automate.pdf). If you already use a higher edition and still see the error, contact RingCentral support with the exact message, edition, and time of the attempt.
+
 ## Q. Why is the Related To field not auto-populated when logging a call?
 
 A. To ensure the "Related To" field is auto-populated when logging a call, follow these steps:
 
 Enable the "Enhanced autofill 'Contact Relationship' when using click to dial" checkbox.
 Access the "Autofill Related-To in Call Log for Click to Dial" settings from the RingCentral Admin for Lightning advanced settings in the Admin UI.
+
+## Q. Do Not Call is set on my Person Account (or Contact / Lead), but RingCentral for Salesforce still lets the call go through. Why?
+
+A. In RingCentral for Salesforce, blocking outbound calls based on the Salesforce Do Not Call field only happens when Do Not Call verification is turned on in the RingCentral for Salesforce Admin settings for your org. If that verification is off in the configuration the CTI is actually using, the app does not treat the Salesforce Do Not Call checkbox as a hard block for Person Accounts, Contacts, or Leads, and the call can still be placed.
+
+The CTI keeps a saved copy of the last configuration it received (including Admin options such as Do Not Call verification) in local storage for the user. On startup, if that saved copy is still recent (within about one hour), the app may reuse it and refresh settings in the background in some cases, so the panel may not always wait on the latest values before you dial. Signing out of RingCentral in the CTI clears that saved configuration so the next sign-in loads a fresh copy from Salesforce.
+
+**What to do**
+
+- In the RingCentral for Salesforce Admin UI, open Do Not Call settings, turn Do Not Call verification on, choose Save, then refresh the Admin page and confirm it still shows on.
+- Have the user sign out of RingCentral in the CTI (to clear cached integration settings), optionally sign out of Salesforce and back in, reopen the CTI, and test again on a record with Do Not Call checked.
+- If calls still connect when they should be blocked, submit a diagnostic report (for example Contact Support / CPR) right after the test so support can confirm the new configuration shows Do Not Call verification enabled. If it still shows as disabled in that fresh data, the issue is treated as configuration or caching, not the Salesforce field alone.
 
 ## Q. How to create a custom field and add it to the create call log screen in RingCentral CTI?
 
@@ -79,7 +99,7 @@ A. Below are the RingCentral custom fields
 
 1. Call Identification Fields:
 
-    ● CALL_UNIQUE_ID_c
+    ● CALL_UNIQUE_ID__c
 
     - Type: Text
     - Length: 255
@@ -87,7 +107,7 @@ A. Below are the RingCentral custom fields
     - Unique: true
     - Purpose: Unique identifier for each call
 
-    ● CALL_UUID_c
+    ● CALL_UUID__c
 
     - Type: Text
     - Length: 255
@@ -96,25 +116,25 @@ A. Below are the RingCentral custom fields
 
 2. Call Recording Fields:
 
-    ● Call_Recording_c
+    ● Call_Recording__c
 
     - Type: Text (Formula)
     - Formula: Creates a hyperlink to the call recording
     - Purpose: Links to the call recording in RingCentral
 
-    ● Recording_Information_c
+    ● Recording_Information__c
 
     - Type: Text
     - Purpose: Stores recording metadata
 
 3. Call Details Fields:
 
-    ● call_start_time_c
+    ● call_start_time__c
 
     - Type: DateTime
     - Purpose: Start time of the call
 
-    ● call_end_time_c
+    ● call_end_time__c
 
     - Type: DateTime
     - Purpose: End time of the call
@@ -131,39 +151,39 @@ A. Below are the RingCentral custom fields
 
 4. Caller/Callee Information:
 
-    ● caller_name_c
+    ● caller_name__c
 
     - Type: Text
     - Purpose: Name of the caller
 
-    ● callee_name_c
+    ● callee_name__c
 
     - Type: Text
     - Purpose: Name of the callee
 
-    ● caller_location_c
+    ● caller_location__c
 
     - Type: Text
     - Purpose: Location of the caller
 
-    ● callee_location_c
+    ● callee_location__c
 
     - Type: Text
     - Purpose: Location of the callee
 
-    ● from_number_c
+    ● from_number__c
 
     - Type: Text
     - Purpose: Caller's phone number
 
-    ● to_number_c
+    ● to_number__c
 
     - Type: Text
     - Purpose: Callee's phone number
 
 5. Logging Type Field:
 
-    ● RC_Logging_Type_c
+    ● RC_Logging_Type__c
 
     - Type: Text
     - Length: 255
@@ -171,86 +191,86 @@ A. Below are the RingCentral custom fields
 
 6. Additional Fields:
 
-    ● external_whoid_c
+    ● external_whoid__c
 
     - Type: Text
     - Purpose: External Who ID reference
 
-    ● hvs_disposition_c
+    ● hvs_disposition__c
 
     - Type: Text
     - Purpose: HVS disposition field
 
-    ● key_c
+    ● key__c
 
     - Type: Text
     - Purpose: Key field for additional data
 
 7. Contact Fields:
 
-    ● SMS_Number_c
+    ● SMS_Number__c
 
     - Type: Text
     - Purpose: SMS number for the contact
 
-    ● SendSMS_c
+    ● SendSMS__c
 
     - Type: Boolean
     - Purpose: Flag to indicate if SMS can be sent
 
 8. Admin Settings Fields:
 
-    ● AutoFill_c
+    ● AutoFill__c
 
     - Type: Boolean
     - Purpose: Auto-fill setting
 
-    ● AutoSave_c
+    ● AutoSave__c
 
     - Type: Boolean
     - Purpose: Auto-save setting
 
-    ● HvsDispositionField_c
+    ● HvsDispositionField__c
 
     - Type: Text
     - Purpose: HVS disposition field setting
 
-    ● HvsMode_c
+    ● HvsMode__c
 
     - Type: Text
     - Purpose: HVS mode setting
 
-    ● IsUnMandatory_c
+    ● IsUnMandatory__c
 
     - Type: Boolean
     - Purpose: Mandatory field setting
 
-    ● ToVoiceMail_c
+    ● ToVoiceMail__c
 
     - Type: Boolean
     - Purpose: Voicemail setting
 
-    ● accountRelatedTo_c
+    ● accountRelatedTo__c
 
     - Type: Text
     - Purpose: Account relation setting
 
-    ● autoSelect_c
+    ● autoSelect__c
 
     - Type: Boolean
     - Purpose: Auto-select setting
 
-    ● fieldOrder_c
+    ● fieldOrder__c
 
     - Type: Number
     - Purpose: Field order setting
 
-    ● popOnRinging_c
+    ● popOnRinging__c
 
     - Type: Boolean
     - Purpose: Pop on ring setting
 
-    ● saveOnRinging_c
+    ● saveOnRinging__c
 
     - Type: Boolean
     - Purpose: Save on ring setting
@@ -383,7 +403,9 @@ Ringing queue calls are ignored because we can only determine the outcome of the
 Missed calls are ignored as presumably some other member will pick up the call and log it.
 
 The above behavior is intended. The call should be logged by another member if it is picked up.
-If the call is completely missed, it will likely not be logged. The logic to log this would conflict with the logic to avoid duplications. As a workaround, users should follow the server-side call logging logic, which requires an admin to complete the setup in the integration console (integrations.ringcentral.com) and enable Activity Sync. Our server component handles the logging of calls and will be able to log missed call queue calls correctly, as the service sees the call logs from the standpoint of the entire account.
+If the call is completely missed, it may still not appear as an automatically created Task from the CTI, because the same duplicate-avoidance rules apply while the call is ringing or missed on a queue leg from that agent's perspective.
+
+Activity Sync (server-side automatic call logging configured in the RingCentral integration console at integrations.ringcentral.com) logs eligible call types from RingCentral's account-wide call history, but it does **not** override every client-side queue rule in the CTI. Ringing or missed **call queue** legs may still be skipped or treated differently depending on Activity Sync call-type settings and how the session appears for the account. Do not assume that enabling Activity Sync alone guarantees a Task for every missed queue scenario. If a specific interaction must be recorded, use manual logging from call history when available, or contact RingCentral support with time, queue name, and extension after confirming admin settings.
 
 ##Q. I have audio issues with RingCentral for Salesforce.
 A. Users experiencing audio issues may encounter:
@@ -542,6 +564,16 @@ A. There could be 2 reason why users does not see a specific field or it is empt
 -   Edit the layout users are using
 -   Drag the missing field (Call Recording, Call Duration) onto the layout
 -   Save
+
+## Q. Why do my Salesforce Task show the same Call Start Time and Call End Time (or zero duration) for calls I place from the RingCentral desktop or mobile app, even though the call really lasted several minutes?
+
+A. The RingCentral for Salesforce integration creates or updates the call Task early in the call (for example while the call is still ringing or before final duration is known). In that phase the integration does not yet have a final call length, so duration and call end time fields may be empty or zero. That can make start and end look the same on the Task if you open it before the call has fully finished and the follow-up update has run.
+
+After the call connects and ends, the integration builds the final duration and end time and sends an update to Salesforce (the same path that keeps disposition, recording, and timing in sync). So the correct end time and duration are normally written in a later step, not on the first screen you might see during ringing.
+
+**Salesforce UI behavior:** If you leave the Task record open in a tab, Salesforce does not always redraw every field the moment the server receives the update. You may need to refresh the page or open the Task again (and if several Salesforce tabs are open, refresh the one showing the Task) to see the updated end time and duration. That display delay is Salesforce UI behavior, not proof that the final values were never saved.
+
+**What to do:** After the call ends, refresh the Task (or re-open it). If start and end are still identical after a refresh and enough time has passed, collect when the screenshot was taken (during the call vs days later), the Task Id or session, and contact RingCentral support with that detail. If backend logs already show the correct duration but the Task still does not show it after refresh, your admin may need Salesforce support to look at Task layout, formulas, or automation that might overwrite fields.
 
 ## Q. Why are the calls logged (Tasks are created) to Contact and Lead but not to the Accounts, Cases, and Opportunities?
 
@@ -711,56 +743,11 @@ This is a configuration issue, not a code defect, and can be resolved through pr
 
 ## Q. Why don't I see caller ID when there is an incoming call to the call queue in Salesforce CTI?
 
-A. This is expected behavior in the Salesforce CTI integration. Caller ID information is not displayed for call queue calls due to the way the system handles queue-based routing and privacy considerations.
+A. Inbound **call queue** calls are handled differently from **direct** inbound calls in the CTI. The UI often emphasizes **queue routing** (for example the **queue name** or how the queue leg is labeled) while the call is still offered to agents. What you see depends on the **telephony session** data for that queue leg, how **matches** are built for queue numbers, and the call state (for example **ringing** versus **connected**). That can make the external caller’s number or name **less obvious** than on a non-queue inbound call, but it is **not** documented in the product as a deliberate “privacy mask” of caller ID in application code.
 
-**Root Cause Analysis:**
+After you **answer** the call, open the **active call** or **call log** details and confirm whether the caller number and name appear there. If they never appear after connect, collect **approximate time**, **queue name**, and **RingCentral for Salesforce** version and open a **RingCentral support** case with a **diagnostic (CPR)** so support can compare the session payload to what the CTI displayed.
 
-**1. Call Queue Call Handling**
-When calls come through a call queue, the Salesforce CTI integration treats them differently from direct calls:
-
--   Queue calls are routed through the call queue system before reaching individual agents
--   Caller information is masked during the queue routing process for privacy and security
--   The system prioritizes queue management over individual caller identification
-
-**2. Privacy and Security Considerations**
-The integration is designed to protect caller privacy when calls are routed through queues:
-
--   Caller ID masking prevents unauthorized access to caller information
--   Queue-based routing ensures calls are distributed according to business rules
--   Agent-level restrictions limit what information is visible during queue calls
-
-**3. Technical Implementation**
-The Salesforce CTI integration has specific logic for handling call queue calls:
-
--   Queue calls bypass normal caller ID display mechanisms
--   System focuses on queue name and call routing information
--   Caller details are intentionally withheld until the call is properly routed
-
-**Solutions and Workarounds:**
-
-**Solution 1: Use Queue Name Tooltip (Available Feature)**
-
--   Hover over the call queue name in the CTI interface
--   Wait for the tooltip to appear (short delay)
--   View the complete queue information in the tooltip
--   This provides queue-specific details about the incoming call
-
-**Solution 2: Check Call Assignment**
-
--   Wait for the call to be assigned to an agent
--   Caller information may become available after assignment
--   Check the call details once the call is in progress
-
-**Why This Design Exists:**
-
-1. **Queue Management Priority**
-2. **Privacy Protection**
-3. **Performance Optimization**
-
-**Summary:**
-The absence of caller ID for call queue calls is intentional behavior in the Salesforce CTI integration. This design prioritizes queue management, protects caller privacy, and optimizes system performance. While caller ID is not displayed during queue routing, users can access queue information through the hover tooltip feature and may see caller details once the call is assigned to an agent.
-
-This is not a bug or configuration issue, but rather the expected behavior for queue-based call handling in the Salesforce CTI system.
+**Tips:** If your build shows a **tooltip** on the queue name, use it for extra context while the call is ringing. If behavior changes after an upgrade, check the latest **RingCentral for Salesforce** release notes or support articles for queue display updates.
 
 ## Q. Why can't I change my presence in RingCentral for Salesforce CTI? It always stays on 'Invisible' presence, and I cannot switch to Busy/Available.
 
