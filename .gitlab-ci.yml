@@ -4,13 +4,14 @@ stages:
   - publish
 
 build:
-  image: python:3.11
+  image: docker-registry-ro.int.rclabenv.com:443/alpine:3.18
   stage: build
   tags:
     - techno
   script:
-    - pip install -r requirements.txt
-    - mkdocs build
+    - apk add --no-cache ca-certificates python3 py3-pip
+    - python3 -m pip install --break-system-packages -r requirements.txt
+    - python3 -m mkdocs build
   artifacts:
     paths:
       - site/
@@ -21,7 +22,7 @@ build:
 
 pages:
   stage: deploy
-  image: ruby:2.3
+  image: docker-registry-ro.int.rclabenv.com:443/alpine:3.18
   tags:
     - techno
   dependencies:
@@ -36,10 +37,11 @@ pages:
 
 publish:
   stage: publish
-  image: python:3.11
+  image: docker-registry-ro.int.rclabenv.com:443/alpine:3.18
   tags:
     - techno
   script:
+    - apk add --no-cache ca-certificates git
     - |-
       git remote | grep "public" && echo "public remote found, removing it..." && git remote remove public || echo "public remote not found"
     - |-
