@@ -36,25 +36,30 @@ If the user has already enabled 'Show matches for inbound calls', is answering i
 
 ## Q. Why isn't my SMS being logged automatically?
 
-A: Once you enable the Auto-Log Texts toggle in Settings, all new incoming and outgoing texts will be logged automatically by the app. SMS messages are typically logged within 10 minutes, and the app will retry any failed attempts.
+A. After Auto-log texts (or equivalent) is enabled, new inbound/outbound SMS is picked up on a scheduled / batch sync, not as an instant per-message push to HubSpot.
 
-If you don't see your SMS in HubSpot, it could be due to one of the following:
+Typical timing: allow roughly 8–15 minutes before assuming a problem; short delays are normal. Failed attempts are retried on later cycles.
 
-The RingCentral for HubSpot app may not be showing the most up-to-date logging status.
+If nothing appears:
 
-You might be viewing the wrong HubSpot contact, company, or deal.
+- Refresh login / integration state.
+- Confirm you are on the right contact / company / deal.
+- Use View log details (or equivalent) to open the HubSpot side if a log was created.
 
-To resolve this:
-
-1. Sign out and sign back in to the RingCentral for HubSpot app to refresh the sync.
-
-2. Click the "View Log Details" icon to open the exact record where the SMS has been logged in HubSpot.
+If messages are consistently missing past ~15 minutes, contact support with CPR and an example time + number.
 
 ## Q. Why is a contact getting created in HubSpot for unknown phone numbers?
 
-A. When the "Auto log calls" toggle is enabled in RingCentral for HubSpot settings, the app creates a new contact for inbound calls with no matching record. The new contact is named "Caller + phone number in e164 format," and the call is logged under this new contact. The same process applies to SMS messages. If there's no matched record, the app creates a new contact named "SMS + phone number in e164 format" and logs the SMS to this new record.
+A. A new HubSpot contact (for example "Caller" / "SMS" + E.164 number) is created when automatic logging is configured to create a record for unmatched numbers—not simply because a generic "auto log" toggle is on.
 
-## Q Why is there no available hub to log in?
+Typical controls include:
+
+- Automatic call logging (client and/or Activity Sync / server-side) and its call-type list (for example, whether missed or unknown numbers are included).
+- Unknown number policy for calls and SMS (for example, create contact vs skip vs log without linking), as set in your integration / console configuration.
+
+If contacts are being created when you do not want that, review unknown-number and call-type settings with your admin. If you want creation but see "Unknown" or no log, check rate limits, multiple matches, or queue rules instead.
+
+## Q. Why is there no available hub to log in?
 
 A. If you're unable to log in, reach out to your HubSpot administrator to connect the HubSpot account you would like to use with RingCentral.
 If this has already been done, please ensure:
@@ -77,12 +82,23 @@ Please let me know if you have any additional concerns.
 
 ## Q. Why is the call not matched, but the contact exists in my HubSpot?
 
-A. First, ensure you have signed into the hub where your contacts exist in RingCentral for HubSpot.
-Second, RingCentral for HubSpot follows the contact match logic for both national and international calls. If you make or receive national calls, the company/contact records with phone number or mobile phone number in any format will be matched. For example, if a phone number +16508888888 calls you and there are 4 contacts with the phone number saved as +16508888888, 1 (650)-888-8888, 650_888_8888, 6508888888 in your HubSpot, all of these will be matched.
+A. First, confirm you are signed into the correct Hub in RingCentral for HubSpot.
+
+Matching uses normalized phone numbers against the HubSpot fields included in the integration's match request (typically Phone and Mobile phone for contacts, in common national formats). If the number only lives in Phone number 2 / 3 or a custom field, it may not match even though a "contact exists" elsewhere in the record.
+
+If the number is on Phone or Mobile and still does not match, check for HubSpot API rate limiting (temporary "Unknown"), country / format issues, or multiple contacts sharing the same number.
 
 ## Q. Why is there no call recording link for playback in HubSpot contact activity?
 
-A. If there is no call recording link present inside the HubSpot contact/company activity for the logged call, it is most likely that the integration was closed immediately after the call ended. We recommend users not to hit the close button for the integration after the call is ended, as this will terminate the integration instance and prevent the update API calls from occurring to update the call log with several parameters such as Call Duration, Call Recording Link, and Call Ended Time. If the user did not close the integration and still does not see the call recording playback link, please check the RingCentral admin portal to see if that call was recorded. If it is present there, please report the issue to RingCentral support.
+A. A recording link is added only when RingCentral actually has a recording for that call and the integration has received that information from RingCentral call log data and successfully updated the HubSpot engagement.
+
+Common cases with no link:
+
+1. Recording was never turned on or not generated for that call (confirm in RingCentral admin / call reports).
+2. Update never reached HubSpot: the integration often fills duration and recording after call-log sync. If the embedded app was closed immediately after hangup, client-side updates can be interrupted; with Activity Sync / server-side logging, updates may still occur, but timing depends on backend processing.
+3. Timing: immediately after hangup, the UI may still show "This call wasn't recorded" until call-log data arrives. Long recordings can take longer to appear.
+
+What to do: Confirm recording exists in RingCentral; wait and refresh HubSpot; avoid closing the integration right after hangup if you rely on the in-app update path. If recording exists in RingCentral for a long time but HubSpot never updates, open a support case with time of call and CPR.
 
 ## Q. Can I make calls directly from HubSpot?
 
@@ -90,11 +106,24 @@ A. Yes. You can use the RingCentral dialer inside HubSpot to call contacts. Call
 
 ## Q. Will inbound calls be logged in HubSpot?
 
-A. Yes. Both answered and missed incoming calls are logged, helping you track all interactions. If you take a call outside HubSpot, it's still logged through Activity sync if it's set up.
+A. In general, answered inbound calls can be logged to HubSpot when automatic call logging (client and/or Activity Sync / server-side automatic call logging, depending on your setup) is enabled and allowed for that call type.
+
+Missed inbound calls are not all treated the same:
+
+- For normal direct calls, a missed inbound may still be logged when your automatic call logging configuration allows that call type (for example, missed with or without voicemail), subject to match / unknown-number rules.
+- For call queue calls, the integration suppresses many auto-log paths while the outcome is ambiguous (for example, missed on one agent but the call may still be answered by another queue member). Queue calls are generally only treated as loggable when the session is answered (CallConnected / OnHold) for the flows the product tracks. Do not assume every missed queue leg appears in HubSpot.
+
+Calls handled only on a desk phone or RingCentral mobile/desktop can still appear in HubSpot when Activity Sync / server-side automatic call logging is correctly enabled—but the same queue, call-type, and unknown-number rules apply.
+
+If a specific call is missing, check call queue vs direct, AAL call-type settings, unknown-number policy, and multiple matches (user may need to choose a record).
 
 ## Q. What happens if I take a call outside of HubSpot?
 
-A. Calls made or received on your deskphone and RingCentral mobile or desktop apps are still logged in HubSpot through Activity Sync. You may need to manually add notes and update call details.
+A. Calls placed or answered on your desk phone or RingCentral mobile or desktop apps can still produce HubSpot activities when Activity Sync (or server-side automatic call logging from the integration console) is enabled and the call is eligible under your automatic call logging rules.
+
+Eligibility is the same class of rules as inside HubSpot: allowed call types (outbound, answered inbound, missed, voicemail, etc.), call queue handling (many missed queue legs are not auto-logged to avoid duplicate or wrong activities), unknown-number behavior, and multiple matches (user may need to select a contact).
+
+You may still need to add notes or disposition in HubSpot manually if your workflow expects fields the server log does not populate.
 
 ## Q. Does RingCentral for HubSpot support call recordings?
 
@@ -239,6 +268,38 @@ There is a quick way to test to ensure the workflow works:
 - Navigate to the Messages section in the RingCentral integration and then send a test text message.
 - If the message is sent successfully from the above test, then execute the workflow.
 
+## Q. Why does my HubSpot workflow fail with OWNER_NOT_SIGNED_IN (or the message "The contact owner needs to sign in to RingCentral for HubSpot") in the workflow error details?
+
+A. In the workflow action log, `OWNER_NOT_SIGNED_IN` is the technical code for this case. HubSpot may show that code and/or the clearer text: "The contact owner needs to sign in to RingCentral for HubSpot." They mean the same thing.
+
+The "Send text message (SMS)" action sends the SMS from the HubSpot contact owner's RingCentral line. RingCentral must know which RingCentral user matches that HubSpot owner. If the contact owner has never opened and signed in to RingCentral for HubSpot inside HubSpot, that connection is missing and the workflow can fail with `OWNER_NOT_SIGNED_IN`.
+
+**What to do**
+
+- Have the contact owner open RingCentral for HubSpot in HubSpot and sign in at least once.
+- Use the same email address as HubSpot (with a valid RingCentral account).
+- After they can send a test SMS from the integration, run the workflow again.
+
+**If it still fails**
+
+- Confirm SMS permissions and a valid sender number with your RingCentral admin.
+- If needed, contact RingCentral support with the workflow name, time of the run, and a screenshot of the workflow error details (including `OWNER_NOT_SIGNED_IN` if shown).
+
+## Q. Why are SMS messages sent by my HubSpot workflow not showing up automatically in HubSpot activities, even though auto-logging is on?
+
+A. Auto-log texts in RingCentral for HubSpot applies to SMS you send or receive through the RingCentral for HubSpot Messages experience in HubSpot when the number can be matched to a contact and your settings allow logging. Those conversations can be logged automatically (or updated on a schedule, depending on your configuration).
+
+SMS sent by the "Send text message (SMS)" HubSpot workflow action is sent on a different path: HubSpot calls RingCentral's workflow / automation integration. The message is delivered, but that path does not go through the same in-app Messages flow that drives automatic creation of the SMS activity in HubSpot today. So workflow-sent SMS may not appear as an automatic HubSpot activity, even when auto-log texts is enabled for the widget.
+
+**Workaround**
+
+- In RingCentral for HubSpot, open Messages, find the SMS thread (including texts that were sent by the workflow), and use Log (or your product's equivalent) to attach the conversation to the right HubSpot contact or company manually.
+- You can still confirm delivery in RingCentral message history if needed.
+
+**Product note**
+
+Automatic logging of workflow-sent SMS into HubSpot activities is a known limitation today; the product team is aware of the request for a future improvement. No specific release date is promised in this article.
+
 ##Q. Why do I see the error message "Please enter a valid phone number for this contact" while setting up a workflow in HubSpot?
 
 A. Users encounter this error message when they do not enter a valid phone number in the "Send text to" field while setting up the workflow. To resolve this issue:
@@ -264,26 +325,50 @@ However, if the main company number and company number(s) have the SMS feature e
 
 The extension selected above can send/receive fax and SMS for the company main number in RingEx by RingCentral integration.
 
-##Q. Why do I see the message 'This call wasn't recorded' for the logged call in HubSpot?
+## Q. Why do I see the message 'This call wasn't recorded' for the logged call in HubSpot?
 
-A. Users may see this message on the HubSpot logged call for multiple reasons:
+A. That message usually means the HubSpot engagement does not yet have a recording URL, or no recording exists for that call in RingCentral.
 
--   If the call was not recorded from the RingEx by RingCentral integration, the call recording is not added to the call log. We recommend checking the RingCentral Admin Portal (service.ringcentral.com) Call Log reports to see if the call recordings exist. This applies to both on-demand and automatic call recordings.
--   If a user closes the HubSpot integration (by clicking the 'X' button on the integration) immediately after the call is completed, it will terminate the call-log sync API call that updates the call log with necessary information such as call recording and call duration. It is recommended not to close the integration after the call ends; users can navigate to other HubSpot pages or browser tabs instead.
--   If users check the call log for the call recording soon after the call has just ended, they are more likely to see the message 'This call wasn't recorded'.
+Typical causes:
 
-Here is background information on how this feature works:
-When the Integration is logging the call during the active call period and immediately after the call has ended, it uses telephony session data to log the call. This data does not contain recording information. The Integration must wait until it receives the same call data from the call-log API to obtain the recording information. The longer the recorded call, the longer the wait time. It can take up to 30 minutes for calls lasting a few hours. There is no clear estimation of the delay as it depends on the recorded call time and possibly the server load.
+- No recording in RingCentral for that session (policy, on-demand not pressed, compliance, etc.).
+- Not updated yet: during and right after the call, logging may use telephony session data without recording metadata; the integration waits for call-log data that includes the recording. Refresh after a short delay; very long calls can take much longer.
+- Client update missed: closing the integration panel immediately after hangup can stop in-browser follow-up updates; server-side / Activity Sync may still backfill later, but not instantly.
 
-##Q. Why are missed call queue calls not logged to HubSpot?
+Use RingCentral admin call reports to verify a recording exists. If it does and HubSpot never shows a link, contact support with CPR and call time.
 
-A. Missed call queue calls are not logged to HubSpot for the following reason:
+## Q. Why are missed call queue calls not logged to HubSpot?
 
-If a call is missed by one member and picked up by another, multiple records would be created as one member logs it as a missed call, while another logs it as a connected call. This issue becomes more complex if the queue rings all members simultaneously. To address this problem, the application now ignores Call Queue calls that are ringing and appear to be missed by the current user. Ringing queue calls are ignored because the outcome of the call can only be determined after it's been picked up by someone or completely missed by the account. Missed calls are ignored as presumably another member will pick up the call and log it.
+A. For call queue traffic, a single customer call can ring multiple agents, be missed on one line, and still be answered by someone else—or end as a true miss for the queue. If the integration auto-logged every ring or every "missed" leg for each agent, HubSpot could get duplicate or conflicting activities for one real conversation.
 
-This behavior is intentional. The call should be logged by another member if it is picked up. If the call is completely missed, it will likely not be logged. The logic to log this would conflict with the logic to avoid duplications. As a workaround, users should follow the server-side call logging logic, which requires an admin to complete the setup in the integration console (integrations.ringcentral.com) and enable Activity Sync. Our server component handles the logging of calls and will be able to log missed call queue calls correctly, as the service sees the call logs from the standpoint of the entire account.
+Because of that, RingCentral for HubSpot intentionally does not auto-log many call queue legs where the final outcome is not clear yet from that extension's point of view (for example, missed on this agent while the call may still be in progress for the queue).
 
-##Q. Why are the notes overridden in the call log after the call is logged to HubSpot?
+**What the product does today (native integration):**
+
+In the browser (client auto call logging): When auto call logging is on and server-side automatic call logging is off, call queue calls are only auto-saved when the session for that flow shows the call was actually answered (CallConnected / OnHold). If the call only rang or was missed on that agent without connecting, it is not auto-logged from the client.
+
+Server-side / integration-console automatic call logging: The same integration still applies call queue rules (including whether the call is treated as answered for logging). You should not assume that turning on Activity Sync or server-side automatic call logging by itself will automatically create HubSpot activities for missed call-queue scenarios in all cases—that overstates today's behavior and is not something we document as a workaround anymore.
+
+**Practical workaround:** Once the outcome is known, users can log the call manually from the call history / call log UI, or follow an internal workflow your team defines for queue calls.
+
+**Roadmap:** Better handling of call queue and missed cases in HubSpot (including clearer account-level behavior) is tracked as a product backlog / enhancement; we are not committing to a release date in this article.
+
+## Q. Why doesn't server-side call logging work, or why isn't my call logged in HubSpot when I used the RingCentral desktop or mobile app?
+
+A. Calls handled only in the RingCentral desktop or mobile app still need Activity Sync (server-side automatic call logging from the integration console) to be enabled and configured for your account, and the call must be eligible under those rules (call type, queue behavior, unknown numbers, multiple matches, and so on).
+
+**Check the following:**
+
+- **Admin / console:** Confirm Activity Sync is turned on and that this user is on the inclusion list (or not on the exclusion list), per your organization's policy.
+- **First-time connection:** The user must sign in to RingCentral for HubSpot at least once so the link between RingCentral and HubSpot is established for that account. Use the same email address as HubSpot—not the RingCentral phone number or a different alias.
+- **Call queue calls:** For call queue traffic, many missed-on-this-agent or ring-only legs are intentionally not auto-logged so HubSpot does not get duplicate or wrong activities for one customer interaction. Do not assume every missed queue call appears in HubSpot. If the outcome is unclear from that extension's view, the call may need to be logged manually from call history once the outcome is known.
+
+**Other troubleshooting steps:**
+
+- In the integration console, remove the user's HubSpot connection and add it again, then have the user sign in to the integration again with the HubSpot-matching email.
+- If calls that should be eligible still do not appear after the above, open a RingCentral support ticket for the integration team and include a sample call (date/time, direction, approximate duration, extension or user, and whether it was a queue call) for investigation.
+
+## Q. Why are the notes overridden in the call log after the call is logged to HubSpot?
 
 A. Below is how the call logging feature works:
 
@@ -348,15 +433,13 @@ The lead stage progression is a HubSpot workflow automation feature, not a RingC
 
 ## Q. Why can I not generate reports for the logged SMS in HubSpot CRM, while I can generate reports with logged calls?
 
-A. This is not an issue but rather an intentional design choice that optimizes user experience. SMS logs appear in the Activities tab with full content visibility, aligning with user expectations. Calls, however, appear in both Activities and Reports for comprehensive tracking. These different logging methods effectively serve distinct use cases.
+A. Calls are logged using HubSpot call engagements, which participate in reporting the way standard call activities do.
 
-Reasons why SMS does not appear in Reports:
+SMS from the native RingCentral integration is logged using the mechanism HubSpot and the integration use for SMS / communications timeline (not the same shape as a classic call engagement). That affects which native HubSpot reporting and filters see the activity. Custom timeline style behavior may still apply to some SMS log surfaces depending on version and log path; if your portal UI moved items under Communication, use those filters and HubSpot guidance for reporting on SMS / communications.
 
--   SMS is logged as a "custom timeline event," whereas calls are logged as "Engagements" in HubSpot's Contact/Company/Deals/Leads Activities.
--   We opted not to log SMS as an "Engagement" field type due to its limitations, particularly in text content length. SMS messages often contain longer text that wouldn't fit well in standard engagement fields. Custom Timeline Events allow for richer content display.
--   Choosing to use the engagement field for SMS would result in losing the rich SMS content display in the timeline, as the content would be truncated to fit engagement field limits.
+Practical guidance: For dashboards and reports, use the object and activity types HubSpot exposes for SMS / communications for the native integration. For workflow triggers, rebuild around the current SMS / communication triggers HubSpot supports (see also the workflow migration Q&A below).
 
-I would also recommend that the user reach out to HubSpot support to inquire why 'custom timeline events' are not showing up in the HubSpot Reports.
+If a specific report type does not list SMS, that is often a HubSpot reporting limitation for that activity type—not a RingCentral "bug." HubSpot Support can confirm which report types include SMS / communications data.
 
 ## Q. Why do I see all HubSpot contacts in RingCentral integration? I can access contacts which I don't have permission to.
 
@@ -410,27 +493,12 @@ After the connection is established:
 - The account matching will succeed because the connection is already established.
 
 ## Q. Why is there a delay in auto logging SMS to HubSpot Contact Activity?
-A. The SMS auto-logging feature operates on a scheduled sync cycle, not in real-time, which can cause delays in when messages appear in HubSpot Contact Activity.
 
-Expected behavior:
+A. Auto-logged SMS is processed on a batch / polling schedule and depends on RingCentral → integration → HubSpot timing and HubSpot API load. Expect roughly 8–15 minutes in normal conditions; longer spikes can occur.
 
-- Typical delay: 8-10 minutes after receiving/sending an SMS
-- Maximum delay: Up to 15 minutes in some cases
-- Sync frequency: Messages are processed in batches throughout the day
+Manual logging from the integration still goes to HubSpot on a direct save and should appear much sooner.
 
-Why this happens:
-
-- RingCentral processes SMS messages in scheduled intervals to optimize performance
-- The system batches multiple messages together for efficient HubSpot API calls
-- Network latency and HubSpot API response times contribute to the overall delay
-
-What to expect:
-
-- SMS messages will eventually appear in HubSpot Contact Activity
-- The delay is normal and not indicative of a system error
-- All messages are queued and processed automatically
-
-Note: This delay only affects auto-logging. Manual SMS logging through the RingCentral integration appears immediately in HubSpot. If you experience delays longer than 15 minutes, please contact RingCentral support for investigation.
+If delays are always much longer than ~15 minutes, collect CPR from the affected session for investigation.
 
 ## Q. Why do calls show "Call with unknown contact" as the title in HubSpot?
 
@@ -472,22 +540,15 @@ Consider enabling Activity Auto Logging (AAL) with the CREATE_CONTACT setting fo
 
 ## Q. Why are some of the calls not auto-logged to HubSpot Activity?
 
-A. If some of the calls are not logged from RingEx by RingCentral integration in HubSpot, you need to check the call history to see if there are any multiple matches detected for that phone number.
+A. Common reasons a call does not auto-log:
 
-When the system finds multiple matching contacts, the call will NOT automatically log unless the user makes a selection during the call. If the customer did not make a selection, the call would remain unlogged and would need to be manually logged later from the call history.
+1. Multiple HubSpot matches and the user did not choose a record during the call (when the product requires a choice).
+2. Call queue behavior: many ringing or missed-on-this-agent queue legs are skipped so the same customer interaction is not logged multiple times or against the wrong agent.
+3. Automatic call logging / Activity Sync call-type filters exclude that outcome (for example, certain missed or internal types, depending on admin configuration).
+4. Unknown number policy set to skip when there is no match and no selection.
+5. HubSpot rate limiting or transient API errors (retry / manual log may be needed).
 
-### How to resolve this:
-
-1. **Check for multiple matches**: Review the call history in RingCentral to see if multiple contact suggestions appeared
-2. **Manual logging required**: For calls with multiple matches that weren't resolved during the call, use the "Create Log" button in call history
-3. **Select the correct contact**: When manually logging, choose the appropriate contact from the suggested matches
-4. **Prevention**: Train users to always select a contact when multiple matches appear during active calls
-
-### Why this happens:
-
-- The system cannot automatically choose between multiple potential matches
-- User intervention is required to ensure the call is logged to the correct contact
-- This prevents incorrect contact associations and maintains data accuracy
+What to do: Check call history in the integration for multiple match prompts, queue icon/context, and AAL / console settings. Use Create log manually when auto-log did not run.
 
 ## Q. How do the Contacted and Association fields work?
 
@@ -515,57 +576,40 @@ A. When a call is made to a contact through the RingCentral extension, the integ
 
 ## Q. Why did my SMS workflows stop working after switching to the native RingEX by RingCentral integration, and why do SMS activities now appear under Communication instead of Integrations?
 
-A. The behavior difference is expected due to an architectural change in how the integration logs SMS activities:
+A. Expected behavior after moving to the native embedded integration: SMS is logged through HubSpot's native SMS / communications model so it appears under Communication (and similar timeline views), not under legacy Integrations → custom app event filters used by some older Chrome / Labs setups.
 
-### Integration Architecture Changes:
+Workflow impact: Workflows that fired on old triggers (for example custom app / integration events for "SMS log") will not fire on the new model. You need to rebuild automations using HubSpot's current triggers for SMS / communications (with help from HubSpot Support if needed).
 
-- **Old Chrome Extension / RingCentral Labs Integration**: SMS logs were created as custom app events under "RingEX by RingCentral" using HubSpot's Custom Events/Engagements API. This allowed filtering and workflow triggers via **Integrations** → **RingEX by RingCentral** → **SMS log**.
+Reporting: The same communications vs engagement split affects which native reports include SMS; align reports to SMS / communication objects HubSpot documents for your plan.
 
-- **New Native HubSpot Integration**: SMS logs are now created using HubSpot's native Communication Timeline API as standard SMS activity types. This follows HubSpot's recommended patterns for communications and is why SMS activities now appear under **Communication** → **SMS** instead of the Integrations filter.
-
-### Impact on Workflows:
-
-Workflows that were previously set up to trigger on "Custom Events → App Event → RingEX by RingCentral → SMS log" will no longer work because the Native integration logs SMS as standard HubSpot communication events, not as custom app events.
-
-### Resolution:
-
-The customer will need to rebuild their workflows to use HubSpot's standard communication triggers instead of the old custom app event triggers. HubSpot Support can assist with this by providing guidance on building workflows based on standard SMS communication events.
-
-### Getting Help from HubSpot Support:
+This is by design for the native integration, not a regression of the old extension.
 
 When contacting HubSpot Support, the customer can say:
 
 > "I'm using the native RingEX by RingCentral integration and need help building workflows that trigger from HubSpot's standard SMS communication events (SMS sent/delivered/failed/etc.) instead of the old RingCentral custom 'SMS Log' app events."
 
-### Important Note:
+## Q. Why doesn't RingCentral for HubSpot match my contact when the number is only in HubSpot's "Phone number 2" or "Phone number 3"?
 
-This change is a result of the integration being natively embedded in HubSpot and is not a bug or regression - it's the intended design of the native integration to leverage HubSpot's standard activity types for better compatibility with HubSpot's native features.
+A. Phone contact matching goes through the integration's contact match flow (client sends the dialed or caller number to the CRM service `/contacts/match`). On the HubSpot side, the integration's documented search pattern relies on HubSpot's searchable phone handling (in our API materials, filtering on `hs_searchable_calculated_phone_number`) and standard contact phone fields such as `phone` and `mobilephone` in the examples. Additional HubSpot contact properties such as "Phone number 2", "Phone number 3", or custom phone fields are not represented in that documented match path in this codebase, so a number stored only there may not be found and the integration can treat the call as unmatched (and may create a Caller + number style record if your unknown-number / auto-log settings allow that).
+
+**Resolution**
+
+Store the number you expect to match for calls in a standard place the match path can see—at minimum the primary phone and/or `mobilephone` fields on the contact (the examples in our HubSpot contact API spec use both `phone` and `mobilephone`).
+
+Keep Phone number 2 / Phone number 3 for extra numbers if you want, but do not rely on them alone for automatic matching.
+
+**Enhancement**
+
+Broadening match to all HubSpot phone properties (including extra phone fields) is a product enhancement; this repository does not implement that today.
+
+If matching still fails with the number on `phone` or `mobilephone`, escalate with a sample contact ID, which fields hold the number, and call time for the integration team.
 
 ## Q. Why is there a new contact created by the integration with "Caller +Phone number" format when I use phone numbers that are stored in secondary phone fields?
 
-A. The RingCentral for HubSpot integration only searches the standard **"Phone"** field in HubSpot contacts for contact matching. It does not search additional phone fields such as "Phone number 2", "Phone number 3", or other custom phone properties.
+A. Contact matching uses the standard HubSpot contact phone fields the integration is configured to search (typically including Phone and Mobile phone in supported formats). It does not match against arbitrary extra phone properties such as "Phone number 2", "Phone number 3", or custom phone fields unless the product explicitly adds them to the match query.
 
-### What happens:
+If the only stored copy of the number is in a non-searched field, the call may look unmatched and—when your unknown-number policy is set to create a record—the integration can create "Caller + E.164" (or similar) as a new contact for logging.
 
-When the customer clicks to call from a phone number stored in "Phone number 2" or "Phone number 3" fields, the integration cannot match it to the existing contact. As a result, after the call ends, the integration automatically creates a new contact named **"Caller [phone number]"**.
+What to do: Put the primary number you expect to match in a searched standard field (Phone or Mobile phone), or manually select the right contact when logging. Merging duplicate "Caller + …" contacts may be needed if duplicates were already created.
 
-### Why this happens:
-
-- **Limited field search**: The integration's contact matching only searches the standard "Phone" field
-- **Multiple phone fields not supported**: Secondary phone fields like "Phone number 2", "Phone number 3", or custom phone properties are not included in the matching logic
-- **Automatic contact creation**: When no match is found in the standard "Phone" field, the system creates a new contact to log the call
-
-### Resolution:
-
-The customer should ensure that phone numbers they want to be matched are stored in the standard **"Phone"** field in HubSpot contacts. If they need to store multiple phone numbers for a contact, the primary phone number (used most often for calls) should be in the standard "Phone" field.
-
-### Workaround for multiple phone numbers:
-
-1. **Primary number**: Store the most frequently called number in the standard "Phone" field
-2. **Secondary numbers**: Use additional fields for backup/alternative numbers
-3. **Manual matching**: If calling secondary numbers, manually select the correct contact during call logging
-4. **Contact consolidation**: Merge any duplicate contacts created from secondary number calls
-
-### Known limitation:
-
-This is a known limitation of the current integration. We have noted this as a potential enhancement to search across all phone fields in HubSpot contacts for future development consideration.
+Enhancement requests to search additional HubSpot phone properties are tracked as product feedback.
