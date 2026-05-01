@@ -140,8 +140,17 @@ nav:
           - "General Questions": msteams/questions.md
       - "RingCentral for Zapier":
           - "Overview": zapier/index.md
+          - "Release Notes": zapier/releases.md
           - "Actions":
               - "Create Post": zapier/create-post.md
+          - "Triggers":
+              - "New Call Log Record": zapier/call-log.md
+              - "New Call Recording": zapier/new-call-recording.md
+              - "ACE Processed Recording": zapier/ace-processed-recording.md
+              - "New SMS/MMS Received": zapier/sms-mms-received.md
+              - "New SMS/MMS Sent": zapier/sms-mms-sent.md
+              - "New Voicemail": zapier/new-voicemail.md
+              - "New Fax Received": zapier/new-fax-received.md
   - "Scheduling Tools":
       - "RingCentral Scheduler":
           - "Overview": scheduler/index.md

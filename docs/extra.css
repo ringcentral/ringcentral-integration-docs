@@ -994,3 +994,60 @@ body.has-archiver-nav .md-content {
         max-width: 85vw;
     }
 }
+
+/* Zapier release notes */
+.md-typeset .zapier-release {
+    margin: 2rem 0 0;
+    padding: 1.4rem 0 0;
+    border-top: 2px solid rgba(0, 39, 85, 0.18);
+}
+
+.md-typeset .zapier-release:first-of-type {
+    margin-top: 1.4rem;
+}
+
+.md-typeset .zapier-release h2 {
+    margin: 0 0 0.35rem;
+    font-size: 1.45rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.md-typeset .zapier-release h3 {
+    margin-top: 1.2rem;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.md-typeset .zapier-release-meta {
+    margin: 0.15rem 0 0.9rem;
+    padding: 0;
+    color: var(--md-default-fg-color--light);
+    font-size: 0.72rem;
+    line-height: 1.4;
+}
+
+.md-typeset .zapier-release-meta p {
+    margin: 0;
+}
+
+.md-typeset .zapier-release-meta strong {
+    color: var(--md-default-fg-color--light);
+    font-weight: 600;
+}
+
+.md-typeset .zapier-release > :last-child {
+    margin-bottom: 0;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .zapier-release {
+    border-top-color: rgba(255, 255, 255, 0.18);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .zapier-release-meta {
+    color: rgba(255, 255, 255, 0.82);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .zapier-release-meta strong {
+    color: rgba(255, 255, 255, 0.82);
+}

@@ -8,6 +8,18 @@ hide:
 
 ## Features
 
+### Releases
+
+<div class="grid cards" markdown>
+
+-   :fontawesome-solid-list:{ .md .middle } [**Release Notes**](releases.md)
+
+    ***
+
+    Review notable RingCentral for Zapier changes by release.
+
+</div>
+
 ### Actions
 
 <div class="grid cards" markdown>
@@ -41,5 +53,35 @@ hide:
     ***
 
     Trigger a workflow when a new call recording is available.
+
+-   :fontawesome-solid-clock:{ .lg .middle } [**ACE Processed Recording**](ace-processed-recording.md)
+
+    ***
+
+    Trigger a workflow when ACE finishes processing a recording.
+
+-   :fontawesome-solid-clock:{ .lg .middle } [**New SMS/MMS Received**](sms-mms-received.md)
+
+    ***
+
+    Trigger a workflow when a new SMS or MMS message is received.
+
+-   :fontawesome-solid-clock:{ .lg .middle } [**New SMS/MMS Sent**](sms-mms-sent.md)
+
+    ***
+
+    Trigger a workflow when a new SMS or MMS message is sent.
+
+-   :fontawesome-solid-clock:{ .lg .middle } [**New Voicemail**](new-voicemail.md)
+
+    ***
+
+    Trigger a workflow when a new voicemail is received.
+
+-   :fontawesome-solid-clock:{ .lg .middle } [**New Fax Received**](new-fax-received.md)
+
+    ***
+
+    Trigger a workflow when a new fax is received.
 
 </div>
