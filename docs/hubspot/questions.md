@@ -104,6 +104,25 @@ What to do: Confirm recording exists in RingCentral; wait and refresh HubSpot; a
 
 A. Yes. You can use the RingCentral dialer inside HubSpot to call contacts. Calls are logged automatically with details like duration, timestamp, and optional notes.
 
+## Q. Why do outbound calls from the HubSpot contact record still go through HubSpot's native calling instead of RingCentral?
+
+A. Outbound calls from a contact record use whatever **calling provider** HubSpot has selected for that user. If RingCentral is not set as the calling provider, calls continue through HubSpot's native calling flow even when RingCentral for HubSpot is installed and you use the call icon on the record.
+
+Choosing RingCentral from the phone icon alone does **not** change the calling provider. You must explicitly set RingCentral as the provider.
+
+**To set RingCentral as the calling provider**
+
+1. Open a contact record.
+2. Click the **call** icon.
+3. Select **Open call options**.
+4. Select **Change provider** (this opens the provider menu, top-right).
+5. Choose **RingCentral**.
+6. Refresh the page, then place a test call — it should route through **RingEX by RingCentral** in HubSpot.
+
+**UI tip:** Keep the calling widget **minimized** (collapsed phone icon / calling panel) so **Change provider** and the provider list stay visible when you switch providers. If the calling UI is expanded, those options can be harder to find.
+
+For admin rollout steps, see the [Migration guide](migration.md) (Step 3: Selecting RingCentral as the calling provider).
+
 ## Q. Will inbound calls be logged in HubSpot?
 
 A. In general, answered inbound calls can be logged to HubSpot when automatic call logging (client and/or Activity Sync / server-side automatic call logging, depending on your setup) is enabled and allowed for that call type.

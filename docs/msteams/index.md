@@ -32,7 +32,7 @@ Admins can **remotely install** the RingCentral for Microsoft Teams embedded app
 
     [:octicons-arrow-right-24: OAuth in Admin Guide](embedded-app-admin.md#install-using-oauth)
 
--   :simple-microsoftazure:{ .lg .middle } **Microsoft Azure**
+-   :material-microsoft-azure:{ .lg .middle } **Microsoft Azure**
 
     ---
 

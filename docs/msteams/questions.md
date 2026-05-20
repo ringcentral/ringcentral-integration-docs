@@ -83,6 +83,35 @@ A. This usually means the internal phone app inside the RingCentral for Teams De
 
 **Important note:** On lower-end devices, this may take a few minutes because the Desktop Plugin must fully load the internal app from the CDN again after the cache is cleared.
 
+## Q. Why can't I use the RingCentral for Microsoft Teams embedded app with the Desktop Plugin even when the plugin is running in the background?
+
+A. The embedded app may show a microphone permission banner or fail to connect to the Desktop Plugin when Microsoft Teams (including the Teams Progressive Web App) cannot access the microphone through the RingCentral integration, even if the Desktop Plugin appears to be running.
+
+**Enable media permissions in Teams**
+
+1. In Microsoft Teams, click the **three dots (...)** next to your profile picture and select **Settings**.
+2. Select **App permissions** from the left menu.
+3. Find **RingCentral** in the list and turn **Media** (camera, microphone, speakers) **ON**.
+4. If it is already on, toggle it **OFF** and back **ON** to refresh permissions.
+
+**Check browser / PWA settings**
+
+1. Click the **lock** icon in the address bar of the Teams window.
+2. Set **Microphone** to **Allow**.
+
+**Disable exclusive control (Windows)**
+
+1. Open **Sound settings** → **More sound settings** → **Recording**.
+2. Right-click the active microphone → **Properties** → **Advanced**.
+3. Uncheck **Allow applications to take exclusive control of this device**, then click **OK**.
+
+**Relaunch Teams and the Desktop Plugin**
+
+1. Fully quit Microsoft Teams and the RingCentral for Teams Desktop Plugin.
+2. Start **Microsoft Teams** first.
+3. Open the RingCentral for Microsoft Teams embedded app in Teams.
+4. When prompted, open or launch the **RingCentral for Teams Desktop Plugin** to re-establish the handshake between the embedded app and the plugin.
+
 ## Q. Why don't I see the dialer in the RingCentral Microsoft Teams embedded app, or why is the Phone tab missing?
 
 A. For users who are set up as DR (Direct Routing) users with Microsoft calling (Cloud PBX), the RingCentral for Microsoft Teams embedded app intentionally hides or limits some calling UI—including the Phone tab—because outbound/inbound calling is expected to run through Microsoft Teams (the native Calls tab and Teams dialer), not through the embedded RingCentral dialer.
@@ -154,9 +183,30 @@ A. Notifications in Teams depend on RingCentral being connected correctly for yo
     - Temporarily remove the user from the app setup policy so the user can uninstall/reinstall locally, or
     - Remove / redeploy the app for that user (or group) from the Microsoft Teams admin center.
 
-**If it still fails after the above**
+## Q. Why are SMS notifications not working in the RingCentral for Microsoft Teams embedded app (or why does the chatbot seem broken)?
 
-Collect approximate time, Teams client (desktop vs web), whether other Teams apps notify normally, and whether the issue is RingCentral in-app alerts vs Teams banners—that narrows whether the problem is Teams notification settings, tenant policy, or RingCentral subscription / session on the backend.
+A. In some cases, the embedded app was not fully or properly uninstalled during earlier troubleshooting. That can leave the RingCentral bot in a broken state and affect SMS notifications (and related chat activity) even when Teams and RingCentral otherwise look healthy.
+
+**Have the affected user perform a clean uninstall and reinstall of the embedded app**
+
+1. In Microsoft Teams, **right-click** the RingCentral app icon in the **left-hand navigation bar**.
+2. Select **Uninstall** from the context menu.
+3. After the app is fully removed, reinstall the RingCentral for Microsoft Teams embedded app and test SMS notifications again.
+
+**Do not uninstall the entire Microsoft Teams desktop application**
+
+Removing Microsoft Teams from Windows Settings (or reinstalling the Teams desktop client) is **not** the same as uninstalling the RingCentral embedded app. A full Teams reinstall does not reliably fix a broken embedded-app or bot state. Always uninstall **RingCentral inside Teams** using the steps above when a clean embedded-app reinstall is required.
+
+**If the user does not see "Uninstall"**
+
+When **Uninstall** is missing, the app is usually deployed and pinned by your organization's IT administrator through a **Teams app setup policy** (or similar org-wide assignment). Standard users cannot uninstall force-pinned apps.
+
+Ask the customer's **Microsoft Teams administrator** to do one of the following:
+
+- Temporarily remove the user from the Teams app setup policy so the user can uninstall and reinstall the embedded app locally, or
+- Uninstall or redeploy the app for that user (or group) from the **Microsoft Teams Admin Center**.
+
+After IT completes the change, have the user repeat the clean uninstall steps above, reinstall the app, and retest SMS notifications.
 
 ## MS Teams general questions
 
@@ -202,6 +252,23 @@ rm -rf ~/Library/Containers/com.microsoft.teams2
 **Official guide:** [Clear Teams cache](https://learn.microsoft.com/en-us/troubleshoot/microsoftteams/teams-administration/clear-teams-cache)
 
 There have been online reports of broader Teams desktop issues after recent updates, so clearing cache or resetting the client is a reasonable first step. After users try this, please let us know whether the embedded app behavior improves.
+
+## Q. Why does the RingCentral for Microsoft Teams embedded app show a sad smiley, broken face, or error page in Teams desktop but work in Teams on the web?
+
+A. When you open RingCentral for Microsoft Teams from the **Teams desktop client**, the embedded app sometimes shows a broken or error face instead of loading. In comparable reports, the same integration typically loads normally in **Teams on the web** (browser). That pattern points to the embedded browser (webview) environment inside the Teams desktop app, not a problem isolated to RingCentral’s web app when run in a normal browser.
+
+From RingCentral’s side, standard integration checks apply. When the app works in Teams web but fails only in Teams desktop, the limiting factor is often Microsoft’s desktop shell / webview, which RingCentral cannot instrument or patch the way Microsoft can. Microsoft support follow-through can be inconsistent unless the customer opens the case directly.
+
+**Recommended next step**
+
+Open a **Microsoft support case** as the affected tenant (the end user or IT team). Microsoft is more likely to own and update the case when it comes from the customer rather than only from a third-party publisher.
+
+**Suggested points to include in the Microsoft case**
+
+- Embedded app: RingCentral for Microsoft Teams.
+- **Teams desktop** (Windows and/or Mac, as applicable): opening the app from the icon shows a broken / sad face or error page.
+- **Teams in the browser:** same app works.
+- App vendor (RingCentral) believes the issue is related to the Teams desktop webview and has limited ability to debug that layer.
 
 ---
 
