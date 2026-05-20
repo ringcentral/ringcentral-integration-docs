@@ -50,6 +50,22 @@ A. To archive RingCentral data to your storage, the user or admin connected to t
 -   For Google Drive, Box, or Dropbox storage: Ensure the user has **read, write, and delete** permissions for both folders and files.
 -   For SFTP storage: Ensure the user has **read, list, write, and delete** permissions for both directories and files.
 
+## Q. Why do I see "You got disconnected. Please try again later." when connecting Archiver to SFTP, or an algorithm negotiation error for key exchange (kex)?
+
+A. The connection can fail when the SFTP server and RingCentral Archiver cannot agree on a secure key exchange algorithm. In logs or diagnostics you may see an error similar to:
+
+`Algorithm negotiation fail: algorithmName="kex"` with the client proposing modern algorithms (for example `ecdh-sha2-nistp256`, `diffie-hellman-group-exchange-sha256`) while the server only offers legacy options such as `diffie-hellman-group1-sha1` and `diffie-hellman-group14-sha1`.
+
+The customer's SFTP server only supports those legacy key exchange algorithms. Both use SHA-1 and are considered cryptographically insecure. **RingCentral Archiver does not support these deprecated algorithms** for security reasons.
+
+This is usually caused by outdated SFTP server software that has not been updated to support modern cryptographic standards.
+
+**Resolution**
+
+Update the SFTP server software to a current version (for example **OpenSSH 7.4 or later**). Modern versions support secure key exchange algorithms that are compatible with RingCentral Archiver. Ask the customer to contact their SFTP server administrator or hosting provider to update the server. After the server is updated, the Archiver connection should work without further changes on the RingCentral side.
+
+For server configuration guidance, see [SFTP Security Upgrade](sftp-security-upgrade.md).
+
 ## Q. Can multiple admin users connect to the same single storage or different admin users connect to different data storages?
 
 A. If multiple admin users or standard users connect to the same data storage, the data will not be duplicated in the storage. However, this approach will put a significant load on the RingCentral server while accessing RingCentral data and verifying if it has already been archived to the storage by different users.

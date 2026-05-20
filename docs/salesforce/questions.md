@@ -378,6 +378,26 @@ There are many presence statuses in RingCentral: https://developers.ringcentral.
 
 The usage of these presence statuses in different apps may vary. Our platform team is still working on supporting unified presence across all RingCentral apps. However, the APIs are currently in beta (https://developers.ringcentral.com/api-reference/Presence/readUnifiedPresence). Our team will begin implementation once the platform team fully supports these APIs.
 
+## Q. Why does installing `rc_sf_package` fail in a Salesforce scratch org with "The post install script failed"?
+
+A. Install can fail with a generic **Installed Package Unexpected Error** and **The post install script failed** (for example package **rc_sf_package**, version **6.45** or later), especially in **scratch orgs** created from an **org shape**. Salesforce has traced this pattern to **email / domain verification**: that state does not always carry over from org shape, so the package post-install step can fail while the installer only shows a generic error.
+
+**Fix in the scratch org**
+
+1. Go to **Setup**.
+2. In **Quick Find**, search for **Deliverability** and open **Deliverability**.
+3. Enable **Use a substitute email address for unverified domains**.
+4. Click **Save**.
+5. Retry the RingCentral package install.
+
+Reference: [Salesforce Help — Use a substitute email address for unverified domains](https://help.salesforce.com/s/articleView?id=xcloud.security_user_email_verification_substitute_domain.htm&type=5)
+
+**If install still fails**
+
+Contact **Salesforce Support** with the install error, package version, org ID, and time of the attempt so Salesforce can review org-side logs and configuration.
+
+Many packages do not hit the same email / verification prerequisites during install, so they may succeed in the same scratch org. RingCentral's package does for this path—it is a prerequisite difference, not a broken org.
+
 ##Q. Why cannot I uninstall the RingCentral for Salesforce package (rc_sf_package)?
 
 A. If an admin is unable to uninstall the RingCentral for Salesforce package, they typically see a list of problems with Component Type, Name, and Problem message. The most common reason for uninstallation failure is that the page layout for the Task object is still using RingCentral custom fields. In this case, the Component Type would be Page Layout, the Name would be Task.TaskLayout, and the Problem message would state, "The installed component is referenced by a locally created component (User Profile)."
@@ -776,3 +796,56 @@ The SMS auto-logging issue might occur when multiple person accounts or contacts
 Another factor to consider is that the conversation needs to have a selected match to appear in activities. It doesn't matter if the heading shows the correct name, but no contact is selected in the Name dropdown. Typically, if there is a single match, our app will try to select that, but sometimes the app may see other viable options and leave this unselected. 
 
 In conclusion, in multiple match scenarios, select the contact to log an SMS, and in single match scenarios, ensure that the Name field is selected correctly to log an SMS.
+
+## Q. Can RingCentral call logs be created as "Calls" instead of "Tasks" in Salesforce? Can we configure or customize the Task subtype for logged calls?
+
+A. RingCentral for Salesforce does not switch normal CTI call logging to a different primary object (for example a custom "Call-only" object). Logged calls are **Task** records in Salesforce—the same model as **Log a Call**—not generic "Other" tasks.
+
+The integration sets the standard call shape on that row, including **TaskSubtype: `Call`** and **`RC_Logging_Type__c`** values such as `call` or `sms`. In Salesforce terms, these are Tasks representing calls or SMS, not a separate native "Call" object type managed only by RingCentral.
+
+**TaskSubtype** is a Salesforce standard field, not a RingCentral custom setting. The integration sets it to **Call** for calls. Additional Task fields can be added through [**Log Customization**](./admin-application-setup.md#log-customization) in the RingCentral Admin UI where supported, but arbitrary **TaskSubtype** values are not a documented RingCentral toggle.
+
+If you need users to classify activity types in the CTI, an admin can add a **custom picklist** (for example Call / SMS / Email / Chat / Meeting) and add it under **Log Customization** so it appears on the create call log screen in the CTI.
+
+## Q. Can RingCentral trigger SMS from Salesforce automation (workflows, cadences, or APIs) rather than only when a user sends from the CTI?
+
+A. Yes. Automated or server-side SMS from Salesforce—not only a user clicking send in the CTI—was introduced in **RingCentral for Salesforce 6.45** and later. That includes flows driven by **Salesforce automation** (for example Process Builder / Flow, Apex, or platform events), not only manual user actions in the embedded dialer.
+
+Setup and supported patterns are documented on the RingCentral Support site: [Automating SMS workflows in RingCentral for Salesforce](https://support.ringcentral.com/article-v2/automating-sms-workflows-in-ringcentral-for-salesforce.html?brand=RingCentral&product=RingEX&language=en_US).
+
+Confirm the customer's org is on a release that includes this capability and that automation is configured per that guide (correct connected app, permissions, and message source for server-side send).
+
+## Q. Can multiple RingCentral accounts connect to one Salesforce tenant without conflicts? Why do users see frequent logouts, especially in sandbox?
+
+A. **Multiple RingCentral companies on one Salesforce org**
+
+Using two RingCentral companies or environments against one Salesforce tenant (for example sandbox and production RingCentral with one Salesforce sandbox) can be done in practice for separation of environments. Running **both in the same user session at once** is not recommended: inbound calls can ring or surface twice, or otherwise conflict, because multiple RingCentral sessions or lines may be active for the same user.
+
+Use separate Salesforce users or clear sign-in boundaries between environments when testing sandbox vs production RingCentral.
+
+**Frequent logouts (especially sandbox)**
+
+Treat as an environment and session issue until scope is clear. Check:
+
+- Whether only the **RingCentral CTI panel** drops, **Salesforce** session ends, or **both**
+- Salesforce **sandbox session timeout** and security settings
+- Whether the customer uses **separate RingCentral sandboxes** per Salesforce org and signs in to the matching company
+- **Single sign-on**, IP restrictions, and trusted-device policies on RingCentral and Salesforce
+
+Collect repro steps, how often logout occurs, and whether the Salesforce session is still valid when RingCentral disconnects. If behavior persists after matching RingCentral company to Salesforce org and ruling out policy timeouts, escalate with CPR from the affected session.
+
+## Q. Why doesn't an inbound call show on a Lead's activity when the Lead was created after the inbound call (for example from screen pop or an unknown-number workflow)?
+
+A. Customers often expect the inbound call **Task** to appear on a **Lead** created right after an inbound unknown-number flow (screen pop / no-match), the same way an **outbound** call Task does once they dial that Lead. A typical pattern: inbound triggers automatic Lead creation, then outbound to the same number logs correctly on the Lead, but the **inbound** leg is missing from that Lead's activity.
+
+**Expected behavior today**
+
+- RingCentral for Salesforce creates the call log (**Task**) when the call is handled in the CTI, according to automatic call logging rules. At that moment, if Salesforce has **no matching Lead, Contact, or Person Account** (or the integration has nothing to relate the Task to), the Task is created **without** a **WhoId** (or related Lead)—an unassociated call Task.
+- Creating the Lead afterward—including via automatic **new Lead** screen pop from the inbound flow—does **not** trigger a second pass to find the earlier inbound Task and link it to the new Lead. There is no follow-up job that matches a new Lead to a past inbound call Task and updates **WhoId**.
+- When the user places an **outbound** call to the Lead's number **after** the Lead exists, the integration can create and relate that outbound Task to the Lead. **Activities** on the Lead then show the outbound Task, which matches what users see.
+
+**What to do**
+
+For the inbound call that occurred **before** the Lead existed (or before a stable match), open **Call history** in the CTI, locate that inbound call, and **manually associate or log** it to the Lead (same pattern as cleaning up any unrelated call Task). That is the supported path until product adds automatic retroactive association.
+
+If behavior still does not match after manual association, submit a diagnostic report (**Contact Support / CPR**) from a reproduced session (same steps, same org and user) so support can confirm which CTI actions ran for call handling, logging, and associations.
