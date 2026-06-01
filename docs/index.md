@@ -29,7 +29,7 @@ RingCentral offers premium integrations that seamlessly connect with the industr
 
     Enhance agent productivity by embedding a full telephony experience into Dynamics 365.
 
-    [:octicons-arrow-right-24: Learn more](dynamics/index.md)
+    [:octicons-arrow-right-24: Learn more](microsoftdynamics/index.md)
 
 -   :simple-salesforce:{ .lg .middle } **Salesforce CTI**
 
