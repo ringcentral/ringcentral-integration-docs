@@ -31,7 +31,7 @@ RingCentral offers premium integrations that seamlessly connect with the industr
 
     [:octicons-arrow-right-24: Learn more](microsoftdynamics/index.md)
 
--   :simple-salesforce:{ .lg .middle } **Salesforce CTI**
+-   :fontawesome-brands-salesforce:{ .lg .middle } **Salesforce CTI**
 
     ***
 
