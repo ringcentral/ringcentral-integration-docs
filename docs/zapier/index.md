@@ -30,6 +30,12 @@ hide:
 
     Create a post in RingCentral Team Messaging.
 
+-   :fontawesome-solid-bolt:{ .md .middle } [**Send SMS via Message Threads**](send-sms-message-threads.md)
+
+    ***
+
+    Send SMS or MMS from a shared inbox phone number.
+
 <!-- -   :simple-clock:{ .lg .middle } [**Trigger Workflow**](trigger-workflow.md)
 
     ***

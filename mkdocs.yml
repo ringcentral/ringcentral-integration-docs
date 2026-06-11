@@ -144,6 +144,7 @@ nav:
           - "Release Notes": zapier/releases.md
           - "Actions":
               - "Create Post": zapier/create-post.md
+              - "Send SMS via Message Threads": zapier/send-sms-message-threads.md
           - "Triggers":
               - "New Call Log Record": zapier/call-log.md
               - "New Call Recording": zapier/new-call-recording.md
