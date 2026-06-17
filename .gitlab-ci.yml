@@ -7,7 +7,7 @@ build:
   image: docker-registry-ro.int.rclabenv.com:443/alpine:3.18
   stage: build
   tags:
-    - techno
+    - k8s-runner
   script:
     - apk add --no-cache ca-certificates python3 py3-pip
     - python3 -m pip install --break-system-packages -r requirements.txt
@@ -24,7 +24,7 @@ pages:
   stage: deploy
   image: docker-registry-ro.int.rclabenv.com:443/alpine:3.18
   tags:
-    - techno
+    - k8s-runner
   dependencies:
     - build
   script:
@@ -39,7 +39,7 @@ publish:
   stage: publish
   image: docker-registry-ro.int.rclabenv.com:443/alpine:3.18
   tags:
-    - techno
+    - k8s-runner
   script:
     - apk add --no-cache ca-certificates git
     - |-
