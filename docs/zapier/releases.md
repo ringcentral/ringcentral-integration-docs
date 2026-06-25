@@ -10,6 +10,33 @@ This page lists RingCentral for Zapier releases from late 2025 through the curre
 
 <section class="zapier-release" markdown>
 
+## 26.2.0
+
+<div class="zapier-release-meta" markdown>
+
+**Release Date:** 17 Jun 2026 · **RC Internal Version:** 26.2.30
+
+</div>
+
+Version 26.2.0 adds a new shared inbox messaging action powered by the Message Threads API, improves SMS/MMS routing and setup guidance, and strengthens attachment and instant trigger reliability.
+
+### What's New
+
+- **New Send SMS via Message Threads action**: Designed for RingCentral shared inbox messaging using the modern Message Threads API. Supports sending from shared inbox numbers to up to 10 recipients.
+- **Smart SMS/MMS routing and limits**: Automatically sends as SMS when the message is text-only and MMS when files are provided. Supports up to 10 MMS files with a 1.5 MB combined limit, and truncates text to 1000 characters.
+- **Shared Inbox From picker**: Lists eligible main company numbers from the connected user's extension. Site, IVR, and call queue numbers are deferred to a future release.
+- **Enhanced setup guidance**: Displays warnings if the extension lacks Shared Inbox or SMS access, validates the MessageThreads feature before sending to return clearer permission errors, and links directly to documentation.
+- **Legacy action routing**: Updated the existing **Send SMS/MMS** action to guide shared inbox and message thread users to the new **Send SMS via Message Threads** action.
+
+### Fixes
+
+- **Text attachment hydration**: Stashes generated `.txt` attachments as UTF-8 buffers to avoid Zapier stash/S3 failures and prevent affected Zaps from being paused or disabled.
+- **Improved instant triggers**: Enhanced subscription handling using current identity checks and safer extension ID filtering during setup and renewal.
+
+</section>
+
+<section class="zapier-release" markdown>
+
 ## 26.1.3
 
 <div class="zapier-release-meta" markdown>
