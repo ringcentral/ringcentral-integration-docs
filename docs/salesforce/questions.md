@@ -93,6 +93,48 @@ Solution
 -   Under Auto Save Setting, ensure the checkbox for 'Delay auto call logging for' is enabled with the desired amount of delay time selected.
     This will ensure the Call Log sync happens after the specified delay, allowing users to edit the Task record before the sync occurs.
 
+## Q. Why do some calls in Call History show as Unlogged, and why do I get "Sorry we've failed to log your call. Please try again later." when I try to log them manually — even though Auto log calls is working?
+
+A. This can happen when **server-side call logging** (Activity Sync) has **already created a Salesforce Task** for the call, but the RingCentral for Salesforce widget still shows the call as **Unlogged** in Call History. The call is usually **not missing from Salesforce** — the widget status does not always match what was logged on the server.
+
+**What is happening**
+
+RingCentral for Salesforce supports two logging paths:
+
+- **Client-side (widget) logging** — the user logs the call from the CTI or Call History in the Salesforce widget.
+- **Server-side (Activity Sync) auto logging** — calls are logged automatically through the RingCentral integration console ([integrations.ringcentral.com](https://integrations.ringcentral.com)) without manual action in the widget.
+
+If **Activity Sync** (server-side auto logging) is enabled and has already created a Task for a call, a **manual save from Call History** can try to create a **duplicate Task**. That conflict often produces:
+
+> Sorry we've failed to log your call. Please try again later.
+
+Auto log calls in the widget may appear to work for new calls, while older or already-synced calls in Call History still show as Unlogged and fail when you try to log them again.
+
+**How to confirm the call is already in Salesforce**
+
+Ask the user or admin to check whether a Task already exists before retrying manual logging:
+
+1. Open the related **Contact**, **Lead**, or **Account** in Salesforce.
+2. Review the **Activity** timeline or **Tasks** related list for a call Task around the date and time of the call.
+3. Search for Tasks linked to that record, or filter Tasks by call date and the user's name.
+
+If a Task is already there, the call was logged server-side even though Call History still shows Unlogged in the widget.
+
+**Recommendation**
+
+Use **either** client-side (widget) logging **or** server-side (Activity Sync) auto logging — **not both** for the same calls.
+
+- If **Activity Sync** is enabled in the integration console, rely on server-side auto logging and avoid manually logging the same calls again from Call History when they already appear in Salesforce.
+- If users should log manually from the widget, review whether Activity Sync should remain enabled for the same call types, and align admin settings with your intended workflow.
+
+Work with your Salesforce admin to confirm Activity Sync configuration under the RingCentral integration console.
+
+**Known limitation**
+
+Until a product update improves Call History status, it is **expected** that some calls already logged on the server may still appear as **Unlogged** in Call History. That does not mean the call failed to log — verify in Salesforce first before retrying manual logging.
+
+If calls are confirmed missing from Salesforce (no Task on the related record) and manual logging still fails, collect the call date, time, user, related Salesforce record, and a screenshot of the error, then contact RingCentral support.
+
 ## Q. What are all the custom fields provided by RingCentral in Salesforce?
 
 A. Below are the RingCentral custom fields

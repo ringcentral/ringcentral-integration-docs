@@ -173,6 +173,8 @@ For example, if a user’s Microsoft Teams status is **In a meeting** and the **
 
 You can also turn the toggle on to **Preserve the RingCentral status during app inactivity**. This feature maintains a user’s RingCentral presence, ignoring Microsoft Teams status changes due to app inactivity. The user’s original presence stays the same until they choose to change it manually in the RingCentral app.
 
+![Preserve the RingCentral status during app inactivity](./img/MS-Teams-Sync-preserve-status.webp)
+
 ## Revoking presence sync for users or admins
 
 To turn off presence sync for **all users** in your organization, click **Disable presence sync**.
