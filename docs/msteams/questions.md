@@ -112,6 +112,53 @@ A. The embedded app may show a microphone permission banner or fail to connect t
 3. Open the RingCentral for Microsoft Teams embedded app in Teams.
 4. When prompted, open or launch the **RingCentral for Teams Desktop Plugin** to re-establish the handshake between the embedded app and the plugin.
 
+## Q. Why don't my headset call-control buttons (answer, end, mute) work in the RingCentral for Microsoft Teams embedded app, but they work in the RingCentral web app or desktop app?
+
+A. Headset buttons can work in RingCentral outside Teams but fail inside the embedded app when **Microsoft Teams** or another app takes control of the headset's HID (Human Interface Device) buttons instead of RingCentral. Audio may work normally while answer, end, and mute buttons do not.
+
+This is usually a **Teams or headset routing configuration** issue, not a headset hardware or firmware defect.
+
+**Step 1: Turn off Sync device buttons in Microsoft Teams**
+
+By default, Teams may reserve headset buttons for Teams calls. RingCentral shows an in-app warning when this setting can block embedded-app call controls.
+
+1. In **Microsoft Teams**, open **Settings** (click the **three dots (...)** next to your profile picture).
+2. Go to **Devices**.
+3. Under **Audio**, find **Sync device buttons**.
+4. Set **Sync device buttons** to **OFF**.
+
+    ![Sync device buttons in Microsoft Teams Settings](./img/teams-sync-device-buttons.png)
+
+When **Sync device buttons** is **ON**, Teams can use your headset's answer, end, and mute buttons for Teams calls instead of RingCentral. That matches the common pattern where buttons work in RingCentral web but not in the Teams embedded app.
+
+**Step 2: Confirm the headset is fully connected in RingCentral**
+
+After verifying the Teams setting above:
+
+1. Open the RingCentral for Microsoft Teams embedded app.
+2. Go to **Settings** → **Audio** → **Manage headsets**.
+3. Confirm your headset is listed and connected for call controls.
+4. If the headset shows as **Headset ready to connect** (or similar) rather than fully connected, click **Connect** under **Manage headsets**.
+
+Headset controls require both correct Teams routing and an active HID connection in RingCentral.
+
+**Step 3: Check for conflicting headset software**
+
+If buttons still fail after **Sync device buttons** is **OFF** and the headset is connected in **Manage headsets**:
+
+- Turn **Plantronics Hub** (or similar third-party headset control software) **OFF** if you are **not** using a Poly/Plantronics headset. That software can compete with RingCentral for headset button control.
+- Retest on an **active RingCentral call inside the Teams embedded app** (not only on the idle dialer screen).
+
+**If the issue continues**
+
+Collect the following during a failed test (for example, an inbound call where the headset button does not answer):
+
+- A screenshot of **Teams → Settings → Devices** showing the **Sync device buttons** setting.
+- A screenshot of **RingCentral → Settings → Audio → Manage headsets** showing headset connection status.
+- A [client problem report (CPR)](log-collection.md) captured during a failed inbound call attempt.
+
+These details help confirm whether Teams, RingCentral, or another application is controlling the headset buttons.
+
 ## Q. Why don't I see the dialer in the RingCentral Microsoft Teams embedded app, or why is the Phone tab missing?
 
 A. For users who are set up as DR (Direct Routing) users with Microsoft calling (Cloud PBX), the RingCentral for Microsoft Teams embedded app intentionally hides or limits some calling UI—including the Phone tab—because outbound/inbound calling is expected to run through Microsoft Teams (the native Calls tab and Teams dialer), not through the embedded RingCentral dialer.
@@ -306,6 +353,46 @@ A. No, they should not. DND is considered unavailable and will be skipped by the
 #### Q. Will the agent receive a missed call notification if they are in DND?
 
 A. This can be inconsistent, but typically they should not receive an intrusive notification. The purpose of DND is to block all notifications, including calls. However, a missed call notification may appear in their activity feed once DND is turned off, depending on the call queue's configuration and whether the call was handled by another agent. In a standard call queue setup, if another agent answers the call, the call is considered resolved, and no missed call notification is sent to the other agents.
+
+#### Q. Why does Presence Sync show Do Not Disturb (DND) activity in the Audit Trail, and why are only DND changes recorded there?
+
+A. Some customers notice Audit Trail entries or alerts that suggest a user is entering Do Not Disturb when Microsoft Teams presence sync runs. In most cases, this is **expected behavior**, not a sign that something is wrong with the integration.
+
+**What you are seeing**
+
+RingCentral tracks presence using two related settings:
+
+- **User status** — whether someone appears Available, Busy, or Offline.
+- **Call-acceptance status (DND setting)** — whether the user accepts all calls, blocks queue calls only, or blocks all calls.
+
+What users see as **Do Not Disturb** in RingCentral is a combination of Busy user status and a call-acceptance setting that blocks incoming calls.
+
+When Presence Sync maps a Microsoft Teams status to RingCentral **Do Not Disturb** — for example, when Teams is set to Do not Disturb, Presenting, or Focusing, or when an admin maps a Teams state such as **In a meeting** to the **Do not accept any calls** rule in [Step 3: Customize call presence settings](presence-sync-admin.md#step-3-customize-call-presence-settings) — the integration updates the user's RingCentral **call-acceptance status** so calls are handled correctly.
+
+Those call-acceptance changes are what RingCentral records in the **Audit Trail**. If your organization monitors Audit Trail for compliance or administration, you may see entries when Presence Sync applies or clears a DND-related call rule on behalf of a user.
+
+**Why only DND-related changes appear in the Audit Trail**
+
+Presence Sync can also change a user's **Busy** or **Offline** appearance — for example, when Teams shows *In a call*, *In a meeting*, or *Away*. Those updates affect how availability is displayed, but they do **not** change call-blocking rules in the same way DND does.
+
+RingCentral's Audit Trail records updates to **call-acceptance status** (the DND setting). It does **not** record every **user status** change, such as moving between Available and Busy when no call-blocking rule changed.
+
+That is why you may see Audit Trail activity when a user enters or leaves DND through Presence Sync, but **not** see a matching Audit Trail entry when the same user simply appears Busy because they are on a Teams call or in a meeting.
+
+**What this means in practice**
+
+| Teams activity | Typical RingCentral result | Recorded in Audit Trail? |
+| --- | --- | --- |
+| User sets Teams to Do not Disturb | RingCentral shows Do Not Disturb; calls may be blocked | Yes — call-acceptance status changed |
+| Admin maps *In a meeting* to *Do not accept any calls* | RingCentral applies DND call handling | Yes — call-acceptance status changed |
+| User joins a Teams call or meeting (Busy only) | RingCentral may show Busy without blocking all calls | Usually no — user status only |
+| User returns to Available in Teams | RingCentral call-acceptance status may be restored | Yes, if a DND call rule was cleared |
+
+**Is this a problem?**
+
+No. Audit Trail entries in these scenarios indicate that Presence Sync updated call handling to match Teams — for example, blocking calls while someone is in Do not Disturb or in a meeting with a *Do not accept any calls* rule. That is how the integration keeps RingCentral call routing aligned with Teams availability.
+
+If you need to review which Teams states trigger DND versus Busy only, check your admin configuration under **Presence Sync → Step 3: Customize call presence settings** in the RingCentral Admin Portal, or see the [presence sync admin guide](presence-sync-admin.md#step-3-customize-call-presence-settings).
 
 ### In a Meeting Status
 
